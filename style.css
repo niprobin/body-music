@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Modak&family=Neucha&family=Rock+Salt&display=swap');
+
+/* General Page Styles */
+body {
+    font-family: Arial, sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  background:url('https://radio.niprobin.com/static/uploads/background.1731661228.png');
+  background-size:fill;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+p {
+  margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* Player Container */
+.player {
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+    
+}
+
+/* Cover Art */
+.cover-art img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.player-container {
+  background-color: #2a2a2a;
+  padding:30px;
+  gap:25px;
+  display:flex;
+  align-items:center;
+  justify-content:space-around;
+  flex-direction:column;
+  border-radius:4px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+/* Track Info */
+#current-playlist {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:95%;
+  color: #fff;
+  font-family: "Afacad Flux", serif;
+  text-transform: uppercase;
+  font-weight:bold;
+  font-size: 24px; 
+}
+
+.volume-slider {
+  display: flex;
+  gap:5px;
+  align-items:center;
+  width:90%;
+}
+
+.play-pause {
+  align-items: center;
+  appearance: none;
+  background-color: #FCFCFD;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395A;
+  cursor: pointer;
+  display: inline-flex;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  width:110px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+}
+
+.play-pause:active {
+  box-shadow: #405cf5 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+/*********** Baseline, reset styles ***********/
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Removes default focus */
+input[type="range"]:focus {
+  outline: none;
+}
+
+/******** Chrome, Safari, Opera and Edge Chromium styles ********/
+/* slider track */
+input[type="range"]::-webkit-slider-runnable-track {
+  background-color: #008040;
+  border-radius: 100px;
+  height: 3px;
+}
+
+/* slider thumb */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  margin-top: -4.5px; /* Centers thumb on the track */
+  background-color: #fff;
+  border-radius: 1rem;
+  height: 12px;
+  width: 12px;
+}
+
+input[type="range"]:focus::-webkit-slider-thumb {
+  outline: 3px solid #fff;
+  outline-offset: 0.125rem;
+}
+
+/*********** Firefox styles ***********/
+/* slider track */
+input[type="range"]::-moz-range-track {
+  background-color: #008040;
+  border-radius: 100px;
+  height: 3px;
+}
+
+/* slider thumb */
+input[type="range"]::-moz-range-thumb {
+  background-color: #fff;
+  border: none; /*Removes extra border that FF applies*/
+  border-radius: 1rem;
+  height: 12px;
+  width: 12px;
+}
