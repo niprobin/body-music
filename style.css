@@ -42,7 +42,7 @@ p {
 
 .player-container {
   background-color: #2a2a2a;
-  padding:30px;
+  padding:20px 10px;
   gap:25px;
   display:flex;
   align-items:center;
@@ -57,7 +57,7 @@ p {
   display:flex;
   align-items:center;
   justify-content:center;
-  width:95%;
+  width:100%;
   color: #fff;
   font-family: "Afacad Flux", serif;
   text-transform: uppercase;
