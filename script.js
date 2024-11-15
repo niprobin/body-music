@@ -70,7 +70,7 @@ async function fetchCurrentPlaylist() {
         // Update the DOM with the current playlist or show a default message
         currentPlaylistEl.textContent = currentPlaylist 
             ? currentPlaylist.name 
-            : "No playlist currently playing";
+            : "Melting pot";
 
     } catch (error) {
         console.error("Error fetching schedule:", error);
