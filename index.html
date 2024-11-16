@@ -1,25 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <title>Body Music Radio</title>
-  <link rel="stylesheet" href="./style.css">
-
-</head>
-<body>
-<!-- partial:index.partial.html -->
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
-  <link rel="shortcut icon" href="/favicon/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
-  <link rel="manifest" href="/favicon/site.webmanifest" />
-  <title>Body Music Radio</title>
+  <title>Stylish Radio Player</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://kit.fontawesome.com/cd85a69654.js" crossorigin="anonymous"></script>
 </head>
@@ -31,7 +16,8 @@
     </div>
     <div class="player-container">
       <div id="schedule">
-        <p id="current-playlist">Loading...</p>
+        <p id="schedule-title">Now Playing:</p>
+        <p id="currentPlaylist">Loading...</p>
       </div>
       <audio id="audio-player"></audio>
       <div class="controls">
@@ -43,13 +29,14 @@
         <i class="fa-solid fa-volume-high" style="color:#666"></i>
       </div>
     </div>
+    <div class="upcoming-playlists">
+            <p id="upcoming-title">Upcoming Playlists</p>
+            <div id="upcomingPlaylists">
+                <!-- Upcoming playlist details will be inserted here -->
+            </div>
+        </div>
   </div>
 
 </body>
 
-</html>
-<!-- partial -->
-  <script  src="./script.js"></script>
-
-</body>
 </html>
