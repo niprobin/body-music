@@ -2,7 +2,7 @@
 
 /* General Page Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Segoe UI Light", "Helvetica", sans-serif;
     color: white;
     display: flex;
     justify-content: center;
@@ -29,10 +29,13 @@ p {
     width: 300px;
     padding: 20px;
     text-align: center;
-    
 }
 
 /* Cover Art */
+.cover-art {
+  width:300px;
+  text-align:center;
+}
 .cover-art img {
     width: 100%;
     height: auto;
@@ -40,20 +43,35 @@ p {
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
-.player-container {
+.player-container, .upcoming-playlists {
   background-color: #2a2a2a;
-  padding:20px 10px;
+  margin-top:8px;
+  padding:15px 15px;
   gap:25px;
+  width:100%;
+  box-sizing:border-box;
   display:flex;
   align-items:center;
   justify-content:space-around;
   flex-direction:column;
   border-radius:4px;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.player-container {
+ border:1px solid white;
+}
+
+.upcoming-playlists {
+  background-color:#253D5B;
+  border:1px solid white;
+}
+
+#schedule {
+  width:100%;
 }
 
 /* Track Info */
-#current-playlist {
+#currentPlaylist {
   display:flex;
   align-items:center;
   justify-content:center;
@@ -62,7 +80,39 @@ p {
   font-family: "Afacad Flux", serif;
   text-transform: uppercase;
   font-weight:bold;
-  font-size: 24px; 
+  font-size: 24px;
+}
+
+#upcoming-title {
+  color: #fff;
+  font-family: "Afacad Flux", serif;
+  text-transform: uppercase;
+  font-weight:bold;
+  font-size: 24px;
+  text-decoration: underline;
+}
+
+.playlist-card {
+  margin-bottom:8px;
+  display:flex;
+}
+
+.schedule-table {
+  font-size:14px;
+}
+
+#upcoming-playlist-name {
+  display: block;
+        width: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+  text-align:left;
+}
+
+#upcoming-playlist-time {
+  text-align:right;
+  width:150px;
 }
 
 .volume-slider {
