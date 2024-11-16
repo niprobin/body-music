@@ -50,34 +50,70 @@ volumeControl.addEventListener("input", (e) => {
     audioPlayer.volume = e.target.value;
 });
 
-// Replace with your AzuraCast station schedule API URL
-const scheduleApiUrl = "https://radio.niprobin.com/api/station/1/schedule";
+// Replace this with your actual AzuraCast API endpoint
+const apiUrl = "https://radio.niprobin.com/api/station/1/schedule";
 
-// DOM element for current playlist
-const currentPlaylistEl = document.getElementById("current-playlist");
+// Function to fetch and render playlists
+async function fetchAndRenderPlaylists() {
+    const currentPlaylistDiv = document.getElementById('currentPlaylist');
+    const upcomingPlaylistsDiv = document.getElementById('upcomingPlaylists');
 
-// Function to fetch and display the current playlist
-async function fetchCurrentPlaylist() {
     try {
-        // Fetch the schedule data
-        const response = await fetch(scheduleApiUrl);
-        if (!response.ok) throw new Error("Failed to fetch schedule.");
-        const schedule = await response.json();
+        // Fetch playlist data from the API
+        const response = await fetch(apiUrl);
+        const data = await response.json();
 
-        // Find the current playlist based on `is_now` property
-        const currentPlaylist = schedule.find(event => event.is_now);
+        const currentTime = Math.floor(Date.now() / 1000);
 
-        // Update the DOM with the current playlist or show a default message
-        currentPlaylistEl.textContent = currentPlaylist 
-            ? currentPlaylist.name 
-            : "Melting pot";
+        // Find current and upcoming playlists
+        const current = data.find(item => item.is_now);
+        const upcoming = data.filter(item => item.start_timestamp > currentTime);
+      
+        // Function to format timestamps without seconds
+        const formatTime = (timestamp) => {
+            const date = new Date(timestamp * 1000);
+            return date.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' }) +
+                   " " +
+                   date.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' });
+        };
 
+        // Render Current Playlist
+        if (current) {
+            currentPlaylistDiv.innerHTML = `
+                <p>${current.title}</p>
+            `;
+        } else {
+            currentPlaylistDiv.innerHTML = `<p>No playlist is currently playing.</p>`;
+        }
+
+        // Render Upcoming Playlists
+        upcomingPlaylistsDiv.innerHTML = ""; // Clear previous content
+        if (upcoming.length > 0) {
+            upcoming.forEach(playlist => {
+                const playlistHTML = `
+                    <div class="playlist-card">
+                      <table class="schedule-table" width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+                      <tbody>
+                        <tr>
+                          <td id="upcoming-playlist-name">${playlist.title}</td>
+                          <td id="upcoming-playlist-time">${formatTime(playlist.start_timestamp)}</td>
+                       </tr>
+                       </tbody>
+                      </table>
+                    </div>
+                `;
+                upcomingPlaylistsDiv.innerHTML += playlistHTML;
+            });
+        } else {
+            upcomingPlaylistsDiv.innerHTML = `<p>No upcoming playlists.</p>`;
+        }
     } catch (error) {
-        console.error("Error fetching schedule:", error);
-        currentPlaylistEl.textContent = "Error loading playlist";
+        console.error("Error fetching playlist data:", error);
+        currentPlaylistDiv.innerHTML = `<p>Unable to load playlist data. Please try again later.</p>`;
+        upcomingPlaylistsDiv.innerHTML = `<p>Unable to load playlist data. Please try again later.</p>`;
     }
 }
 
-// Fetch and update the current playlist every minute
-fetchCurrentPlaylist();
-setInterval(fetchCurrentPlaylist, 60000);
+// Initialize
+fetchAndRenderPlaylists();
+setInterval(fetchAndRenderPlaylists, 60000);
