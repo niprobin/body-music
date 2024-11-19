@@ -83,7 +83,7 @@ async function fetchAndRenderPlaylists() {
                 <p>${current.title}</p>
             `;
         } else {
-            currentPlaylistDiv.innerHTML = `<p>No playlist is currently playing.</p>`;
+            currentPlaylistDiv.innerHTML = `<p>A bit of everything 👽</p>`;
         }
 
         // Render Upcoming Playlists
