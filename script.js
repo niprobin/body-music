@@ -50,7 +50,7 @@ volumeControl.addEventListener("input", (e) => {
     audioPlayer.volume = e.target.value;
 });
 
-// Replace this with your actual AzuraCast API endpoint
+// API endpoint to get the radio schedule
 const apiUrl = "https://radio.niprobin.com/api/station/1/schedule";
 
 // Function to fetch and render playlists
@@ -69,12 +69,17 @@ async function fetchAndRenderPlaylists() {
         const current = data.find(item => item.is_now);
         const upcoming = data.filter(item => item.start_timestamp > currentTime);
       
-        // Function to format timestamps without seconds
-        const formatTime = (timestamp) => {
-            const date = new Date(timestamp * 1000);
-            return date.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' }) +
-                   " " +
-                   date.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' });
+        / Function to calculate time remaining
+        const calculateTimeRemaining = (startTimestamp) => {
+            const now = Math.floor(Date.now() / 1000);
+            const diff = startTimestamp - now;
+
+            if (diff <= 0) return "Now";
+
+            const hours = Math.floor(diff / 3600);
+            const minutes = Math.floor((diff % 3600) / 60);
+
+            return `${hours}h ${minutes}m`;
         };
 
         // Render Current Playlist
@@ -96,7 +101,7 @@ async function fetchAndRenderPlaylists() {
                       <tbody>
                         <tr>
                           <td id="upcoming-playlist-name">${playlist.title}</td>
-                          <td id="upcoming-playlist-time">${formatTime(playlist.start_timestamp)}</td>
+                          <td id="upcoming-playlist-time">Starts in ${calculateTimeRemaining(playlist.start_timestamp)}</td>
                        </tr>
                        </tbody>
                       </table>
