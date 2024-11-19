@@ -46,16 +46,11 @@ fetchNowPlaying();
 
 // Volume slider JS
 const volumeControl = document.getElementById("volume-control");
-const audioPlayer = document.getElementById("audio-player"); // Ensure this matches your audio player's ID
-
-// Set default volume to 50%
-audioPlayer.volume = 0.5;
-volumeControl.value = 0.5;
-
-// Adjust volume dynamically
 volumeControl.addEventListener("input", (e) => {
     audioPlayer.volume = e.target.value;
 });
+
+audioPlayer.volume = 0.5;
 
 // API endpoint to get the radio schedule
 const apiUrl = "https://radio.niprobin.com/api/station/1/schedule";
