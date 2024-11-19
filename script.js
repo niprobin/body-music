@@ -69,7 +69,7 @@ async function fetchAndRenderPlaylists() {
         const current = data.find(item => item.is_now);
         const upcoming = data.filter(item => item.start_timestamp > currentTime);
       
-        / Function to calculate time remaining
+        // Function to calculate time remaining
         const calculateTimeRemaining = (startTimestamp) => {
             const now = Math.floor(Date.now() / 1000);
             const diff = startTimestamp - now;
