@@ -46,7 +46,7 @@ fetchNowPlaying();
 
 // Volume slider JS
 const volumeControl = document.getElementById("volume-control");
-const audioPlayer = document.getElementById("audioPlayer"); // Ensure this matches your audio player's ID
+const audioPlayer = document.getElementById("volume-control"); // Ensure this matches your audio player's ID
 
 // Set default volume to 50%
 audioPlayer.volume = 0.5;
