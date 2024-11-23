@@ -2,7 +2,7 @@
 
 /* General Page Styles */
 body {
-    font-family: "Segoe UI Light", "Helvetica", sans-serif;
+    font-family: "Afacad Flux", "Helvetica", sans-serif;
     color: white;
     display: flex;
     justify-content: center;
@@ -22,6 +22,24 @@ p {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+}
+
+a:visited {
+    color:inherit;
+}
+
+.radio-links {
+    margin-bottom:10px;
+    padding:7px 12px;
+    background-color: #fff;
+    color:#333;
+    font-family:"Afacad Flux", sans-serif;
+    border-radius: 4px;
+}
+
+.radio-links a {
+    color:#f45334;
+    font-weight:bold;
 }
 
 /* Player Container */
@@ -64,10 +82,16 @@ p {
 .upcoming-playlists {
   background-color:#253D5B;
   border:1px solid white;
+  text-transform:uppercase;
 }
 
 #schedule {
   width:100%;
+}
+
+#schedule-title {
+    text-transform: uppercase;
+    text-decoration: underline;
 }
 
 /* Track Info */
@@ -103,8 +127,8 @@ p {
 
 #upcoming-playlist-name {
   display: block;
-        width: 150px;
-        overflow: hidden;
+  width: 150px;
+  overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
   text-align:left;
