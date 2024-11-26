@@ -141,7 +141,7 @@ function updateMediaSession() {
         navigator.mediaSession.metadata = new MediaMetadata({
           title: "BODY MUSIC RADIO", //Fixed radio name
           artist: playlistName, // Playlist name as the subtitle
-          artwork: [{ src: coverUrl, sizes: '512x512', type: 'image/jpg' }], //album cover as the background
+          artwork: [{ src: coverUrl, sizes: '512x512', type: 'image/png' }], //album cover as the background
         });
       }
     })
