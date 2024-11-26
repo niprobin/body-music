@@ -124,3 +124,16 @@ async function fetchAndRenderPlaylists() {
 // Initialize
 fetchAndRenderPlaylists();
 setInterval(fetchAndRenderPlaylists, 60000);
+
+async function updateMetadata() {
+    const response = await fetch('https://radio.niprobin.com/api/nowplaying/1');
+    const data = await response.json();
+
+    if ('mediaSession' in navigator) {
+        navigator.mediaSession.metadata = new MediaMetadata({
+            title: `Current Playlist: ${data.playlist.name}`,
+            artwork: [{ src: data.playlist.artwork, sizes: '256x256', type: 'image/png' }],
+        });
+    }
+}
+setInterval(updateMetadata, 30000); // Update every 30 seconds
