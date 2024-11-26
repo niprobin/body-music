@@ -133,14 +133,15 @@ function updateMediaSession() {
       console.log(data); // Verify the structure
 
       // Safely extract playlist info
-      const title = data.now_playing.playlist || 'Body Music Radio';
-      const coverUrl = data.now_playing.song.art || 'https://iili.io/HlHy9Yx.png';
+      const playlistName = data.now_playing.playlist || 'Probably some good stuff';
+      const coverUrl = "https://radio.niprobin.com/static/uploads/background.1731661228.png"
 
       // Set Media Session Metadata
       if ('mediaSession' in navigator) {
         navigator.mediaSession.metadata = new MediaMetadata({
-          title: title,
-          artwork: [{ src: coverUrl, sizes: '512x512', type: 'image/jpg' }],
+          title: "BODY MUSIC RADIO", //Fixed radio name
+          artist: playlistName, // Playlist name as the subtitle
+          artwork: [{ src: coverUrl, sizes: '512x512', type: 'image/jpg' }], //album cover as the background
         });
       }
     })
