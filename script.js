@@ -131,7 +131,7 @@ async function updateMetadata() {
 
     if ('mediaSession' in navigator) {
         navigator.mediaSession.metadata = new MediaMetadata({
-            title: `Current Playlist: ${data.playlist.name}`,
+            title: `Current Playlist: ${data.now_playing.playlist}`,
             artwork: [{ src: data.playlist.artwork, sizes: '256x256', type: 'image/png' }],
         });
     }
