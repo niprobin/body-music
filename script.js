@@ -125,15 +125,28 @@ async function fetchAndRenderPlaylists() {
 fetchAndRenderPlaylists();
 setInterval(fetchAndRenderPlaylists, 60000);
 
-async function updateMetadata() {
-    const response = await fetch('https://radio.niprobin.com/api/nowplaying/1');
-    const data = await response.json();
+//Update metadata for mobile rich notification
+function updateMediaSession() {
+  fetch('https://radio.niprobin.com/api/nowplaying/1')
+    .then(response => response.json())
+    .then(data => {
+      console.log(data); // Verify the structure
 
-    if ('mediaSession' in navigator) {
+      // Safely extract playlist info
+      const title = data.now_playing.playlist || 'Body Music Radio';
+      const coverUrl = data.now_playing.song.art || 'https://iili.io/HlHy9Yx.png';
+
+      // Set Media Session Metadata
+      if ('mediaSession' in navigator) {
         navigator.mediaSession.metadata = new MediaMetadata({
-            title: `Current Playlist: ${data.now_playing.playlist}`,
-            artwork: [{ src: data.playlist.artwork, sizes: '256x256', type: 'image/png' }],
+          title: title,
+          artwork: [{ src: coverUrl, sizes: '512x512', type: 'image/jpg' }],
         });
-    }
+      }
+    })
+    .catch(error => console.error('Error fetching playlist data:', error));
 }
-setInterval(updateMetadata, 30000); // Update every 30 seconds
+
+// Fetch data immediately and then set an interval
+updateMediaSession();
+setInterval(updateMediaSession, 30000); // Refresh every 30 seconds
