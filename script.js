@@ -32,7 +32,8 @@ async function fetchNowPlaying() {
         const data = await response.json();
 
         // Update UI
-        const albumArt = data.now_playing.song.art || "https://iili.io/HlHy9Yx.png";
+        // const albumArt = data.now_playing.song.art || "https://iili.io/HlHy9Yx.png";
+        const albumArt = "https://raw.githubusercontent.com/niprobin/body-music/refs/heads/main/radio_cover.png";
 
         coverArt.src = albumArt;
     } catch (error) {
