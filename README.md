@@ -3,5 +3,5 @@
 <br>
 <img src="https://github.com/user-attachments/assets/f149e2dd-47da-493f-a915-a48673301c15" alt="drawing" width="300"/>
 <br><br>
-<b><a target="_blank" href="https://music.niprobin.com">LISTEN HERE</a></b>
+<b><a href="https://music.niprobin.com" target="_blank">LISTEN HERE</a></b>
 </body>
