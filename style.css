@@ -2,22 +2,25 @@
 
 /* General Page Styles */
 body {
-    font-family: "Afacad Flux", "Helvetica", sans-serif;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    background-color:#FFBD59;
-    overflow-x: hidden;
-/*  background:url('https://radio.niprobin.com/static/uploads/background.1731661228.png');
+	font-family: "Afacad Flux", "Helvetica", sans-serif;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+	background-color: #FFBD59;
+	overflow-x: hidden;
+	width: 100%;
+	min-width: 100%;
+	max-width: 100%;
+	/*  background:url('https://radio.niprobin.com/static/uploads/background.1731661228.png');
   background-size:fill;
   background-repeat: no-repeat;
   background-position: center; */
 }
 
 p {
-  margin: 0;
+	margin: 0;
 	padding: 0;
 	border: 0;
 	font-size: 100%;
@@ -28,296 +31,312 @@ p {
 
 /* Player Container */
 .player {
-    width: 400px;
-    padding: 20px;
-    text-align: center;
+	width: 400px;
+	padding: 20px;
+	text-align: center;
 }
 
 /* Cover Art */
 .cover-art {
-  width:400px;
-  text-align:center;
-}
-.cover-art img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-  /*  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; */
+	width: 400px;
+	text-align: center;
 }
 
-.player-container, .upcoming-playlists {
-  background-color: #1C1B22;
-  margin-top:8px;
-  padding:15px 15px;
-  gap:25px;
-  width:100%;
-  box-sizing:border-box;
-  display:flex;
-  align-items:center;
-  justify-content:space-around;
-  flex-direction:column;
-  border-radius:4px;
+.cover-art img {
+	width: 100%;
+	height: auto;
+	border-radius: 5px;
+	/*  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; */
+}
+
+.player-container,
+.upcoming-playlists {
+	background-color: #1C1B22;
+	margin-top: 8px;
+	padding: 15px 15px;
+	gap: 25px;
+	width: 100%;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	flex-direction: column;
+	border-radius: 4px;
 }
 
 .player-container {
- border:1px solid white;
+	border: 1px solid white;
 }
 
 .upcoming-playlists {
-  background-color: #1C1B22;
-  text-transform:uppercase;
+	background-color: #1C1B22;
+	text-transform: uppercase;
 }
 
 #schedule {
-  width:100%;
+	width: 100%;
 }
 
 #schedule-title {
-    text-transform: uppercase;
-    text-decoration: underline;
+	text-transform: uppercase;
+	text-decoration: underline;
 }
 
 /* Track Info */
 #currentPlaylist {
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:100%;
-  color: #fff;
-  font-family: "Afacad Flux", serif;
-  text-transform: uppercase;
-  font-weight:bold;
-  font-size: 24px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	color: #fff;
+	font-family: "Afacad Flux", serif;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 24px;
 }
 
 #upcoming-title {
-  color: #fff;
-  font-family: "Afacad Flux", serif;
-  text-transform: uppercase;
-  font-weight:bold;
-  font-size: 24px;
-  text-decoration: underline;
+	color: #fff;
+	font-family: "Afacad Flux", serif;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 24px;
+	text-decoration: underline;
 }
 
 .playlist-card {
-  margin-bottom:8px;
-  display:flex;
+	margin-bottom: 8px;
+	display: flex;
 }
 
 #upcomingPlaylists {
-	width:100%;
+	width: 100%;
 }
 
 #upcoming-playlist-name {
-  display: block;
-  width: 230px;
-  text-align:left;
-  font-size:21px;
+	display: block;
+	width: 230px;
+	text-align: left;
+	font-size: 21px;
 }
 
 #upcoming-playlist-time {
-  text-align:right;
-  width:230px;
-  font-size:18px;
+	text-align: right;
+	width: 230px;
+	font-size: 18px;
 }
 
 .volume-slider {
-  display: flex;
-  gap:5px;
-  align-items:center;
-  width:90%;
+	display: flex;
+	gap: 5px;
+	align-items: center;
+	width: 90%;
 }
 
 .controls {
-	display:flex;
-	justify-content:center;
-	align-items:space-between;
+	display: flex;
+	justify-content: center;
+	align-items: space-between;
 }
 
 .play-pause {
-  align-items: center;
-  appearance: none;
-  background-color: #FCFCFD;
-  border-radius: 4px;
-  border-width: 0;
-  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
-  box-sizing: border-box;
-  color: #36395A;
-  cursor: pointer;
-  display: inline-flex;
-  height: 48px;
-  justify-content: center;
-  line-height: 1;
-  list-style: none;
-  overflow: hidden;
-  width:110px;
-  position: relative;
-  text-align: left;
-  text-decoration: none;
-  transition: box-shadow .15s,transform .15s;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  white-space: nowrap;
-  will-change: box-shadow,transform;
-  font-size: 18px;
+	align-items: center;
+	appearance: none;
+	background-color: #FCFCFD;
+	border-radius: 4px;
+	border-width: 0;
+	box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+	box-sizing: border-box;
+	color: #36395A;
+	cursor: pointer;
+	display: inline-flex;
+	height: 48px;
+	justify-content: center;
+	line-height: 1;
+	list-style: none;
+	overflow: hidden;
+	width: 110px;
+	position: relative;
+	text-align: left;
+	text-decoration: none;
+	transition: box-shadow .15s, transform .15s;
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: manipulation;
+	white-space: nowrap;
+	will-change: box-shadow, transform;
+	font-size: 18px;
 }
 
 .play-pause:active {
-  box-shadow: #405cf5 0 3px 7px inset;
-  transform: translateY(2px);
+	box-shadow: #405cf5 0 3px 7px inset;
+	transform: translateY(2px);
 }
 
 /*********** Baseline, reset styles ***********/
 input[type="range"] {
-  -webkit-appearance: none;
-  appearance: none;
-  background: transparent;
-  cursor: pointer;
-  width: 100%;
+	-webkit-appearance: none;
+	appearance: none;
+	background: transparent;
+	cursor: pointer;
+	width: 100%;
 }
 
 /* Removes default focus */
 input[type="range"]:focus {
-  outline: none;
+	outline: none;
 }
 
 /******** Chrome, Safari, Opera and Edge Chromium styles ********/
 /* slider track */
 input[type="range"]::-webkit-slider-runnable-track {
-  background-color: #008040;
-  border-radius: 100px;
-  height: 3px;
+	background-color: #008040;
+	border-radius: 100px;
+	height: 3px;
 }
 
 /* slider thumb */
 input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Override default look */
-  appearance: none;
-  margin-top: -4.5px; /* Centers thumb on the track */
-  background-color: #fff;
-  border-radius: 1rem;
-  height: 12px;
-  width: 12px;
+	-webkit-appearance: none;
+	/* Override default look */
+	appearance: none;
+	margin-top: -4.5px;
+	/* Centers thumb on the track */
+	background-color: #fff;
+	border-radius: 1rem;
+	height: 12px;
+	width: 12px;
 }
 
 input[type="range"]:focus::-webkit-slider-thumb {
-  outline: 3px solid #fff;
-  outline-offset: 0.125rem;
+	outline: 3px solid #fff;
+	outline-offset: 0.125rem;
 }
 
 /*********** Firefox styles ***********/
 /* slider track */
 input[type="range"]::-moz-range-track {
-  background-color: #008040;
-  border-radius: 100px;
-  height: 3px;
+	background-color: #008040;
+	border-radius: 100px;
+	height: 3px;
 }
 
 /* slider thumb */
 input[type="range"]::-moz-range-thumb {
-  background-color: #fff;
-  border: none; /*Removes extra border that FF applies*/
-  border-radius: 1rem;
-  height: 12px;
-  width: 12px;
+	background-color: #fff;
+	border: none;
+	/*Removes extra border that FF applies*/
+	border-radius: 1rem;
+	height: 12px;
+	width: 12px;
 }
 
 /* Default state for the drawer (hidden) */
 .drawer {
-  position: fixed;
-  top: 0;
-  right: -500px; /* Hidden off-screen */
-  width: 500px;
-  height: 100%;
-  background-color: #1C1B22;
-  transition: right 0.3s ease-in-out;
-  overflow-y: auto; /* Enable scrolling within the drawer */
-  box-sizing:border-box;
+	position: fixed;
+	top: 0;
+	right: -500px;
+	/* Hidden off-screen */
+	width: 500px;
+	height: 100%;
+	background-color: #1C1B22;
+	transition: right 0.3s ease-in-out;
+	overflow-y: auto;
+	/* Enable scrolling within the drawer */
+	box-sizing: border-box;
 }
 
 .schedule-drawer {
-  position: fixed;
-  top: 0;
-  left: -500px; /* Hidden off-screen */
-  width: 500px;
-  height: 100%;
-  background-color: #1C1B22;
-  transition: left 0.3s ease-in-out;
-  box-sizing:border-box;
+	position: fixed;
+	top: 0;
+	left: -500px;
+	/* Hidden off-screen */
+	width: 500px;
+	height: 100%;
+	background-color: #1C1B22;
+	transition: left 0.3s ease-in-out;
+	box-sizing: border-box;
 }
 
 /* Drawer content */
-.drawer > .drawer-content {
-  padding: 10px;
-  margin-top: -30px;
+.drawer>.drawer-content {
+	padding: 10px;
+	margin-top: -30px;
 }
 
-.schedule-drawer > .drawer-content {
-	padding:10px;
+.schedule-drawer>.drawer-content {
+	padding: 10px;
 }
 
 #close-schedule-drawer-btn {
-	position:absolute;
+	position: absolute;
 	top: 10px;
-	right:10px;
-	color:#fff;
+	right: 10px;
+	color: #fff;
 	border: 1px solid #1C1B22;
-	font-size:24px;
-	background-color:transparent;
+	font-size: 24px;
+	background-color: transparent;
 	cursor: pointer;
 }
 
 #close-drawer-btn {
-	margin:10px;
-	color:#fff;
+	margin: 10px;
+	color: #fff;
 	border: 1px solid #1C1B22;
-	font-size:24px;
-	background-color:transparent;
+	font-size: 24px;
+	background-color: transparent;
 	cursor: pointer;
 }
 
 
 /* Show the drawer when the open button is clicked */
 .drawer.open {
-  right: 0;
+	right: 0;
 }
 
 .schedule-drawer.open {
-  left: 0;
+	left: 0;
 }
 
 /* Chirpy comments */
 #chirpy-comment {
-  background-color: #1C1B22;
-  margin: 0 auto;
-  padding: 10px;
-  width:100%;
-  box-sizing: border-box; /* Ensure padding doesn't overflow */
+	background-color: #1C1B22;
+	margin: 0 auto;
+	padding: 10px;
+	width: 100%;
+	box-sizing: border-box;
+	/* Ensure padding doesn't overflow */
 }
 
 /* For mobile devices */
 @media (max-width: 768px) {
 
-  .player {
-	  width:100%;
-  }
+	.player {
+		width: 100%;
+	}
 
-  .player-container {
-	  position: fixed; /* Makes the element stay in a fixed position */
-    	  bottom: 0;       /* Positions the element at the bottom of the screen */
-    	  left: 0;         /* Optional: aligns the element to the left */
-          width: 100%;
-	  height:200px;
-	  border-radius:0px;
-	  border:1px solid transparent;
-  }
-  .drawer {
-    width: 100%; /* 100% width for mobile */
-    overflow-x: hidden;
-  }
-  .schedule-drawer {
-    width: 100%; /* 100% width for mobile */
-    overflow: hidden;
-  }
+	.player-container {
+		position: fixed;
+		/* Makes the element stay in a fixed position */
+		bottom: 0;
+		/* Positions the element at the bottom of the screen */
+		left: 0;
+		/* Optional: aligns the element to the left */
+		width: 100%;
+		height: 200px;
+		border-radius: 0px;
+		border: 1px solid transparent;
+	}
+
+	.drawer {
+		width: 100%;
+		/* 100% width for mobile */
+		overflow-x: hidden;
+	}
+
+	.schedule-drawer {
+		width: 100%;
+		/* 100% width for mobile */
+		overflow: hidden;
+	}
 }
