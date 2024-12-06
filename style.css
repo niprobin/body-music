@@ -35,7 +35,7 @@ p {
 
 /* Cover Art */
 .cover-art {
-  width:100%;
+  width:400px;
   text-align:center;
 }
 .cover-art img {
@@ -130,9 +130,8 @@ p {
 
 .controls {
 	display:flex;
-	justify-content:center;
+	justify-content:space-between;
 	align-items:center;
-	gap:20px;
 }
 
 .play-pause {
@@ -299,6 +298,16 @@ input[type="range"]::-moz-range-thumb {
 
 /* For mobile devices */
 @media (max-width: 768px) {
+
+  .player {
+	  width:100%;
+  }
+
+  .player-container {
+	  border-radius:0px;
+	  width:100%;
+	  border:1px solid transparent;
+  }
   .drawer {
     width: 100%; /* 100% width for mobile */
     overflow-x: hidden;
