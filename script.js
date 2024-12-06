@@ -168,6 +168,22 @@ closeDrawerBtn.addEventListener("click", () => {
   drawer.classList.remove("open");
 });
 
+//Slide drawer to the left //
+let startX = 0;
+const drawer = document.getElementById('drawer');
+
+drawer.addEventListener('touchstart', (e) => {
+    startX = e.changedTouches[0].screenX;
+});
+
+drawer.addEventListener('touchend', (e) => {
+    const endX = e.changedTouches[0].screenX;
+    if (endX - startX > 50) { // Swipe to the right
+        drawer.style.transform = 'translateX(-100%)'; // Close the drawer
+    }
+});
+
+
 //Schedule-drawer functionality
 const openScheduleDrawerBtn = document.getElementById("open-schedule-drawer-btn");
 const closeScheduleDrawerBtn = document.getElementById("close-schedule-drawer-btn");
