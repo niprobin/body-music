@@ -130,8 +130,8 @@ p {
 
 .controls {
 	display:flex;
-	justify-content:space-around;
-	align-items:center;
+	justify-content:center;
+	align-items:space-between;
 }
 
 .play-pause {
