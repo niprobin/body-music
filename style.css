@@ -269,6 +269,10 @@ input[type="range"]::-moz-range-thumb {
   right: 0;
 }
 
+.schedule-drawer.open {
+  left: 0;
+}
+
 /* Chirpy comments */
 #chirpy-comment {
   background-color: #1C1B22;
@@ -281,6 +285,9 @@ input[type="range"]::-moz-range-thumb {
 /* For mobile devices */
 @media (max-width: 768px) {
   .drawer {
+    width: 100%; /* 100% width for mobile */
+  }
+  .schedule-drawer {
     width: 100%; /* 100% width for mobile */
   }
 }
