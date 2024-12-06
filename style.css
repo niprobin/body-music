@@ -9,7 +9,7 @@ body {
     align-items: center;
     margin: 0;
     background-color:#FFBD59;
-    overflow: hidden;
+    overflow-x: hidden;
 /*  background:url('https://radio.niprobin.com/static/uploads/background.1731661228.png');
   background-size:fill;
   background-repeat: no-repeat;
