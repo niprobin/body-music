@@ -152,3 +152,19 @@ function updateMediaSession() {
 // Fetch data immediately and then set an interval
 updateMediaSession();
 setInterval(updateMediaSession, 30000); // Refresh every 30 seconds
+
+//Drawer functionality
+const openDrawerBtn = document.getElementById("open-drawer-btn");
+const closeDrawerBtn = document.getElementById("close-drawer-btn");
+const drawer = document.getElementById("drawer");
+
+// Open the drawer
+openDrawerBtn.addEventListener("click", () => {
+  drawer.classList.add("open");
+});
+
+// Close the drawer
+closeDrawerBtn.addEventListener("click", () => {
+  drawer.classList.remove("open");
+});
+
