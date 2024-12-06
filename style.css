@@ -113,16 +113,13 @@ p {
 
 #upcoming-playlist-name {
   display: block;
-  width: 150px;
-  overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+  width: 230px;
   text-align:left;
 }
 
 #upcoming-playlist-time {
   text-align:right;
-  width:150px;
+  width:230px;
 }
 
 .volume-slider {
