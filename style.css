@@ -19,6 +19,10 @@ body {
   background-position: center; */
 }
 
+* {
+    box-sizing: border-box; /* Include padding and border in element's width/height */
+}
+
 p {
 	margin: 0;
 	padding: 0;
