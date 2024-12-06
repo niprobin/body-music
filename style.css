@@ -107,6 +107,10 @@ p {
   font-size:21px;
 }
 
+#upcomingPlaylists {
+	width:100%;
+}
+
 #upcoming-playlist-name {
   display: block;
   width: 150px;
