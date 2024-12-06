@@ -35,14 +35,13 @@ p {
 
 /* Player Container */
 .player {
-	width: 400px;
-	padding: 20px;
+	width: 40%;
 	text-align: center;
 }
 
 /* Cover Art */
 .cover-art {
-	width: 400px;
+	width: 100%;
 	text-align: center;
 }
 
