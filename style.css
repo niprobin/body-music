@@ -231,19 +231,19 @@ input[type="range"]::-moz-range-thumb {
   width: 500px;
   height: 100%;
   background-color: #1C1B22;
-  transition: right 0.3s ease;
+  transition: right 0.3s ease-in-out;
   overflow-y: auto; /* Enable scrolling within the drawer */
   box-sizing:border-box;
 }
 
 .schedule-drawer {
-	position: fixed;
+  position: fixed;
   top: 0;
   left: -500px; /* Hidden off-screen */
   width: 500px;
   height: 100%;
   background-color: #1C1B22;
-  transition: left 0.3s ease;
+  transition: left 0.3s ease-in-out;
   box-sizing:border-box;
 }
 
