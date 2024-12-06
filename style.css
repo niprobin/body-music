@@ -9,6 +9,7 @@ body {
     align-items: center;
     margin: 0;
     background-color:#FFBD59;
+    overflow: hidden;
 /*  background:url('https://radio.niprobin.com/static/uploads/background.1731661228.png');
   background-size:fill;
   background-repeat: no-repeat;
@@ -300,8 +301,10 @@ input[type="range"]::-moz-range-thumb {
 @media (max-width: 768px) {
   .drawer {
     width: 100%; /* 100% width for mobile */
+    overflow-x: hidden;
   }
   .schedule-drawer {
     width: 100%; /* 100% width for mobile */
+    overflow: hidden;
   }
 }
