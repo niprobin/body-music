@@ -236,7 +236,10 @@ input[type="range"]::-moz-range-thumb {
 }
 
 #close-drawer-btn {
-	margin:5px;
+	margin:10px;
+	color:#fff;
+	border:1px solid #fff;
+	border-radius: 100%;
 }
 
 /* Show the drawer when the open button is clicked */
