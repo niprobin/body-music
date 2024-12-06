@@ -222,11 +222,10 @@ input[type="range"]::-moz-range-thumb {
 .drawer {
   position: fixed;
   top: 0;
-  right: -250px; /* Hidden off-screen */
-  width: 250px;
+  right: -500px; /* Hidden off-screen */
+  width: 500px;
   height: 100%;
-  background-color: #333;
-  color: white;
+  background-color: #1C1B22;
   transition: right 0.3s ease;
 }
 
@@ -242,7 +241,6 @@ input[type="range"]::-moz-range-thumb {
 
 /* Button styles */
 #open-drawer-btn, {
-  {
   align-items: center;
   appearance: none;
   background-color: #FCFCFD;
@@ -269,7 +267,6 @@ input[type="range"]::-moz-range-thumb {
   white-space: nowrap;
   will-change: box-shadow,transform;
   font-size: 18px;
-}
 }
 
 
