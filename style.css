@@ -103,10 +103,6 @@ p {
   display:flex;
 }
 
-.schedule-table {
-  font-size:21px;
-}
-
 #upcomingPlaylists {
 	width:100%;
 }
@@ -115,11 +111,13 @@ p {
   display: block;
   width: 230px;
   text-align:left;
+  font-size:21px;
 }
 
 #upcoming-playlist-time {
   text-align:right;
   width:230px;
+  font-size:18px;
 }
 
 .volume-slider {
@@ -257,14 +255,18 @@ input[type="range"]::-moz-range-thumb {
 
 .schedule-drawer > .drawer-content {
 	padding:10px;
+	align:right;
 }
 
 .schedule-drawer > #close-schedule-drawer-btn {
-	position: relative;
-	left: 98%;
+	color:#fff;
+	border: 1px solid #1C1B22;
+	font-size:24px;
+	background-color:transparent;
+	cursor: pointer;
 }
 
-#close-drawer-btn, #close-schedule-drawer-btn {
+#close-drawer-btn, {
 	margin:10px;
 	color:#fff;
 	border: 1px solid #1C1B22;
