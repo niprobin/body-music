@@ -23,10 +23,6 @@ playBtn.addEventListener("click", () => {
     }
 });
 
-// Update Now Playing Info Every 5 Seconds
-setInterval(fetchNowPlaying, 5000);
-fetchNowPlaying();
-
 // Volume slider JS
 const volumeControl = document.getElementById("volume-control");
 volumeControl.addEventListener("input", (e) => {
