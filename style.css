@@ -128,6 +128,13 @@ p {
   width:90%;
 }
 
+.controls {
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	gap:20px;
+}
+
 .play-pause {
   align-items: center;
   appearance: none;
@@ -243,18 +250,6 @@ input[type="range"]::-moz-range-thumb {
 	font-size:24px;
 	background-color:transparent;
 	cursor: pointer;
-}
-
-#open-drawer-btn:hover,
-#open-drawer-btn:focus {
-  background-color: #fb8332;
-  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
-}
-
-.button-5:active {
-  background-color: #c85000;
-  box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
-  transform: translateY(0);
 }
 
 /* Show the drawer when the open button is clicked */
