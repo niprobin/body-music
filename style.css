@@ -8,10 +8,11 @@ body {
     justify-content: center;
     align-items: center;
     margin: 0;
-  background:url('https://radio.niprobin.com/static/uploads/background.1731661228.png');
+    background-color:#FFBD59;
+/*  background:url('https://radio.niprobin.com/static/uploads/background.1731661228.png');
   background-size:fill;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center; */
 }
 
 p {
@@ -40,7 +41,7 @@ p {
     width: 100%;
     height: auto;
     border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  /*  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; */
 }
 
 .player-container, .upcoming-playlists {
