@@ -168,3 +168,18 @@ closeDrawerBtn.addEventListener("click", () => {
   drawer.classList.remove("open");
 });
 
+//Schedule-drawer functionality
+const openScheduleDrawerBtn = document.getElementById("open-schedule-drawer-btn");
+const closeScheduleDrawerBtn = document.getElementById("close-schedule-drawer-btn");
+const Scheduledrawer = document.getElementById("schedule-drawer");
+
+// Open the drawer
+openScheduleDrawerBtn.addEventListener("click", () => {
+  Scheduledrawer.classList.add("open");
+});
+
+// Close the drawer
+closeScheduleDrawerBtn.addEventListener("click", () => {
+  Scheduledrawer.classList.remove("open");
+});
+
