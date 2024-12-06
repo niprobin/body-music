@@ -1,4 +1,4 @@
-z@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Modak&family=Neucha&family=Rock+Salt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Modak&family=Neucha&family=Rock+Salt&display=swap');
 
 /* General Page Styles */
 body {
@@ -242,6 +242,7 @@ input[type="range"]::-moz-range-thumb {
 	border: 1px solid #1C1B22;
 	font-size:24px;
 	background-color:transparent;
+	cursor: pointer;
 }
 
 /* Show the drawer when the open button is clicked */
