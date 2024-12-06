@@ -6,7 +6,6 @@ const nowPlayingApiUrl = "https://radio.niprobin.com/api/nowplaying/1";
 const playBtn = document.getElementById("play-btn");
 const stopBtn = document.getElementById("stop-btn");
 const audioPlayer = document.getElementById("audio-player");
-const coverArt = document.getElementById("cover-art");
 const artistSong = document.getElementById("artist-song");
 const nowPlayingTitle = document.getElementById("now-playing-title");
 
@@ -23,23 +22,6 @@ playBtn.addEventListener("click", () => {
         
     }
 });
-
-// Fetch Now Playing Info
-async function fetchNowPlaying() {
-    try {
-        const response = await fetch(nowPlayingApiUrl);
-        if (!response.ok) throw new Error("API call failed");
-        const data = await response.json();
-
-        // Update UI
-        // const albumArt = data.now_playing.song.art || "https://iili.io/HlHy9Yx.png";
-        const albumArt = "https://raw.githubusercontent.com/niprobin/body-music/refs/heads/main/radio_cover.png";
-
-        coverArt.src = albumArt;
-    } catch (error) {
-        console.error("Error fetching Now Playing info:", error);
-    }
-}
 
 // Update Now Playing Info Every 5 Seconds
 setInterval(fetchNowPlaying, 5000);
