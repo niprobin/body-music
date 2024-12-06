@@ -238,6 +238,17 @@ input[type="range"]::-moz-range-thumb {
   box-sizing:border-box;
 }
 
+.schedule-drawer {
+	position: fixed;
+  top: 0;
+  left: -500px; /* Hidden off-screen */
+  width: 500px;
+  height: 100%;
+  background-color: #1C1B22;
+  transition: left 0.3s ease;
+  box-sizing:border-box;
+}
+
 /* Drawer content */
 .drawer-content {
   padding: 10px;
