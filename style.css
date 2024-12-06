@@ -240,6 +240,8 @@ input[type="range"]::-moz-range-thumb {
 	color:#fff;
 	border:1px solid #fff;
 	border-radius: 100%;
+	font-size:24px;
+	background-color:transparent;
 }
 
 /* Show the drawer when the open button is clicked */
