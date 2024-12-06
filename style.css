@@ -260,7 +260,11 @@ input[type="range"]::-moz-range-thumb {
 
 .schedule-drawer > .drawer-content {
 	padding:10px;
-	text-align:right;
+}
+
+.schedule-drawer > #close-schedule-drawer-btn {
+	position: relative;
+	right: 10px;
 }
 
 #close-drawer-btn, #close-schedule-drawer-btn {
