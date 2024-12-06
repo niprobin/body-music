@@ -51,7 +51,7 @@ a:visited {
 
 /* Cover Art */
 .cover-art {
-  width:300px;
+  width:100%;
   text-align:center;
 }
 .cover-art img {
