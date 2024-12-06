@@ -241,6 +241,7 @@ input[type="range"]::-moz-range-thumb {
 	position: fixed;
 	top: 0;
 	right: -500px;
+	display:none;
 	/* Hidden off-screen */
 	width: 500px;
 	height: 100%;
@@ -255,6 +256,7 @@ input[type="range"]::-moz-range-thumb {
 	position: fixed;
 	top: 0;
 	left: -500px;
+	display:none;
 	/* Hidden off-screen */
 	width: 500px;
 	height: 100%;
@@ -297,10 +299,12 @@ input[type="range"]::-moz-range-thumb {
 /* Show the drawer when the open button is clicked */
 .drawer.open {
 	right: 0;
+	display: block;
 }
 
 .schedule-drawer.open {
 	left: 0;
+	display:block;
 }
 
 /* Chirpy comments */
