@@ -304,8 +304,11 @@ input[type="range"]::-moz-range-thumb {
   }
 
   .player-container {
+	  position: fixed; /* Makes the element stay in a fixed position */
+    	  bottom: 0;       /* Positions the element at the bottom of the screen */
+    	  left: 0;         /* Optional: aligns the element to the left */
+          width: 100%
 	  border-radius:0px;
-	  width:100%;
 	  border:1px solid transparent;
   }
   .drawer {
