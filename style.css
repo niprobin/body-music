@@ -264,7 +264,7 @@ input[type="range"]::-moz-range-thumb {
 
 .schedule-drawer > #close-schedule-drawer-btn {
 	position: relative;
-	right: 10px;
+	left: 98%;
 }
 
 #close-drawer-btn, #close-schedule-drawer-btn {
