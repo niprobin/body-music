@@ -113,7 +113,7 @@ function updateMediaSession() {
 
       // Safely extract playlist info
       const playlistName = data.now_playing.playlist || 'Probably some good stuff';
-      const coverUrl = "https://radio.niprobin.com/static/uploads/background.1731661228.png"
+      const coverUrl = "https://music.niprobin.com/radio_cover.png"
 
       // Set Media Session Metadata
       if ('mediaSession' in navigator) {
