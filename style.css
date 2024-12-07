@@ -261,11 +261,8 @@ input[type="range"]::-moz-range-thumb {
 
 /* Drawer content */
 .drawer>.drawer-content {
-	padding: 10px;
-}
-
-.drawer-content>iframe {
-height:95% !important;
+	padding: 15px;
+	height:100%;
 }
 
 .schedule-drawer>.drawer-content {
