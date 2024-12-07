@@ -262,7 +262,7 @@ input[type="range"]::-moz-range-thumb {
 /* Drawer content */
 .drawer>.drawer-content {
 	padding: 15px;
-	height:100%;
+	margin-top:-30px;
 }
 
 .schedule-drawer>.drawer-content {
