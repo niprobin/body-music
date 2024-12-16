@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Modak&family=Neucha&family=Rock+Salt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fustat:wght@200..800&display=swap');
 
 /* General Page Styles */
 body {
-	font-family: "Afacad Flux", "Helvetica", sans-serif;
+	font-family: "Fustat", "Helvetica", sans-serif;
 	color: white;
 	display: flex;
 	justify-content: center;
@@ -51,6 +51,11 @@ p {
 	/*  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; */
 }
 
+mark {
+	color:#fff;
+	background-color:red;
+}
+
 .player-container {
 	background-color: #1C1B22;
 	border: 1px solid white;
@@ -67,16 +72,20 @@ p {
 }
 .upcoming-playlists {
 	background-color: #1C1B22;
-	text-transform: uppercase;
 }
 
 #schedule {
 	width: 100%;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items: center;
 }
 
 #schedule-title {
-	text-transform: uppercase;
-	text-decoration: underline;
+	font-family: 'Fustat', "Helvetica", sans-serif;
+	line-height:px;
+	font-size:14px;
 }
 
 /* Track Info */
@@ -84,25 +93,23 @@ p {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 100%;
 	color: #fff;
-	font-family: "Afacad Flux", serif;
-	text-transform: uppercase;
+	font-family: "Fustat", serif;
 	font-weight: bold;
 	font-size: 24px;
 }
 
 #upcoming-title {
 	color: #fff;
-	font-family: "Afacad Flux", serif;
-	text-transform: uppercase;
+	font-family: "Fustat", serif;
 	font-weight: bold;
 	font-size: 24px;
+	margin-bottom:14px;
 	text-decoration: underline;
 }
 
 .playlist-card {
-	margin-bottom: 8px;
+	margin-bottom: 24px;
 	display: flex;
 }
 
@@ -131,6 +138,7 @@ p {
 }
 
 .controls {
+	font-family: 'Fustat', "Helvetica", sans-serif;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -139,6 +147,7 @@ p {
 }
 
 .play-pause {
+	font-family: 'Fustat', "Helvetica", sans-serif;
 	align-items: center;
 	appearance: none;
 	background-color: #FCFCFD;

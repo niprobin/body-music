@@ -1,35 +1,34 @@
-// Replace with your AzuraCast stream and API URLs
+// Replace with your AzuraCast stream URL
 const streamUrl = "https://radio.niprobin.com:8000/radio.mp3";
-const nowPlayingApiUrl = "https://radio.niprobin.com/api/nowplaying/1";
 
 // DOM Elements
 const playBtn = document.getElementById("play-btn");
-const stopBtn = document.getElementById("stop-btn");
 const audioPlayer = document.getElementById("audio-player");
-const artistSong = document.getElementById("artist-song");
-const nowPlayingTitle = document.getElementById("now-playing-title");
 
 // Play and Pause Functionality
 playBtn.addEventListener("click", () => {
-    if (audioPlayer.paused) {
-        audioPlayer.src = streamUrl;
-        audioPlayer.play();
-        playBtn.innerHTML = '<i class="fa-solid fa-pause"></i>&nbsp;&nbsp;PAUSE';
-        
+    if (audioPlayer.paused || audioPlayer.readyState === 0) {
+        // If paused OR not yet loaded, start playback
+        audioPlayer.src = streamUrl; // Ensure the stream URL is loaded
+        audioPlayer.load(); // Reload the stream
+        audioPlayer.play()
+            .then(() => {
+                playBtn.innerHTML = '<i class="fa-solid fa-pause"></i>&nbsp;&nbsp;Pause';
+            })
+            .catch((error) => {
+                console.error("Playback failed:", error);
+                playBtn.innerHTML = '<i class="fa-solid fa-play"></i>&nbsp;&nbsp;Play';
+            });
     } else {
+        // Pause playback if currently playing
         audioPlayer.pause();
-        playBtn.innerHTML = '<i class="fa-solid fa-play"></i>&nbsp;&nbsp;PLAY';
-        
+        playBtn.innerHTML = '<i class="fa-solid fa-play"></i>&nbsp;&nbsp;Play';
     }
 });
 
-// Volume slider JS
-const volumeControl = document.getElementById("volume-control");
-volumeControl.addEventListener("input", (e) => {
-    audioPlayer.volume = e.target.value;
-});
-
+// Set initial volume
 audioPlayer.volume = 0.5;
+
 
 // API endpoint to get the radio schedule
 const apiUrl = "https://radio.niprobin.com/api/station/1/schedule";
