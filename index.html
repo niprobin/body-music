@@ -1,63 +1,66 @@
 <!DOCTYPE html>
 <html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <meta name="description" content="Discover great music by listening to Body Music Radio. A rich mix of great tunes selected by music lovers!">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:title" content="Body Music Radio" />
-    <meta property="og:description" content="Good music for every Body!" />
-    <meta property="og:image" content="https://music.niprobin.com/radio_cover.png" />
-    <meta property="og:url" content="https://music.niprobin.com" />
-    <meta name="twitter:card" content="summary_large_image" />
-  <title>Body Music Radio | Radio for every Body!</title>
-  <link rel="stylesheet" href="./style.css">
-  <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="./favicon/favicon-192x192.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <script src="https://kit.fontawesome.com/cd85a69654.js" crossorigin="anonymous"></script>
-</head>
-<body>
-  <div class="player">
-   <div class="cover-art">
-      <img src="/radio_cover.png" alt="Body Music Radio" id="cover-art">
-    </div>
-    <div class="player-container">
-      <div id="schedule">
-        <!-- <p id="currentPlaylist">Loading...</p> -->
-        <p id="schedule-title"><mark>&nbsp;On Air&nbsp;</mark></p>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="description" content="Discover great music by listening to Body Music Radio. A rich mix of great tunes selected by music lovers!">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta property="og:title" content="Body Music Radio" />
+      <meta property="og:description" content="Good music for every Body!" />
+      <meta property="og:image" content="https://music.niprobin.com/radio_cover.png" />
+      <meta property="og:url" content="https://music.niprobin.com" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <title>Body Music Radio | Radio for every Body!</title>
+      <link rel="stylesheet" href="./style.css">
+      <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="192x192" href="./favicon/favicon-192x192.png">
+      <link rel="manifest" href="/site.webmanifest">
+      <script src="https://kit.fontawesome.com/cd85a69654.js" crossorigin="anonymous"></script>
+   </head>
+   <body>
+      <div class="player">
+         <div class="cover-art">
+            <img src="/radio_cover.png" alt="Body Music Radio" id="cover-art">
+         </div>
+         <div class="player-container">
+            <div id="schedule">
+               <p id="schedule-title"><mark>&nbsp;On Air&nbsp;</mark></p>
+            </div>
+            <audio id="audio-player"></audio>
+            <div class="controls">
+               <button role="button" id="show-modal" class="play-pause"><i class="fa-solid fa-compact-disc"></i>&nbsp;Song?</button>
+               <button role="button" id="play-btn" class="play-pause"><i class="fa-solid fa-play"></i>&nbsp;&nbsp;Play</button>
+               <button role="button" id="open-drawer-btn" class="play-pause"><i class="fa-solid fa-comments"></i>&nbsp;Chat</button>
+            </div>
+            <div id="song-modal">
+              <div>
+                 <img id="song-art" src="" alt="Song Art">
+              </div>
+              <div style="width:100%;">
+                 <p id="song-title"></p>
+                 <p id="song-artist"></p>
+                 <p id="song-disclaimer">CLICK AGAIN TO SHOW NEW SONG</p>
+              </div>
+              <div id="close-modal">&times;</div>
+           </div>
+            <div class="volume-slider">
+               <i class="fa-solid fa-volume-off" style="color:#666"></i>
+               <input type="range" id="volume-control" min="0" max="1" step="0.01">
+               <i class="fa-solid fa-volume-high" style="color:#666"></i>
+            </div>
+            
+         </div>
       </div>
-      <audio id="audio-player"></audio>
-      <div class="controls">
-        <button role="button" id="fetch-song" class="play-pause"><i class="fa-solid fa-calendar-days"></i>&nbsp;Next</button>
-        <button role="button" id="play-btn" class="play-pause"><i class="fa-solid fa-play"></i>&nbsp;&nbsp;Play</button>
-        <button role="button" id="open-drawer-btn" class="play-pause"><i class="fa-solid fa-comments"></i>&nbsp;Chat</button>
+      <!-- Modal -->
+      <div id="drawer" class="drawer">
+         <button id="close-drawer-btn"><i class="fa-solid fa-xmark"></i></button>
+         <div class="drawer-content">
+            <!-- Add your content here -->
+            <div data-chirpy-theme="dark" data-chirpy-comment="true" id="chirpy-comment"></div>
+         </div>
       </div>
-      <div class="volume-slider">
-        <i class="fa-solid fa-volume-off" style="color:#666"></i>
-        <input type="range" id="volume-control" min="0" max="1" step="0.01">
-        <i class="fa-solid fa-volume-high" style="color:#666"></i>
-      </div>
-    </div>
-  </div>
-  <!-- Modal -->
-  <div id="modal">
-    <div id="modal-content">
-        <h2 id="song-title"></h2>
-        <p id="song-artist"></p>
-        <img id="song-art" src="" alt="Album Art">
-        <button id="close-modal">Close</button>
-    </div>
-</div>
-  <div id="drawer" class="drawer">
-  <button id="close-drawer-btn"><i class="fa-solid fa-xmark"></i></button>
-  <div class="drawer-content">
-    <!-- Add your content here -->
-    <div data-chirpy-theme="dark" data-chirpy-comment="true" id="chirpy-comment"></div>
-  </div>
-</div>
-   <script  src="./script.js"></script>
-   <script defer src="https://chirpy.dev/bootstrapper.js" data-chirpy-domain="music.niprobin.com"></script>
-</body>
+      <script  src="./script.js"></script>
+      <script defer src="https://chirpy.dev/bootstrapper.js" data-chirpy-domain="music.niprobin.com"></script>
+   </body>
 </html>

@@ -71,35 +71,50 @@ closeDrawerBtn.addEventListener("click", () => {
   drawer.classList.remove("open");
 });
 
-document.getElementById("fetch-song").addEventListener("click", async () => {
-  try {
-      // Fetch data from the API
-      const response = await fetch("https://radio.niprobin.com/api/station/1/history");
-      const data = await response.json();
+//Open modal with current song
+const modal = document.getElementById("song-modal");
+const closeModal = document.getElementById("close-modal");
+const showModalButton = document.getElementById("show-modal");
 
-      // Check if data is available
-      if (data.length > 0) {
-          const currentSong = data[0].song; // Get the first item (currently playing)
+// API URL for nowPlaying data
+const nowPlayingApiUrl = "https://radio.niprobin.com/api/nowplaying/1";
 
-          // Populate modal with song details
-          document.getElementById("song-title").textContent = currentSong.title;
-          document.getElementById("song-artist").textContent = currentSong.artist;
-          document.getElementById("song-art").src = currentSong.art;
+showModalButton.addEventListener("click", () => {
+    // Fetch currently playing song data
+    fetch(nowPlayingApiUrl)
+        .then((response) => response.json())
+        .then((data) => {
+            // Get song details
+            const song = data.now_playing.song;
+            const songArt = song.art || "default_art.jpg"; // Provide a fallback image if art is missing
+            const songTitle = song.title || "Unknown Title";
+            const songArtist = song.artist || "Unknown Artist";
 
-          // Show the modal
-          document.getElementById("modal").style.display = "block";
-      } else {
-          alert("No data available.");
-      }
-  } catch (error) {
-      console.error("Error fetching the song details:", error);
-      alert("Failed to fetch the song details. Try again later.");
-  }
+            // Update modal content
+            document.getElementById("song-art").src = songArt;
+            document.getElementById("song-title").innerText = songTitle;
+            document.getElementById("song-artist").innerText = songArtist;
+
+            // Show modal
+            modal.style.display = "flex";
+        })
+        .catch((error) => {
+            console.error("Error fetching song data:", error);
+            alert("Could not fetch the currently playing song. Please try again later.");
+        });
 });
 
-// Close the modal
-document.getElementById("close-modal").addEventListener("click", () => {
-  document.getElementById("modal").style.display = "none";
+// Close the modal on button click
+closeModal.addEventListener("click", () => {
+    modal.style.display = "none";
 });
 
+// Close the modal when clicking outside of it
+window.addEventListener("click", (event) => {
+    // Ensure the modal is hidden only when clicking outside of it
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+});
+    
 
