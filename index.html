@@ -30,7 +30,7 @@
       </div>
       <audio id="audio-player"></audio>
       <div class="controls">
-        <button role="button" id="open-schedule-drawer-btn" class="play-pause"><i class="fa-solid fa-calendar-days"></i>&nbsp;Next</button>
+        <button role="button" id="fetch-song" class="play-pause"><i class="fa-solid fa-calendar-days"></i>&nbsp;Next</button>
         <button role="button" id="play-btn" class="play-pause"><i class="fa-solid fa-play"></i>&nbsp;&nbsp;Play</button>
         <button role="button" id="open-drawer-btn" class="play-pause"><i class="fa-solid fa-comments"></i>&nbsp;Chat</button>
       </div>
@@ -41,17 +41,14 @@
       </div>
     </div>
   </div>
-  <div id="schedule-drawer" class="schedule-drawer">
-  <button id="close-schedule-drawer-btn"><i class="fa-solid fa-xmark"></i></button>
-  <div class="drawer-content">
-    <!-- Add your content here -->
-    <div class="upcoming-playlists">
-            <p id="upcoming-title">Schedule</p>
-            <div id="upcomingPlaylists">
-                <!-- Upcoming playlist details will be inserted here -->
-            </div>
-        </div>
-  </div>
+  <!-- Modal -->
+  <div id="modal">
+    <div id="modal-content">
+        <h2 id="song-title"></h2>
+        <p id="song-artist"></p>
+        <img id="song-art" src="" alt="Album Art">
+        <button id="close-modal">Close</button>
+    </div>
 </div>
   <div id="drawer" class="drawer">
   <button id="close-drawer-btn"><i class="fa-solid fa-xmark"></i></button>

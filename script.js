@@ -29,80 +29,6 @@ playBtn.addEventListener("click", () => {
 // Set initial volume
 audioPlayer.volume = 0.5;
 
-
-// API endpoint to get the radio schedule
-const apiUrl = "https://radio.niprobin.com/api/station/1/schedule";
-
-// Function to fetch and render playlists
-async function fetchAndRenderPlaylists() {
-    const currentPlaylistDiv = document.getElementById('currentPlaylist');
-    const upcomingPlaylistsDiv = document.getElementById('upcomingPlaylists');
-
-    try {
-        // Fetch playlist data from the API
-        const response = await fetch(apiUrl);
-        const data = await response.json();
-
-        const currentTime = Math.floor(Date.now() / 1000);
-
-        // Find current and upcoming playlists
-        const current = data.find(item => item.is_now);
-        const upcoming = data.filter(item => item.start_timestamp > currentTime);
-      
-        // Function to calculate time remaining
-        const calculateTimeRemaining = (startTimestamp) => {
-            const now = Math.floor(Date.now() / 1000);
-            const diff = startTimestamp - now;
-
-            if (diff <= 0) return "Now";
-
-            const hours = Math.floor(diff / 3600);
-            const minutes = Math.floor((diff % 3600) / 60);
-
-            return `${hours}h ${minutes}m`;
-        };
-
-        // Render Current Playlist
-        if (current) {
-            currentPlaylistDiv.innerHTML = `
-                <p>${current.title}</p>
-            `;
-        } else {
-            currentPlaylistDiv.innerHTML = `<p>A bit of everything 👽</p>`;
-        }
-
-        // Render Upcoming Playlists
-        upcomingPlaylistsDiv.innerHTML = ""; // Clear previous content
-        if (upcoming.length > 0) {
-            upcoming.forEach(playlist => {
-                const playlistHTML = `
-                    <div class="playlist-card">
-                      <table class="schedule-table" width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
-                      <tbody>
-                        <tr>
-                          <td id="upcoming-playlist-name">${playlist.title}</td>
-                          <td id="upcoming-playlist-time">Starts in ${calculateTimeRemaining(playlist.start_timestamp)}</td>
-                       </tr>
-                       </tbody>
-                      </table>
-                    </div>
-                `;
-                upcomingPlaylistsDiv.innerHTML += playlistHTML;
-            });
-        } else {
-            upcomingPlaylistsDiv.innerHTML = `<p>No upcoming playlists.</p>`;
-        }
-    } catch (error) {
-        console.error("Error fetching playlist data:", error);
-        currentPlaylistDiv.innerHTML = `<p>Unable to load playlist data. Please try again later.</p>`;
-        upcomingPlaylistsDiv.innerHTML = `<p>Unable to load playlist data. Please try again later.</p>`;
-    }
-}
-
-// Initialize
-fetchAndRenderPlaylists();
-setInterval(fetchAndRenderPlaylists, 60000);
-
 //Update metadata for mobile rich notification
 function updateMediaSession() {
   fetch('https://radio.niprobin.com/api/nowplaying/1')
@@ -145,18 +71,35 @@ closeDrawerBtn.addEventListener("click", () => {
   drawer.classList.remove("open");
 });
 
-//Schedule-drawer functionality
-const openScheduleDrawerBtn = document.getElementById("open-schedule-drawer-btn");
-const closeScheduleDrawerBtn = document.getElementById("close-schedule-drawer-btn");
-const Scheduledrawer = document.getElementById("schedule-drawer");
+document.getElementById("fetch-song").addEventListener("click", async () => {
+  try {
+      // Fetch data from the API
+      const response = await fetch("https://radio.niprobin.com/api/station/1/history");
+      const data = await response.json();
 
-// Open the drawer
-openScheduleDrawerBtn.addEventListener("click", () => {
-  Scheduledrawer.classList.add("open");
+      // Check if data is available
+      if (data.length > 0) {
+          const currentSong = data[0].song; // Get the first item (currently playing)
+
+          // Populate modal with song details
+          document.getElementById("song-title").textContent = currentSong.title;
+          document.getElementById("song-artist").textContent = currentSong.artist;
+          document.getElementById("song-art").src = currentSong.art;
+
+          // Show the modal
+          document.getElementById("modal").style.display = "block";
+      } else {
+          alert("No data available.");
+      }
+  } catch (error) {
+      console.error("Error fetching the song details:", error);
+      alert("Failed to fetch the song details. Try again later.");
+  }
 });
 
-// Close the drawer
-closeScheduleDrawerBtn.addEventListener("click", () => {
-  Scheduledrawer.classList.remove("open");
+// Close the modal
+document.getElementById("close-modal").addEventListener("click", () => {
+  document.getElementById("modal").style.display = "none";
 });
+
 

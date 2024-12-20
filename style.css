@@ -254,39 +254,12 @@ input[type="range"]::-moz-range-thumb {
 	box-sizing: border-box;
 }
 
-.schedule-drawer {
-	position: fixed;
-	top: 0;
-	left: -500px;
-	display:none;
-	/* Hidden off-screen */
-	width: 500px;
-	height: 100%;
-	background-color: #1C1B22;
-	transition: left 0.3s ease;
-	box-sizing: border-box;
-}
+
 
 /* Drawer content */
 .drawer>.drawer-content {
 	padding: 15px;
 	margin-top:-30px;
-}
-
-.schedule-drawer>.drawer-content {
-	padding: 10px;
-	margin-top:30px;
-}
-
-#close-schedule-drawer-btn {
-	position: absolute;
-	top: 10px;
-	right: 10px;
-	color: #fff;
-	border: 1px solid #1C1B22;
-	font-size: 24px;
-	background-color: transparent;
-	cursor: pointer;
 }
 
 #close-drawer-btn {
@@ -298,16 +271,36 @@ input[type="range"]::-moz-range-thumb {
 	cursor: pointer;
 }
 
+/* Modal Styles */
+#modal {
+	display: none; /* Hidden by default */
+	position: fixed;
+	z-index: 1000;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.8);
+}
+#modal-content {
+	background: white;
+	padding: 20px;
+	margin: 15% auto;
+	border-radius: 10px;
+	width: 90%;
+	max-width: 400px;
+	text-align: center;
+}
+#modal img {
+	max-width: 100%;
+	border-radius: 10px;
+}
+
 
 /* Show the drawer when the open button is clicked */
 .drawer.open {
 	right: 0;
 	display: block;
-}
-
-.schedule-drawer.open {
-	left: 0;
-	display:block;
 }
 
 /* Chirpy comments */
@@ -346,9 +339,4 @@ input[type="range"]::-moz-range-thumb {
 		overflow-x: hidden;
 	}
 
-	.schedule-drawer {
-		width: 100%;
-		/* 100% width for mobile */
-		overflow: hidden;
-	}
 }
