@@ -486,6 +486,12 @@ blockquote {
     padding: 0.5rem 1rem;
 }
 
+/* CUSTOM CSS */
+
+body {
+    padding: 30px 20px;
+}
+
 .px-1 {
     font-size: 14px;
     font-family:"Fustat", "Helvetica", Arial, sans-serif;
@@ -494,6 +500,10 @@ blockquote {
 
 .px-1 > label[for="email"], .px-1 > input[type="email"] {
     display:none;
+}
+
+.px-1 > input[type="text"] {
+    width:100%;
 }
 
 .px-1 > input, .px-1 > textarea {
@@ -543,7 +553,7 @@ blockquote {
 .my-4 {
     
     padding: 12px;
-    border-bottom:2px solid #fff;
+    border-bottom:1px solid #fff;
 }
 
 .my-4 > .my-2 {

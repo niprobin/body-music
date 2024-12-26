@@ -243,86 +243,16 @@ input[type="range"]::-moz-range-thumb {
 .drawer {
 	position: fixed;
 	top: 0;
-	right: -500px;
+	right: -300px;
 	display:none;
 	/* Hidden off-screen */
-	width: 500px;
+	width: 300px;
 	height: 100%;
-	background-color: #1C1B22;
+	background-color: #0D0106;
 	transition: right 0.3s ease;
 	overflow-y: hidden;
 	/* Enable scrolling within the drawer */
 	box-sizing: border-box;
-}
-
-
-
-/* Drawer content */
-.drawer>.drawer-content {
-	padding: 30px 20px;
-	margin-top:-30px;
-}
-
-#close-drawer-btn {
-	margin: 10px;
-	color: #fff;
-	border: 1px solid #1C1B22;
-	font-size: 24px;
-	background-color: transparent;
-	cursor: pointer;
-}
-
-/* Modal Styles */
-#song-modal {
-	display: none;
-	gap:20px;
-	align-items: center;	
-	border-radius:4px;
-	padding: 10px;
-	background-color:#6B9080;
-	box-shadow: rgba(90, 88, 88, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-	text-align:left;
-	width:100%;
-}
-
-#close-modal {
-	cursor: pointer;
-	position: relative;
-	font-size: 21px;
-	margin-right:7px;
-}
-
-#song-title {
-	font-size:16px;
-	display:block;
-	font-weight:bold;
-	width:90%;
-	max-width:90%;
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-}
-
-#song-artist {
-	font-size:14px;
-	display:block;
-	width:90%;
-	max-width:90%;
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-}
-
-#song-disclaimer {
-	font-size:9px;
-	text-transform: uppercase;
-	color:#c0bcbc;
-}
-
-#song-art {
-	display: inline-block;
-	width: 60px;
-	border-radius:6px;
 }
 
 /* Show the drawer when the open button is clicked */
@@ -341,7 +271,76 @@ input[type="range"]::-moz-range-thumb {
 	color:#fff;
   }
 
+#close-drawer-btn {
+	margin: 10px;
+	color: #fff;
+	font-size: 24px;
+	border:0px solid transparent;
+	background-color: transparent;
+	cursor: pointer;
+}
 
+/* Modal Styles */
+#song-modal {
+	display: none;
+	gap:10px;
+	align-items: center;	
+	border-radius:4px;
+	padding: 10px;
+	background-color:#6B9080;
+	box-shadow: rgba(90, 88, 88, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+	text-align:left;
+	width:100%;
+}
+
+#close-modal {
+	cursor: pointer;
+	position: relative;
+}
+
+#song-art {
+	display: inline-block;
+	width:30%;
+	border-radius:6px;
+}
+
+.song-details {
+	display:flex;
+	flex-direction: column;
+	width:60%;
+}
+
+#song-title {
+	font-size:16px;
+	font-weight:bold;
+	width:100%;
+	max-width:100%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+#song-artist {
+	font-size:14px;
+	width:100%;
+	max-width:100%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	
+}
+
+#song-disclaimer {
+	margin-top:7px;
+	font-size:9px;
+	text-transform: uppercase;
+	color:#c0bcbc;
+}
+
+#song-modal > #close-modal {
+	width:10%;
+	text-align:center;
+}
 
 /* Modal styles */
 .modal {
