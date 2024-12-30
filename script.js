@@ -86,7 +86,7 @@ showModalButton.addEventListener("click", () => {
         .then((data) => {
             // Get song details
             const song = data.now_playing.song;
-            const songArt = song.art || "default_art.jpg"; // Provide a fallback image if art is missing
+            const songArt = song.art || "https://radio.niprobin.com/static/uploads/body-music/album_art.1735556879.png"; // Provide a fallback image if art is missing
             const songTitle = song.title || "Unknown Title";
             const songArtist = song.artist || "Unknown Artist";
 
