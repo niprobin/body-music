@@ -37,14 +37,12 @@
             <img src="/radio_cover.png" alt="Body Music Radio" id="cover-art">
          </div>
          <div class="player-container">
-            <div id="schedule">
-               <p id="schedule-title"><mark>&nbsp;On Air&nbsp;</mark></p>
-            </div>
             <audio id="audio-player"></audio>
             <div class="controls">
-               <button role="button" id="show-modal" class="play-pause"><i class="fa-solid fa-compact-disc"></i>&nbsp;Song?</button>
                <button role="button" id="play-btn" class="play-pause"><i class="fa-solid fa-play"></i>&nbsp;&nbsp;Play</button>
-               <button role="button" id="open-drawer-btn" class="play-pause"><i class="fa-solid fa-comments"></i>&nbsp;Chat</button>
+               <button role="button" id="show-modal" class="play-pause"><i class="fa-solid fa-compact-disc"></i></button>
+               <button role="button" id="open-schedule-btn" class="play-pause"><i class="fa-solid fa-calendar-days"></i></button>
+               <button role="button" id="open-drawer-btn" class="play-pause"><i class="fa-solid fa-comments"></i></button>
             </div>
             <div id="song-modal">
                <img id="song-art" src="" alt="Song Art">
@@ -67,15 +65,103 @@
       <div id="drawer" class="drawer">
          <button id="close-drawer-btn"><i class="fa-solid fa-xmark"></i></button>
          <div class="drawer-content">
-         <div id="cusdis_thread"
-         data-host="https://cusdis.com"
-         data-app-id="85dc485b-5413-4b19-8e31-1c642828a474"
-         data-page-id="/"
-         data-page-url="music.niprobin.com"
-         data-page-title="Body Music Radio"
-></div>
-<script async defer src="./cusdis/cusdis.js"></script>
-</div>
+         <div id="cusdis_thread" data-host="https://cusdis.com" data-app-id="85dc485b-5413-4b19-8e31-1c642828a474" data-page-id="/" data-page-url="music.niprobin.com" data-page-title="Body Music Radio">
+         </div>
+         <script async defer src="./cusdis/cusdis.js"></script>
+         </div>
+      </div>
+      <div id="schedule-drawer" class="schedule-drawer">
+         <button id="close-schedule-drawer-btn"><i class="fa-solid fa-xmark"></i></button>
+         <!-- GENERAL ROTATION -->
+         <div class="container">
+            <div class="day-container" id="general-rotation">
+               <div class="day-title">General Rotation</div>
+               <div class="schedule-container">
+               <div class="schedule">06:00 - 08:00</div>
+               <div class="show">Early Bird</div>
+               </div>
+               <div class="schedule-container">
+               <div class="schedule">08:00 - 10:00</div>
+               <div class="show">Morning Chill</div>
+               </div>
+               <div class="schedule-container">
+               <div class="schedule">10:00 - 19:00</div>
+               <div class="show">Day Mix</div>
+               </div>
+            </div>
+            <!-- MONDAY -->
+            <div class="day-container">
+               <div class="day-title">Monday</div>
+               <div class="schedule-container">
+                  <div class="schedule">19:00 - 21:00</div>
+                  <div class="show">Jazz Special</div>
+               </div>
+               <div class="schedule-container">
+                  <div class="schedule">21:00 - 00:00</div>
+                  <div class="show">Hip-Hop</div>
+               </div>
+            </div>
+            <!-- TUESDAY -->
+            <div class="day-container">
+               <div class="day-title">Tuesday</div>
+               <div class="schedule-container">
+                  <div class="schedule">19:00 - 21:00</div>
+                  <div class="show">Hip-Hop</div>
+               </div>
+               <div class="schedule-container">
+                  <div class="schedule">21:00 - 00:00</div>
+                  <div class="show">Jazz & Funk</div>
+               </div>
+            </div>
+            <!-- WEDNESDAY -->
+            <div class="day-container">
+               <div class="day-title">Wednesday</div>
+               <div class="schedule-container">
+                  <div class="schedule">19:00 - 21:00</div>
+                  <div class="show">Rare Grooves</div>
+               </div>
+               <div class="schedule-container">
+                  <div class="schedule">21:00 - 00:00</div>
+                  <div class="show">Intelligent DNB</div>
+               </div>
+            </div>
+            <!-- THURSDAY -->
+            <div class="day-container">
+               <div class="day-title">Thursday</div>
+               <div class="schedule-container">
+                  <div class="schedule">19:00 - 21:00</div>
+                  <div class="show">Jazz & Funk</div>
+               </div>
+               <div class="schedule-container">
+                  <div class="schedule">21:00 - 00:00</div>
+                  <div class="show">Jazz Special</div>
+               </div>
+            </div>
+            <!-- FRIDAY -->
+            <div class="day-container">
+               <div class="day-title">Friday</div>
+               <div class="schedule-container">
+                  <div class="schedule">19:00 - 21:00</div>
+                  <div class="show">Rare Grooves</div>
+               </div>
+               <div class="schedule-container">
+                  <div class="schedule">21:00 - 00:00</div>
+                  <div class="show">House Music</div>
+               </div>
+            </div>
+            <!-- WEEKEND -->
+            <div class="day-container">
+               <div class="day-title">Weekend</div>
+               <div class="schedule-container">
+                  <div class="schedule">19:00 - 21:00</div>
+                  <div class="show">Intelligent DNB</div>
+               </div>
+               <div class="schedule-container">
+                  <div class="schedule">21:00 - 00:00</div>
+                  <div class="show">Chef's kiss</div>
+               </div>
+            </div>
+         </div>
       </div>
       <script  src="./script.js"></script>
    </body>

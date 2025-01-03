@@ -44,7 +44,7 @@ function updateMediaSession() {
       if ('mediaSession' in navigator) {
         navigator.mediaSession.metadata = new MediaMetadata({
           title: "BODY MUSIC RADIO", //Fixed radio name
-          artist: playlistName, // Playlist name as the subtitle
+          artist: "A trip through our music library with us", // Playlist name as the subtitle
           artwork: [{ src: coverUrl, sizes: '512x512', type: 'image/png' }], //album cover as the background
         });
       }
@@ -71,6 +71,21 @@ closeDrawerBtn.addEventListener("click", () => {
   drawer.classList.remove("open");
 });
 
+//Schedule drawer functionality
+const openScheduleDrawerBtn = document.getElementById("open-schedule-btn");
+const closeScheduleDrawerBtn = document.getElementById("close-schedule-drawer-btn");
+const scheduleDrawer = document.getElementById("schedule-drawer");
+
+// Open the Schedule drawer
+openScheduleDrawerBtn.addEventListener("click", () => {
+  scheduleDrawer.classList.add("open");
+});
+
+// Close the Schedule drawer
+closeScheduleDrawerBtn.addEventListener("click", () => {
+  scheduleDrawer.classList.remove("open");
+});
+
 //Open modal with current song
 const modal = document.getElementById("song-modal");
 const closeModal = document.getElementById("close-modal");
@@ -87,8 +102,8 @@ showModalButton.addEventListener("click", () => {
             // Get song details
             const song = data.now_playing.song;
             const songArt = song.art || "https://radio.niprobin.com/static/uploads/body-music/album_art.1735556879.png"; // Provide a fallback image if art is missing
-            const songTitle = song.title || "Unknown Title";
-            const songArtist = song.artist || "Unknown Artist";
+            const songTitle = song.title || "A great song";
+            const songArtist = song.artist || "A great artist";
 
             // Update modal content
             document.getElementById("song-art").src = songArt;
