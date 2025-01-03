@@ -329,8 +329,8 @@ input[type="range"]::-moz-range-thumb {
 	text-align:left;
 	max-width:60%;
 	width:60%;
-	max-height:150px;
-	height:150px;
+	max-height:120px;
+	height:120px;
 }
 
 #close-modal {
@@ -339,17 +339,16 @@ input[type="range"]::-moz-range-thumb {
 }
 
 #song-art {
-	display: inline-block;
-	width:auto;
-	height:auto;
 	border-radius:4px;
-	width:40%;
+	height:100%;
+	width:auto;
 }
 
 .song-details {
 	display:flex;
 	flex-direction: column;
-	width:50%;
+	width:auto;
+	flex-basis: 100%;
 }
 
 #song-title {
@@ -374,7 +373,7 @@ input[type="range"]::-moz-range-thumb {
 
 #song-disclaimer {
 	margin-top:12px;
-	font-size:12px;
+	font-size:10px;
 	text-transform: uppercase;
 	color:#c0bcbc;
 }
