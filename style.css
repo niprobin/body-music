@@ -341,14 +341,15 @@ input[type="range"]::-moz-range-thumb {
 #song-art {
 	display: inline-block;
 	width:auto;
-	height:100%;
+	height:auto;
 	border-radius:4px;
+	width:40%;
 }
 
 .song-details {
 	display:flex;
 	flex-direction: column;
-	width:70%;
+	width:50%;
 }
 
 #song-title {
@@ -372,7 +373,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 #song-disclaimer {
-	margin-top:14px;
+	margin-top:12px;
 	font-size:12px;
 	text-transform: uppercase;
 	color:#c0bcbc;
