@@ -518,8 +518,6 @@ input[type="range"]::-moz-range-thumb {
 
 	#song-modal {
 		width:100%;
-		box-shadow:none;
-		border-radius:0px;
 	}
 
 	.modal {
