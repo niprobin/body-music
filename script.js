@@ -132,14 +132,5 @@ window.addEventListener("click", (event) => {
     }
 });
 
-// Get modal and close button
-const topModal = document.getElementById('top-modal');
-const closeBtn = document.querySelector('.close-btn');
-
-// Add click event to close button
-closeBtn.addEventListener('click', () => {
-  topModal.classList.add('hidden'); // Hide the modal
-});
-
     
 
