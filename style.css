@@ -340,15 +340,14 @@ input[type="range"]::-moz-range-thumb {
   
   .schedule-container {
 	display:flex;
-	gap:15px;
   }
 
   .schedule {
-	width:50%;
+	width:40%;
   }
 
   .show {
-	width:50%;
+	width:60%;
 	text-align:right;
   }
 
