@@ -76,6 +76,11 @@ p {
 	width:60%;
 }
 
+mark {
+	background-color: #fff;
+	color:#171717;
+}
+
 /* Track Info */
 
 .volume-slider {
