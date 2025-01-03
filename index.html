@@ -23,6 +23,7 @@
       <script src="https://kit.fontawesome.com/cd85a69654.js" crossorigin="anonymous"></script>
    </head>
    <body>
+      <!-- WELCOME MODAL -->
       <div id="top-modal" class="modal">
          <div class="modal-content">
            <button class="close-btn" aria-label="Close modal">&times;</button>
@@ -32,18 +33,21 @@
             We're still learning... if you feel like it, leave us a comment and we'll check it out 😁</p>
          </div>
        </div>
+      <!-- PLAYER CONTAINER -->
       <div class="player">
          <div class="cover-art">
             <img src="/radio_cover.png" alt="Body Music Radio" id="cover-art">
          </div>
          <div class="player-container">
             <audio id="audio-player"></audio>
+            <!-- MAIN BUTTONS -->
             <div class="controls">
                <button role="button" id="play-btn" class="play-pause"><i class="fa-solid fa-play"></i>&nbsp;&nbsp;Play</button>
                <button role="button" id="show-modal" class="play-pause"><i class="fa-solid fa-compact-disc"></i></button>
                <button role="button" id="open-schedule-btn" class="play-pause"><i class="fa-solid fa-calendar-days"></i></button>
                <button role="button" id="open-drawer-btn" class="play-pause"><i class="fa-solid fa-comments"></i></button>
             </div>
+            <!-- MODAL TO DISPLAY CURRENT SONG-->
             <div id="song-modal">
                <img id="song-art" src="" alt="Song Art">
                <div class="song-details">
@@ -51,8 +55,9 @@
                   <p id="song-artist"></p>
                   <p id="song-disclaimer">CLICK AGAIN TO SHOW NEW SONG</p>
                </div>
-               <div id="close-modal">&times;</div>
+               <div id="close-modal"><i class="fa-solid fa-xmark"></i></div>
            </div>
+           <!-- VOLUME SLIDER -->
             <div class="volume-slider">
                <i class="fa-solid fa-volume-off" style="color:#666"></i>
                <input type="range" id="volume-control" min="0" max="1" step="0.01">
@@ -61,7 +66,7 @@
             
          </div>
       </div>
-      <!-- Modal -->
+      <!-- DRAWER FOR COMMENTS -->
       <div id="drawer" class="drawer">
          <button id="close-drawer-btn"><i class="fa-solid fa-xmark"></i></button>
          <div class="drawer-content">
@@ -70,6 +75,7 @@
          <script async defer src="./cusdis/cusdis.js"></script>
          </div>
       </div>
+      <!-- DRAWER FOR SCHEDULE -->
       <div id="schedule-drawer" class="schedule-drawer">
          <button id="close-schedule-drawer-btn"><i class="fa-solid fa-xmark"></i></button>
          <!-- GENERAL ROTATION -->

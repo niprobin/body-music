@@ -502,6 +502,14 @@ input[type="range"]::-moz-range-thumb {
 		border: 1px solid transparent;
 	}
 
+	.cover-art {
+	display:flex;
+	flex-direction: column;
+	height:100vh;
+	justify-content: center;
+	align-items: center;	
+	}
+
 	.drawer, .schedule-drawer {
 		width: 100%;
 		/* 100% width for mobile */
