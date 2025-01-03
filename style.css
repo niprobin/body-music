@@ -44,8 +44,8 @@ p {
 
 /* Cover Art */
 .cover-art {
-	width: 300px;
-	max-width:300px;
+	width: 350px;
+	max-width:350px;
 }
 
 .cover-art img {
@@ -225,13 +225,30 @@ input[type="range"]::-moz-range-thumb {
 	color:#fff;
   }
 
-#close-drawer-btn, #close-schedule-drawer-btn {
-	margin: 10px;
-	color: #fff;
-	font-size: 24px;
-	border:0px solid transparent;
-	background-color: transparent;
-	cursor: pointer;
+.close-drawer-header {
+	position:sticky;
+	top:0;
+	left:0;
+	width:100%;
+	text-align:center;
+	padding:15px;
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	background-color:#171717b6;
+	backdrop-filter: blur(6px);
+}
+
+
+.close-drawer-header > button {
+	border:none;
+	font-family:"Fustat", "Helvetica", Arial, sans-serif;
+	background: none;
+	color:#fff;
+	width:60%;
+	text-align:center;
+	cursor:pointer;
+	text-decoration: underline;
 }
 
 .schedule-drawer {
@@ -472,6 +489,10 @@ input[type="range"]::-moz-range-thumb {
 	.intro, .controls, .volume-slider, #song-modal {
 		width:100% !important;
 		max-width:100% !important;
+	}
+
+	.intro {
+		font-size:16px;
 	}
 
 	.modal {
