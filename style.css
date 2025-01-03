@@ -498,6 +498,7 @@ input[type="range"]::-moz-range-thumb {
 		/* Optional: aligns the element to the left */
 		width: 100%;
 		padding:20px;
+		height:20vh;
 		border-radius: 0px;
 		border: 1px solid transparent;
 	}
@@ -505,7 +506,7 @@ input[type="range"]::-moz-range-thumb {
 	.cover-art {
 	display:flex;
 	flex-direction: column;
-	height:100vh;
+	height:80vh;
 	justify-content: center;
 	align-items: center;	
 	}
