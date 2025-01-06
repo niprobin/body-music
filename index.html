@@ -28,39 +28,38 @@
          <div class="cover-art">
             <img src="/radio_cover.png" alt="Body Music Radio" id="cover-art">
          </div>
-         <div class="player-container">
-            <div class="intro">
-               <h3><mark>&nbsp;Body Music Radio&nbsp;</mark> — Kick back, press play & vibe with us 🎶</h3>
-               <p><strong></strong>
-                  Every track is handpicked to bring you a rich mix of tunes to chill, groove, or dance. <br><br>
-                  We’re starting with our library but will soon share weekly discoveries. Got a suggestion? Leave a comment! 😁
-               </p>
+      </div>
+      <div class="player-container">
+         <div class="intro">
+            <h3><mark>&nbsp;Body Music Radio&nbsp;</mark> — Kick back, press play & vibe with us 🎶</h3>
+            <p><strong></strong>
+               Every track is handpicked to bring you a rich mix of tunes to chill, groove, or dance. <br><br>
+               We’re starting with our library but will soon share weekly discoveries. Got a suggestion? Leave a comment! 😁
+            </p>
+         </div>
+         <audio id="audio-player"></audio>
+         <!-- MAIN BUTTONS -->
+         <div class="controls">
+            <button role="button" id="play-btn" class="play-pause"><i class="fa-solid fa-play"></i>&nbsp;&nbsp;Play</button>
+            <button role="button" id="show-modal" class="play-pause"><i class="fa-solid fa-compact-disc"></i></button>
+            <button role="button" id="open-schedule-btn" class="play-pause"><i class="fa-solid fa-calendar-days"></i></button>
+            <button role="button" id="open-drawer-btn" class="play-pause"><i class="fa-solid fa-comments"></i></button>
+         </div>
+         <!-- MODAL TO DISPLAY CURRENT SONG-->
+         <div id="song-modal">
+            <img id="song-art" src="" alt="Song Art">
+            <div class="song-details">
+               <p id="song-title"></p>
+               <p id="song-artist"></p>
+               <p id="song-disclaimer">CLICK AGAIN TO SHOW NEW SONG</p>
             </div>
-            <audio id="audio-player"></audio>
-            <!-- MAIN BUTTONS -->
-            <div class="controls">
-               <button role="button" id="play-btn" class="play-pause"><i class="fa-solid fa-play"></i>&nbsp;&nbsp;Play</button>
-               <button role="button" id="show-modal" class="play-pause"><i class="fa-solid fa-compact-disc"></i></button>
-               <button role="button" id="open-schedule-btn" class="play-pause"><i class="fa-solid fa-calendar-days"></i></button>
-               <button role="button" id="open-drawer-btn" class="play-pause"><i class="fa-solid fa-comments"></i></button>
-            </div>
-            <!-- MODAL TO DISPLAY CURRENT SONG-->
-            <div id="song-modal">
-               <img id="song-art" src="" alt="Song Art">
-               <div class="song-details">
-                  <p id="song-title"></p>
-                  <p id="song-artist"></p>
-                  <p id="song-disclaimer">CLICK AGAIN TO SHOW NEW SONG</p>
-               </div>
-               <div id="close-modal"><i class="fa-solid fa-xmark"></i></div>
-           </div>
-           <!-- VOLUME SLIDER -->
-            <div class="volume-slider">
-               <i class="fa-solid fa-volume-off" style="color:#666"></i>
-               <input type="range" id="volume-control" min="0" max="1" step="0.01">
-               <i class="fa-solid fa-volume-high" style="color:#666"></i>
-            </div>
-            
+            <div id="close-modal"><i class="fa-solid fa-xmark"></i></div>
+        </div>
+        <!-- VOLUME SLIDER -->
+         <div class="volume-slider">
+            <i class="fa-solid fa-volume-off" style="color:#666"></i>
+            <input type="range" id="volume-control" min="0" max="1" step="0.01">
+            <i class="fa-solid fa-volume-high" style="color:#666"></i>
          </div>
       </div>
       <!-- DRAWER FOR COMMENTS -->
