@@ -520,20 +520,10 @@ a, a:visited {
 		background-color: #FFBD59;
 		color:#171717;
 		padding-right:0px;
-	}
-
-	.headline {
 		display:flex;
 		align-items: center;
 		justify-content: center;
 		margin-bottom:20px;
-		color:#171717;
-		background-color: #FFBD59;
-	}
-
-	.player {
-		width:100%;
-		margin-bottom:40px;
 	}
 	
 	.player {
@@ -542,6 +532,12 @@ a, a:visited {
 		width:100%;
 		align-items: center;
 		justify-content: center;
+		margin-bottom:40px;
+	}
+
+	.cover-art {
+		width:100%;
+
 	}
 
 	.intro {
