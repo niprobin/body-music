@@ -56,37 +56,64 @@ function updateMediaSession() {
 updateMediaSession();
 setInterval(updateMediaSession, 30000); // Refresh every 30 seconds
 
-//Drawer functionality
-const openDrawerBtn = document.getElementById("open-drawer-btn");
-const closeDrawerBtn = document.getElementById("close-drawer-btn");
-const drawer = document.getElementById("drawer");
+// ----------------------- COMMENTS DRAWER JS ----------------------- //
 
-// Open the drawer
-openDrawerBtn.addEventListener("click", () => {
-  drawer.classList.add("open");
+document.addEventListener('DOMContentLoaded', () => {
+  const commentDrawer = document.getElementById('comment-drawer');
+  const openCommentDrawerBtn = document.getElementById('open-comment-btn');
+  const closeCommentDrawerBtn = document.getElementById('close-comment-btn');
+
+  const toggleBodyScroll = (disable) => {
+    if (disable) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  };
+
+  // Open drawer
+  openCommentDrawerBtn.addEventListener('click', () => {
+    commentDrawer.classList.add('open');
+    toggleBodyScroll(true);
+  });
+
+  // Close drawer
+  closeCommentDrawerBtn.addEventListener('click', () => {
+    commentDrawer.classList.remove('open');
+    toggleBodyScroll(false);
+  });
 });
 
-// Close the drawer
-closeDrawerBtn.addEventListener("click", () => {
-  drawer.classList.remove("open");
+// ----------------------- SCHEDULE DRAWER JS ----------------------- //
+
+document.addEventListener('DOMContentLoaded', () => {
+  const scheduleDrawer = document.getElementById('schedule-drawer');
+  const openScheduleDrawerBtn = document.getElementById('open-schedule-btn');
+  const closeScheduleDrawerBtn = document.getElementById('close-schedule-btn');
+
+  const toggleBodyScroll = (disable) => {
+    if (disable) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  };
+
+  // Open drawer
+  openScheduleDrawerBtn.addEventListener('click', () => {
+    scheduleDrawer.classList.add('open');
+    toggleBodyScroll(true);
+  });
+
+  // Close drawer
+  closeScheduleDrawerBtn.addEventListener('click', () => {
+    scheduleDrawer.classList.remove('open');
+    toggleBodyScroll(false);
+  });
 });
 
-//Schedule drawer functionality
-const openScheduleDrawerBtn = document.getElementById("open-schedule-btn");
-const closeScheduleDrawerBtn = document.getElementById("close-schedule-drawer-btn");
-const scheduleDrawer = document.getElementById("schedule-drawer");
+// ----------------------- SONG MODAL JS -----------------------
 
-// Open the Schedule drawer
-openScheduleDrawerBtn.addEventListener("click", () => {
-  scheduleDrawer.classList.add("open");
-});
-
-// Close the Schedule drawer
-closeScheduleDrawerBtn.addEventListener("click", () => {
-  scheduleDrawer.classList.remove("open");
-});
-
-//Open modal with current song
 const modal = document.getElementById("song-modal");
 const closeModal = document.getElementById("close-modal");
 const showModalButton = document.getElementById("show-modal");
@@ -130,5 +157,79 @@ window.addEventListener("click", (event) => {
     if (event.target === modal) {
         modal.style.display = "none";
     }
-}); 
+});
+
+// ----------------------- BEST ALBUMS JS -----------------------
+
+const webAppUrl = "https://script.google.com/macros/s/AKfycbxxDIYpN5J0mxDpaTDoGe3WtzO0FGc6Z8hmULZl4BK2z8XfvQaOSf4fAFw30Zpz9wCP/exec"; // Replace with your Google Web App URL
+const albumsContainer = document.getElementById("albums-container");
+
+// Fetch data from the Google Web App
+async function fetchAlbums() {
+  try {
+    const response = await fetch(webAppUrl);
+    if (!response.ok) throw new Error("Failed to fetch data");
+    const albums = await response.json();
+    displayAlbums(albums);
+  } catch (error) {
+    console.error("Error:", error);
+    albumsContainer.innerHTML = "<p>Failed to load albums. Please try again later.</p>";
+  }
+}
+
+// Format a date in "Month Year" format
+function formatDate(dateString) {
+  if (!dateString) return "Unknown Date";
+  
+  const date = new Date(dateString);
+  return new Intl.DateTimeFormat("en-US", { year: "numeric", month: "long" }).format(date);
+}
+
+// Display albums in the container
+function displayAlbums(albums) {
+  albumsContainer.innerHTML = ""; // Clear any existing content
+
+  albums.forEach(album => {
+    // Create album card
+    const albumDiv = document.createElement("div");
+    albumDiv.className = "album";
+
+    const coverArt = album.cover_art || "https://via.placeholder.com/80";
+    const releasedInFormatted = formatDate(album.released_in);
+    const listenedInFormatted = formatDate(album.listened_in);
+
+
+    const albumHTML = `
+    <div>
+        <div class="cover-rating">
+          <p class="rating">Rated ${album.rating} <i class="fa-solid fa-star"></i></p>  
+          <img class="album-cover" src="${coverArt}" alt="Album Cover">
+        </div>
+        <div class="album-details">
+          <div class="additional-info">
+            <p>${album.genre}</p>
+            <p class="listen-year">Discovered: ${listenedInFormatted}</p>
+          </div>
+          <div class="main-info">
+            <p class="album-name">${album.album}</p>
+            <p class="artist">${album.artist}</p>
+          </div>
+          <div class="additional-info">
+            
+          </div>
+          <div class="album-link">
+              <a href="${album.spotify_url}" target="_blank"><i class="fa-brands fa-spotify"></i>&nbsp;Listen on Spotify</a>
+          </div>
+        </div>
+      </div>
+    `;
+
+    albumDiv.innerHTML = albumHTML;
+    albumsContainer.appendChild(albumDiv);
+  });
+}
+
+// Fetch and display albums when the page loads
+fetchAlbums(); 
+
 

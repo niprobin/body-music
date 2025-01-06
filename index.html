@@ -23,27 +23,32 @@
       <script src="https://kit.fontawesome.com/cd85a69654.js" crossorigin="anonymous"></script>
    </head>
    <body>
-      <!-- PLAYER CONTAINER -->
+      <div class="headline" id="radio-headline"><h1><mark>Body Music Radio</mark></h1></div>
+      <!-- RADIO DESCRIPTION -->
       <div class="player">
          <div class="cover-art">
-            <img src="/radio_cover.png" alt="Body Music Radio" id="cover-art">
+            <img src="./favicon/favicon-512x512.png" alt="Body Music Radio" id="cover-art">
          </div>
-      </div>
-      <div class="player-container">
          <div class="intro">
-            <h3><mark>&nbsp;Body Music Radio&nbsp;</mark> — Kick back, press play & vibe with us 🎶</h3>
+            <h2>Kick back, press play & vibe with us 🎶</h2>
             <p><strong></strong>
                Every track is handpicked to bring you a rich mix of tunes to chill, groove, or dance. <br><br>
-               We’re starting with our library but will soon share weekly discoveries. Got a suggestion? Leave a comment! 😁
+               We’re starting with our library but will soon share weekly discoveries. Got a suggestion? Leave a comment!
+               <br><br>
+               You can also use our player controls to check the current playing song and our weekly schedule.
             </p>
          </div>
+      </div>
+      <a id="link-to-albums" href="#albums-headline"><i class="fa-solid fa-arrow-down"></i></a>
+      <!-- STICKY PLAYER -->
+      <div id="sticky-player" class="player-container">
          <audio id="audio-player"></audio>
          <!-- MAIN BUTTONS -->
          <div class="controls">
             <button role="button" id="play-btn" class="play-pause"><i class="fa-solid fa-play"></i>&nbsp;&nbsp;Play</button>
             <button role="button" id="show-modal" class="play-pause"><i class="fa-solid fa-compact-disc"></i></button>
             <button role="button" id="open-schedule-btn" class="play-pause"><i class="fa-solid fa-calendar-days"></i></button>
-            <button role="button" id="open-drawer-btn" class="play-pause"><i class="fa-solid fa-comments"></i></button>
+            <button role="button" id="open-comment-btn" class="play-pause"><i class="fa-solid fa-comments"></i></button>
          </div>
          <!-- MODAL TO DISPLAY CURRENT SONG-->
          <div id="song-modal">
@@ -54,17 +59,14 @@
                <p id="song-disclaimer">CLICK AGAIN TO SHOW NEW SONG</p>
             </div>
             <div id="close-modal"><i class="fa-solid fa-xmark"></i></div>
-        </div>
-        <!-- VOLUME SLIDER -->
-         <div class="volume-slider">
-            <i class="fa-solid fa-volume-off" style="color:#666"></i>
-            <input type="range" id="volume-control" min="0" max="1" step="0.01">
-            <i class="fa-solid fa-volume-high" style="color:#666"></i>
-         </div>
+        </div>       
       </div>
+      <!-- BEST ALBUMS SECTION-->
+      <div class="headline" id="albums-headline"><h1><mark>Our favourite albums</mark></h1></div>
+        <div id="albums-container"></div>
       <!-- DRAWER FOR COMMENTS -->
-      <div id="drawer" class="drawer">
-         <div class="close-drawer-header"><button id="close-drawer-btn">CLOSE</button></div>
+      <div id="comment-drawer" class="comment-drawer">
+         <div class="close-drawer-header"><button id="close-comment-btn">CLOSE</button></div>
          <div class="drawer-content">
          <div id="cusdis_thread" data-host="https://cusdis.com" data-app-id="85dc485b-5413-4b19-8e31-1c642828a474" data-page-id="/" data-page-url="music.niprobin.com" data-page-title="Body Music Radio">
          </div>
@@ -73,7 +75,7 @@
       </div>
       <!-- DRAWER FOR SCHEDULE -->
       <div id="schedule-drawer" class="schedule-drawer">
-         <div class="close-drawer-header"><button id="close-schedule-drawer-btn">CLOSE</button></div>
+         <div class="close-drawer-header"><button id="close-schedule-btn">CLOSE</button></div>
          <!-- GENERAL ROTATION -->
          <div class="container">
             <div class="day-container" id="general-rotation">
