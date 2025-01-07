@@ -1,172 +1,186 @@
 <!DOCTYPE html>
-<html lang="en" >
-   <head>
-      <meta charset="UTF-8">
-      <meta name="description" content="Discover great music by listening to Body Music Radio. A rich mix of great tunes selected by music lovers!">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta property="og:title" content="Body Music Radio" />
-      <meta property="og:description" content="Good music for every Body!" />
-      <meta property="og:image" content="https://music.niprobin.com/radio_cover.png" />
-      <meta property="og:url" content="https://music.niprobin.com" />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="apple-mobile-web-app-capable" content="yes">
-      <meta name="apple-mobile-web-app-status-bar-style" content="black">
-      <meta name="apple-mobile-web-app-title" content="Body Music Radio">
-      <link rel="apple-touch-icon" href="icon-192x192.png">
-      <title>Body Music Radio | Radio for every Body!</title>
-      <link rel="stylesheet" href="./style.css">
-      <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="192x192" href="./favicon/favicon-192x192.png">
-      <link rel="manifest" href="./favicon/site.webmanifest">
-      <script src="https://kit.fontawesome.com/cd85a69654.js" crossorigin="anonymous"></script>
-   </head>
-   <body>
-      <div class="headline" id="radio-headline"><h1>Body Music Radio</h1></div>
-      <!-- RADIO DESCRIPTION -->
-      <div class="player">
-         <div class="cover-art">
-            <img src="./favicon/favicon-512x512.png" alt="Body Music Radio" id="cover-art">
-         </div>
-         <div class="intro">
-            <h2>Kick back, press play & vibe with us 🎶</h2>
-            <p><strong></strong>
-               Every track is handpicked to bring you a rich mix of tunes to chill, groove, or dance. <br><br>
-               We’re starting with our library but will soon share weekly discoveries. Got a suggestion? Leave a comment!
-               <br><br>
-               You can also use our player controls to check the current playing song and our weekly schedule.
-            </p>
-         </div>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="description"
+      content="Discover great music by listening to Body Music Radio. A rich mix of great tunes selected by music lovers!">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta property="og:title" content="Body Music Radio" />
+   <meta property="og:description" content="Good music for every Body!" />
+   <meta property="og:image" content="https://music.niprobin.com/radio_cover.png" />
+   <meta property="og:url" content="https://music.niprobin.com" />
+   <meta name="twitter:card" content="summary_large_image" />
+   <meta name="apple-mobile-web-app-capable" content="yes">
+   <meta name="apple-mobile-web-app-status-bar-style" content="black">
+   <meta name="apple-mobile-web-app-title" content="Body Music Radio">
+   <link rel="apple-touch-icon" href="icon-192x192.png">
+   <title>Body Music Radio | Radio for every Body!</title>
+   <link rel="stylesheet" href="./style.css">
+   <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+   <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+   <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+   <link rel="icon" type="image/png" sizes="192x192" href="./favicon/favicon-192x192.png">
+   <link rel="manifest" href="./favicon/site.webmanifest">
+   <script src="https://kit.fontawesome.com/cd85a69654.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+   <div class="headline" id="radio-headline">
+      <h1>Body Music Radio</h1>
+   </div>
+   <!-- RADIO DESCRIPTION -->
+   <div class="player">
+      <div class="cover-art">
+         <img src="./favicon/favicon-512x512.png" alt="Body Music Radio" id="cover-art">
       </div>
-      <a id="link-to-albums" href="#albums-headline"><i class="fa-solid fa-arrow-down"></i></a>
-      <!-- STICKY PLAYER -->
-      <div id="sticky-player" class="player-container">
-         <audio id="audio-player"></audio>
-         <!-- MAIN BUTTONS -->
-         <div class="controls">
-            <button role="button" id="play-btn" class="play-pause"><i class="fa-solid fa-play"></i>&nbsp;&nbsp;PLAY RADIO</button>
-            <button role="button" id="show-modal" class="play-pause"><i class="fa-solid fa-compact-disc"></i></button>
-            <button role="button" id="open-schedule-btn" class="play-pause"><i class="fa-solid fa-calendar-days"></i></button>
-            <button role="button" id="open-comment-btn" class="play-pause"><i class="fa-solid fa-comments"></i></button>
-         </div>
-         <!-- MODAL TO DISPLAY CURRENT SONG-->
-         <div id="song-modal">
-            <img id="song-art" src="" alt="Song Art">
-            <div class="song-details">
-               <p id="song-title"></p>
-               <p id="song-artist"></p>
-               <p id="song-disclaimer">CLICK AGAIN TO SHOW NEW SONG</p>
-            </div>
-            <div id="close-modal"><i class="fa-solid fa-xmark"></i></div>
-        </div>       
+      <div class="intro">
+         <h2>Kick back, press play & vibe with us 🎶</h2>
+         <p><strong></strong>
+            Every track is handpicked to bring you a rich mix of tunes to chill, groove, or dance. <br><br>
+            We’re starting with our library but will soon share weekly discoveries. Got a suggestion? Leave a comment!
+            <br><br>
+            You can also use our player controls to check the current playing song and our weekly schedule.
+         </p>
       </div>
-      <!-- BEST ALBUMS SECTION-->
-      <div class="headline" id="albums-headline"><h1><mark>Our favourite albums</mark></h1></div>
-        <div id="albums-container"></div>
-      <!-- DRAWER FOR COMMENTS -->
-      <div id="comment-drawer" class="comment-drawer">
-         <div class="close-drawer-header"><button id="close-comment-btn">CLOSE</button></div>
-         <div class="drawer-content">
-         <div id="cusdis_thread" data-host="https://cusdis.com" data-app-id="85dc485b-5413-4b19-8e31-1c642828a474" data-page-id="/" data-page-url="music.niprobin.com" data-page-title="Body Music Radio">
+   </div>
+   <a id="link-to-albums" href="#albums-headline"><i class="fa-solid fa-arrow-down"></i></a>
+   <!-- STICKY PLAYER -->
+   <div id="sticky-player" class="player-container">
+      <audio id="audio-player"></audio>
+      <!-- MAIN BUTTONS -->
+      <div class="controls">
+         <button role="button" id="play-btn" class="play-pause"><i class="fa-solid fa-play"></i>&nbsp;&nbsp;PLAY
+            RADIO</button>
+         <button role="button" id="show-modal" class="play-pause"><i class="fa-solid fa-compact-disc"></i></button>
+         <button role="button" id="open-schedule-btn" class="play-pause"><i
+               class="fa-solid fa-calendar-days"></i></button>
+         <button role="button" id="open-comment-btn" class="play-pause"><i class="fa-solid fa-comments"></i></button>
+      </div>
+      <!-- MODAL TO DISPLAY CURRENT SONG-->
+      <div id="song-modal">
+         <img id="song-art" src="" alt="Song Art">
+         <div class="song-details">
+            <p id="song-title"></p>
+            <p id="song-artist"></p>
+            <p id="song-disclaimer">CLICK AGAIN TO SHOW NEW SONG</p>
+         </div>
+         <div id="close-modal"><i class="fa-solid fa-xmark"></i></div>
+      </div>
+   </div>
+   <!-- BEST ALBUMS SECTION-->
+   <div class="headline" id="albums-headline">
+      <h1><mark>Our favourite albums</mark></h1>
+   </div>
+   <div id="albums-container"></div>
+   <!-- DRAWER FOR COMMENTS -->
+   <div id="comment-drawer" class="comment-drawer">
+      <div class="close-drawer-header"><button id="close-comment-btn">CLOSE</button></div>
+      <div class="drawer-content">
+         <div id="cusdis_thread" data-host="https://cusdis.com" data-app-id="85dc485b-5413-4b19-8e31-1c642828a474"
+            data-page-id="/" data-page-url="music.niprobin.com" data-page-title="Body Music Radio">
          </div>
          <script async defer src="./cusdis/cusdis.js"></script>
-         </div>
       </div>
-      <!-- DRAWER FOR SCHEDULE -->
-      <div id="schedule-drawer" class="schedule-drawer">
-         <div class="close-drawer-header"><button id="close-schedule-btn">CLOSE</button></div>
-         <!-- GENERAL ROTATION -->
-         <div class="container">
-            <div class="day-container" id="general-rotation">
-               <div class="day-title">Everyday</div>
-               <div class="schedule-container">
+   </div>
+   <!-- DRAWER FOR SCHEDULE -->
+   <div id="schedule-drawer" class="schedule-drawer">
+      <div class="close-drawer-header"><button id="close-schedule-btn">CLOSE</button></div>
+      <!-- GENERAL ROTATION -->
+      <div class="container">
+         <div class="day-container" id="general-rotation">
+            <div class="day-title">Everyday</div>
+            <div class="schedule-container">
                <div class="schedule">06:00 - 08:00</div>
                <div class="show">Early Bird</div>
-               </div>
-               <div class="schedule-container">
+            </div>
+            <div class="schedule-container">
                <div class="schedule">08:00 - 10:00</div>
                <div class="show">Morning Chill</div>
-               </div>
-               <div class="schedule-container">
+            </div>
+            <div class="schedule-container">
                <div class="schedule">10:00 - 19:00</div>
                <div class="show">All Day Mix</div>
-               </div>
             </div>
-            <!-- MONDAY -->
-            <div class="day-container">
-               <div class="day-title">Monday</div>
-               <div class="schedule-container">
-                  <div class="schedule">19:00 - 21:00</div>
-                  <div class="show">Jazz Special</div>
-               </div>
-               <div class="schedule-container">
-                  <div class="schedule">21:00 - 00:00</div>
-                  <div class="show">Hip-Hop Mix</div>
-               </div>
+         </div>
+         <!-- MONDAY -->
+         <div class="day-container">
+            <div class="day-title">Monday</div>
+            <div class="schedule-container">
+               <div class="schedule">19:00 - 21:00</div>
+               <div class="show">Jazz Special</div>
             </div>
-            <!-- TUESDAY -->
-            <div class="day-container">
-               <div class="day-title">Tuesday</div>
-               <div class="schedule-container">
-                  <div class="schedule">19:00 - 21:00</div>
-                  <div class="show">Hip-Hop Mix</div>
-               </div>
-               <div class="schedule-container">
-                  <div class="schedule">21:00 - 00:00</div>
-                  <div class="show">Jazz Funk Combo</div>
-               </div>
+            <div class="schedule-container">
+               <div class="schedule">21:00 - 00:00</div>
+               <div class="show">Hip-Hop Mix</div>
             </div>
-            <!-- WEDNESDAY -->
-            <div class="day-container">
-               <div class="day-title">Wednesday</div>
-               <div class="schedule-container">
-                  <div class="schedule">19:00 - 21:00</div>
-                  <div class="show">Rare Grooves</div>
-               </div>
-               <div class="schedule-container">
-                  <div class="schedule">21:00 - 00:00</div>
-                  <div class="show">Intelligent DNB</div>
-               </div>
+         </div>
+         <!-- TUESDAY -->
+         <div class="day-container">
+            <div class="day-title">Tuesday</div>
+            <div class="schedule-container">
+               <div class="schedule">19:00 - 21:00</div>
+               <div class="show">Hip-Hop Mix</div>
             </div>
-            <!-- THURSDAY -->
-            <div class="day-container">
-               <div class="day-title">Thursday</div>
-               <div class="schedule-container">
-                  <div class="schedule">19:00 - 21:00</div>
-                  <div class="show">Jazz Funk Combo</div>
-               </div>
-               <div class="schedule-container">
-                  <div class="schedule">21:00 - 00:00</div>
-                  <div class="show">Jazz Special</div>
-               </div>
+            <div class="schedule-container">
+               <div class="schedule">21:00 - 00:00</div>
+               <div class="show">Jazz Funk Combo</div>
             </div>
-            <!-- FRIDAY -->
-            <div class="day-container">
-               <div class="day-title">Friday</div>
-               <div class="schedule-container">
-                  <div class="schedule">19:00 - 21:00</div>
-                  <div class="show">Rare Grooves</div>
-               </div>
-               <div class="schedule-container">
-                  <div class="schedule">21:00 - 00:00</div>
-                  <div class="show">House Music</div>
-               </div>
+         </div>
+         <!-- WEDNESDAY -->
+         <div class="day-container">
+            <div class="day-title">Wednesday</div>
+            <div class="schedule-container">
+               <div class="schedule">19:00 - 21:00</div>
+               <div class="show">Rare Grooves</div>
             </div>
-            <!-- WEEKEND -->
-            <div class="day-container">
-               <div class="day-title">Weekend</div>
-               <div class="schedule-container">
-                  <div class="schedule">19:00 - 21:00</div>
-                  <div class="show">Intelligent DNB</div>
-               </div>
-               <div class="schedule-container">
-                  <div class="schedule">21:00 - 00:00</div>
-                  <div class="show">Chef's kiss</div>
-               </div>
+            <div class="schedule-container">
+               <div class="schedule">21:00 - 00:00</div>
+               <div class="show">Intelligent DNB</div>
+            </div>
+         </div>
+         <!-- THURSDAY -->
+         <div class="day-container">
+            <div class="day-title">Thursday</div>
+            <div class="schedule-container">
+               <div class="schedule">19:00 - 21:00</div>
+               <div class="show">Jazz Funk Combo</div>
+            </div>
+            <div class="schedule-container">
+               <div class="schedule">21:00 - 00:00</div>
+               <div class="show">Jazz Special</div>
+            </div>
+         </div>
+         <!-- FRIDAY -->
+         <div class="day-container">
+            <div class="day-title">Friday</div>
+            <div class="schedule-container">
+               <div class="schedule">19:00 - 21:00</div>
+               <div class="show">Rare Grooves</div>
+            </div>
+            <div class="schedule-container">
+               <div class="schedule">21:00 - 00:00</div>
+               <div class="show">House Music</div>
+            </div>
+         </div>
+         <!-- WEEKEND -->
+         <div class="day-container">
+            <div class="day-title">Weekend</div>
+            <div class="schedule-container">
+               <div class="schedule">19:00 - 21:00</div>
+               <div class="show">Intelligent DNB</div>
+            </div>
+            <div class="schedule-container">
+               <div class="schedule">21:00 - 00:00</div>
+               <div class="show">Chef's kiss</div>
             </div>
          </div>
       </div>
-      <script  src="./script.js"></script>
-   </body>
+   </div>
+   <script src="./script.js"></script>
+   <!-- 100% privacy-first analytics -->
+   <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+
+</body>
+
 </html>
