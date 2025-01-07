@@ -50,12 +50,12 @@
       <audio id="audio-player"></audio>
       <!-- MAIN BUTTONS -->
       <div class="controls">
-         <button role="button" id="play-btn" class="play-pause"><i class="fa-solid fa-play"></i>&nbsp;&nbsp;PLAY
+         <button type="button" role="button" id="play-btn" class="play-pause"><i class="fa-solid fa-play"></i>&nbsp;&nbsp;PLAY
             RADIO</button>
-         <button role="button" id="show-modal" class="play-pause"><i class="fa-solid fa-compact-disc"></i></button>
-         <button role="button" id="open-schedule-btn" class="play-pause"><i
+         <button type="button" role="button" id="show-modal" class="play-pause"><i class="fa-solid fa-compact-disc"></i></button>
+         <button type="button" role="button" id="open-schedule-btn" class="play-pause"><i
                class="fa-solid fa-calendar-days"></i></button>
-         <button role="button" id="open-comment-btn" class="play-pause"><i class="fa-solid fa-comments"></i></button>
+         <button type="button" role="button" id="open-comment-btn" class="play-pause"><i class="fa-solid fa-comments"></i></button>
       </div>
       <!-- MODAL TO DISPLAY CURRENT SONG-->
       <div id="song-modal">
@@ -75,7 +75,7 @@
    <div id="albums-container"></div>
    <!-- DRAWER FOR COMMENTS -->
    <div id="comment-drawer" class="comment-drawer">
-      <div class="close-drawer-header"><button id="close-comment-btn">CLOSE</button></div>
+      <div class="close-drawer-header"><button type="button" id="close-comment-btn">CLOSE</button></div>
       <div class="drawer-content">
          <div id="cusdis_thread" data-host="https://cusdis.com" data-app-id="85dc485b-5413-4b19-8e31-1c642828a474"
             data-page-id="/" data-page-url="music.niprobin.com" data-page-title="Body Music Radio">
@@ -85,7 +85,7 @@
    </div>
    <!-- DRAWER FOR SCHEDULE -->
    <div id="schedule-drawer" class="schedule-drawer">
-      <div class="close-drawer-header"><button id="close-schedule-btn">CLOSE</button></div>
+      <div class="close-drawer-header"><button type="button" id="close-schedule-btn">CLOSE</button></div>
       <!-- GENERAL ROTATION -->
       <div class="container">
          <div class="day-container" id="general-rotation">
@@ -177,7 +177,7 @@
          </div>
       </div>
    </div>
-   <script src="./script.js"></script>
+   <script async src="./script.js"></script>
    <!-- 100% privacy-first analytics -->
    <script data-collect-dnt="true" async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
 </body>
