@@ -31,9 +31,9 @@ p {
 /* Player Container */
 .player {
 	background-color: #171717;
-	width: 80%;
-	min-width: 80%;
-	max-width: 80%;
+	width: 90%;
+	min-width: 90%;
+	max-width: 90%;
 	margin: 0 auto;
 	height:65vh;
 	display:flex;
@@ -409,11 +409,12 @@ input[type="range"]::-moz-range-thumb {
 }
 
 #albums-container {
-    width:100%;
-	padding:0px 20px 90px 20px;
+    width:90%;
+	margin: 0 auto;
+	padding-bottom:90px;
 	display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
-	gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+	gap: 25px;
 }
 
 .album {
@@ -555,6 +556,7 @@ a, a:visited {
 		justify-content: center;
 		margin-bottom:40px;
 	}
+
 
 	.cover-art {
 		width:100%;
