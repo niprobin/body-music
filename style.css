@@ -412,8 +412,8 @@ input[type="range"]::-moz-range-thumb {
     width:100%;
 	padding:0px 20px 90px 20px;
 	display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-	gap: 1.1rem;
+    grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+	gap: 15px;
 }
 
 .album {
@@ -476,17 +476,21 @@ input[type="range"]::-moz-range-thumb {
 	text-overflow: ellipsis;
 }
 
-.listen-year {
-	text-align:right;
-}
-
 .main-info {
-	padding:12px 0px 18px 0px;
+	width:100%;
+	padding:8px 0px 12px 0px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	font-size: 1em;
 }
 
 .album-name {
 	font-weight:bold;
-	font-size:1.2em;
+}
+
+.listen-year {
+	text-align:right;
 }
 
 .album-link {
