@@ -207,8 +207,8 @@ function displayAlbums(albums) {
         </div>
         <div class="album-details">
           <div class="additional-info">
-            <p>${album.genre}</p>
-            <p class="listen-year">Discovered: ${listenedInFormatted}</p>
+            <p><mark>&nbsp;Genres&nbsp;</mark><br>${album.genre}</p>
+            <p class="listen-year"><mark>&nbsp;Discovered&nbsp;</mark><br>${listenedInFormatted}</p>
           </div>
           <div class="main-info">
             <p class="album-name">${album.album}</p>
