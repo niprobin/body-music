@@ -56,62 +56,6 @@ function updateMediaSession() {
 updateMediaSession();
 setInterval(updateMediaSession, 30000); // Refresh every 30 seconds
 
-// ----------------------- COMMENTS DRAWER JS ----------------------- //
-
-document.addEventListener('DOMContentLoaded', () => {
-  const commentDrawer = document.getElementById('comment-drawer');
-  const openCommentDrawerBtn = document.getElementById('open-comment-btn');
-  const closeCommentDrawerBtn = document.getElementById('close-comment-btn');
-
-  const toggleBodyScroll = (disable) => {
-    if (disable) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-  };
-
-  // Open drawer
-  openCommentDrawerBtn.addEventListener('click', () => {
-    commentDrawer.classList.add('open');
-    toggleBodyScroll(true);
-  });
-
-  // Close drawer
-  closeCommentDrawerBtn.addEventListener('click', () => {
-    commentDrawer.classList.remove('open');
-    toggleBodyScroll(false);
-  });
-});
-
-// ----------------------- SCHEDULE DRAWER JS ----------------------- //
-
-document.addEventListener('DOMContentLoaded', () => {
-  const scheduleDrawer = document.getElementById('schedule-drawer');
-  const openScheduleDrawerBtn = document.getElementById('open-schedule-btn');
-  const closeScheduleDrawerBtn = document.getElementById('close-schedule-btn');
-
-  const toggleBodyScroll = (disable) => {
-    if (disable) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-  };
-
-  // Open drawer
-  openScheduleDrawerBtn.addEventListener('click', () => {
-    scheduleDrawer.classList.add('open');
-    toggleBodyScroll(true);
-  });
-
-  // Close drawer
-  closeScheduleDrawerBtn.addEventListener('click', () => {
-    scheduleDrawer.classList.remove('open');
-    toggleBodyScroll(false);
-  });
-});
-
 // ----------------------- SONG MODAL JS -----------------------
 
 const modal = document.getElementById("song-modal");
@@ -233,3 +177,30 @@ function displayAlbums(albums) {
 fetchAlbums(); 
 
 
+// ----------------------- DRAWER JS -----------------------
+
+// DOM Elements for schedule and comment drawers
+const openScheduleBtn = document.getElementById("open-schedule-btn");
+const openCommentBtn = document.getElementById("open-comment-btn");
+const scheduleDrawer = document.getElementById("schedule-drawer");
+const commentDrawer = document.getElementById("comment-drawer");
+const closeScheduleBtn = document.getElementById("close-schedule-btn");
+const closeCommentBtn = document.getElementById("close-comment-btn");
+
+// Open and close functions for the schedule drawer
+openScheduleBtn.addEventListener("click", () => {
+    scheduleDrawer.classList.add("open"); // Show the schedule drawer
+});
+
+closeScheduleBtn.addEventListener("click", () => {
+    scheduleDrawer.classList.remove("open"); // Hide the schedule drawer
+});
+
+// Open and close functions for the comment drawer
+openCommentBtn.addEventListener("click", () => {
+    commentDrawer.classList.add("open"); // Show the comment drawer
+});
+
+closeCommentBtn.addEventListener("click", () => {
+    commentDrawer.classList.remove("open"); // Hide the comment drawer
+});
