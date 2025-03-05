@@ -22,7 +22,7 @@ playBtn.addEventListener("click", () => {
     } else {
         // Pause playback if currently playing
         audioPlayer.pause();
-        playBtn.innerHTML = '<i class="fa-solid fa-play"></i>&nbsp;&nbsp;Play';
+        playBtn.innerHTML = '<i class="fa-solid fa-play"></i>&nbsp;&nbsp;PLAY';
     }
 });
 
