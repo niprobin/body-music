@@ -1,5 +1,5 @@
 // Replace with your AzuraCast stream URL
-const streamUrl = "https://radio.niprobin.com:8000/radio.mp3";
+const streamUrl = "https://radio.niprobin.com/listen/body-music/radio.mp3";
 
 // DOM Elements
 const playBtn = document.getElementById("play-btn");
@@ -139,7 +139,6 @@ function displayAlbums(albums) {
     albumDiv.className = "album";
 
     const coverArt = album.cover_art || "https://via.placeholder.com/80";
-    const releasedInFormatted = formatDate(album.released_in);
     const listenedInFormatted = formatDate(album.listened_in);
 
 
