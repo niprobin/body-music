@@ -13,11 +13,11 @@ playBtn.addEventListener("click", () => {
         audioPlayer.load(); // Reload the stream
         audioPlayer.play()
             .then(() => {
-                playBtn.innerHTML = '<i class="fa-solid fa-pause"></i>&nbsp;&nbsp;Pause';
+                playBtn.innerHTML = '<i class="fa-solid fa-pause"></i>&nbsp;&nbsp;PAUSE';
             })
             .catch((error) => {
                 console.error("Playback failed:", error);
-                playBtn.innerHTML = '<i class="fa-solid fa-play"></i>&nbsp;&nbsp;Play';
+                playBtn.innerHTML = '<i class="fa-solid fa-play"></i>&nbsp;&nbsp;PLAY';
             });
     } else {
         // Pause playback if currently playing
