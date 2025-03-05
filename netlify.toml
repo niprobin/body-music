@@ -3,6 +3,6 @@ directory = "netlify/functions"
 
 [[redirects]]
   from = "https://music.niprobin.com/*"
-  to = "https://www.body-music.com/:splat"
+  to = "https://www.body-radio.com/:splat"
   status = 301
   force = true
