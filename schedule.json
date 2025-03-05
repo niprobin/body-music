@@ -1,51 +1,51 @@
 {
     "Monday": [
-        { "time": "06:00 - 08:00", "show": "Early Birds" },
-        { "time": "08:00 - 10:00", "show": "Morning Chill" },
-        { "time": "10:00 - 19:00", "show": "Day Mix" },
-        { "time": "19:00 - 21:00", "show": "Jazz Special" },
-        { "time": "21:00 - 00:00", "show": "Hip-hop Mix" }
+        { "start": "06:00", "end": "08:00", "show": "Early Birds" },
+        { "start": "08:00", "end": "10:00", "show": "Morning Chill" },
+        { "start": "10:00", "end": "19:00", "show": "Daily Mix" },
+        { "start": "19:00", "end": "21:00", "show": "Jazz Special" },
+        { "start": "21:00", "end": "23:59", "show": "Hip-hop Mix" }
     ],
     "Tuesday": [
-        { "time": "06:00 - 08:00", "show": "Early Birds" },
-        { "time": "08:00 - 10:00", "show": "Morning Chill" },
-        { "time": "10:00 - 19:00", "show": "Day Mix" },
-        { "time": "19:00 - 21:00", "show": "Hip-hop Mix" },
-        { "time": "21:00 - 00:00", "show": "Jazz & Funk Combo" }
+        { "start": "06:00", "end": "08:00", "show": "Early Birds" },
+        { "start": "08:00", "end": "10:00", "show": "Morning Chill" },
+        { "start": "10:00", "end": "19:00", "show": "Daily Mix" },
+        { "start": "19:00", "end": "21:00", "show": "Hip-hop Mix" },
+        { "start": "21:00", "end": "23:59", "show": "Jazz & Funk Combo" }
     ],
     "Wednesday": [
-        { "time": "06:00 - 08:00", "show": "Early Birds" },
-        { "time": "08:00 - 10:00", "show": "Morning Chill" },
-        { "time": "10:00 - 19:00", "show": "Day Mix" },
-        { "time": "19:00 - 21:00", "show": "Rare Grooves" },
-        { "time": "21:00 - 00:00", "show": "Refined Electronic Selecta" }
+        { "start": "06:00", "end": "08:00", "show": "Early Birds" },
+        { "start": "08:00", "end": "10:00", "show": "Morning Chill" },
+        { "start": "10:00", "end": "19:00", "show": "Daily Mix" },
+        { "start": "19:00", "end": "21:00", "show": "Rare Grooves" },
+        { "start": "21:00", "end": "23:59", "show": "Refined Electronic Selecta" }
     ],
     "Thursday": [
-        { "time": "06:00 - 08:00", "show": "Early Birds" },
-        { "time": "08:00 - 10:00", "show": "Morning Chill" },
-        { "time": "10:00 - 19:00", "show": "Day Mix" },
-        { "time": "19:00 - 21:00", "show": "Jazz & Funk Combo" },
-        { "time": "21:00 - 00:00", "show": "Jazz Special" }
+        { "start": "06:00", "end": "08:00", "show": "Early Birds" },
+        { "start": "08:00", "end": "10:00", "show": "Morning Chill" },
+        { "start": "10:00", "end": "19:00", "show": "Daily Mix" },
+        { "start": "19:00", "end": "21:00", "show": "Jazz & Funk Combo" },
+        { "start": "21:00", "end": "23:59", "show": "Jazz Special" }
     ],
     "Friday": [
-        { "time": "06:00 - 08:00", "show": "Early Birds" },
-        { "time": "08:00 - 10:00", "show": "Morning Chill" },
-        { "time": "10:00 - 19:00", "show": "Day Mix" },
-        { "time": "19:00 - 21:00", "show": "Rare Grooves" },
-        { "time": "21:00 - 00:00", "show": "Proper House Music" }
+        { "start": "06:00", "end": "08:00", "show": "Early Birds" },
+        { "start": "08:00", "end": "10:00", "show": "Morning Chill" },
+        { "start": "10:00", "end": "19:00", "show": "Daily Mix" },
+        { "start": "19:00", "end": "21:00", "show": "Rare Grooves" },
+        { "start": "21:00", "end": "23:59", "show": "House House House" }
     ],
     "Saturday": [
-        { "time": "06:00 - 08:00", "show": "Early Birds" },
-        { "time": "08:00 - 10:00", "show": "Morning Chill" },
-        { "time": "10:00 - 19:00", "show": "Day Mix" },
-        { "time": "19:00 - 21:00", "show": "Refined Electronic Selecta" },
-        { "time": "21:00 - 00:00", "show": "Mix & Match" }
+        { "start": "06:00", "end": "08:00", "show": "Early Birds" },
+        { "start": "08:00", "end": "10:00", "show": "Morning Chill" },
+        { "start": "10:00", "end": "19:00", "show": "Daily Mix" },
+        { "start": "19:00", "end": "21:00", "show": "Refined Electronic Selecta" },
+        { "start": "21:00", "end": "23:59", "show": "Mix & Match" }
     ],
     "Sunday": [
-        { "time": "06:00 - 08:00", "show": "Early Birds" },
-        { "time": "08:00 - 10:00", "show": "Morning Chill" },
-        { "time": "10:00 - 19:00", "show": "Day Mix" },
-        { "time": "19:00 - 21:00", "show": "Refined Electronic Selecta" },
-        { "time": "21:00 - 00:00", "show": "Mix & Match" }
+        { "start": "06:00", "end": "08:00", "show": "Early Birds" },
+        { "start": "08:00", "end": "10:00", "show": "Morning Chill" },
+        { "start": "10:00", "end": "19:00", "show": "Daily Mix" },
+        { "start": "19:00", "end": "21:00", "show": "Refined Electronic Selecta" },
+        { "start": "21:00", "end": "23:59", "show": "Mix & Match" }
     ]
 }

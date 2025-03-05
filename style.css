@@ -27,6 +27,16 @@ p {
 	vertical-align: baseline;
 }
 
+h3 {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font: inherit;
+	font-size:110%;
+	font-weight:bold;
+	vertical-align: baseline;
+}
+
 
 /* Player Container */
 .player {
@@ -270,6 +280,7 @@ input[type="range"]::-moz-range-thumb {
 	/* Hidden off-screen */
 	width: 100%;
 	height: 100vh;
+	padding:15px;
 	background-color: #171717f1;
 	backdrop-filter: blur(6px);
 	transition: right 0.3s ease-in;
@@ -285,52 +296,6 @@ input[type="range"]::-moz-range-thumb {
 	left: 0;
 	display: block;
 }
-
-.schedule-drawer > .container {
-	width:100%;
-	padding:10px 15px;
-	display: grid;
-  	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-	gap:15px;
-	font-size:14px;
-}
-
-.day-container {
-	width:100%;
-	color:#fff;
-	border-radius:4px;
-	padding: 12px;
-	background-color:#1E1E1E;
-	box-shadow: rgba(90, 88, 88, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-	display: flex;
-	flex-direction: column;
-	gap: 5px;
-  }
-
-  #general-rotation {
-	background-color: #FFBD59;
-	color:#333;
-  }
-  
-  .day-title {
-	margin-bottom:10px;
-	font-size:16px;
-	font-weight:bold;
-	text-transform: uppercase;
-  }
-  
-  .schedule-container {
-	display:flex;
-  }
-
-  .schedule {
-	width:40%;
-  }
-
-  .show {
-	width:60%;
-	text-align:right;
-  }
 
 /* Modal Styles */
 #song-modal {
@@ -502,7 +467,6 @@ input[type="range"]::-moz-range-thumb {
   box-sizing: border-box;
   color: #fff;
   cursor: pointer;
-  font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 16px;
   font-weight: 400;
   outline: none;
@@ -527,8 +491,56 @@ a, a:visited {
 	font-family: 'Fustat', "Helvetica", sans-serif;
 }
 
+/* ----------------------- CURRENT DAY SCHEDULE HIGHLIGHT -----------------------*/
 
-/* For mobile devices */
+.schedule-container {
+	padding:10px 15px;
+}
+
+#schedule-list {
+	width:100%;
+	display: grid;
+  	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	gap:15px;
+	font-size:12px;
+	text-transform: uppercase;
+}
+
+.schedule-day {
+    width:100%;
+	color:#fff;
+	border-radius:4px;
+	padding: 10px;
+	background-color:#262424;
+	box-shadow: rgba(90, 88, 88, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.current-day {
+    border:3px solid #FFBD59; /* Highlight current day */
+    padding: 10px;
+}
+
+.schedule-item {
+    color: #fff;
+    padding: 5px;
+	background: #cccccc97;
+    border-left: 5px solid #ccc;
+	border-radius:4px;
+    margin: 5px 0;
+}
+
+.current-show {
+    border-left: 5px solid #f19307; /* Highlight the current show */
+    background: #FFBD59;
+    font-weight: bold;
+	color:#333
+}
+
+/* ----------------------- RESPONSIVE STYLES -----------------------*/
+
 @media (max-width: 820px) {
 
 	body {
@@ -577,11 +589,6 @@ a, a:visited {
 		/* 100% width for mobile */
 		overflow-x: hidden;
 		box-shadow: none;
-	}
-
-	.schedule-drawer > .container {
-		font-size: 16px;
-		height:100%;
 	}
 
 	.intro, .controls, .volume-slider, #song-modal {
