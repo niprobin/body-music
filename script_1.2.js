@@ -105,13 +105,13 @@ window.addEventListener("click", (event) => {
 
 // ----------------------- BEST ALBUMS JS -----------------------
 
-const webAppUrl = "https://script.google.com/macros/s/AKfycbxxDIYpN5J0mxDpaTDoGe3WtzO0FGc6Z8hmULZl4BK2z8XfvQaOSf4fAFw30Zpz9wCP/exec"; // Replace with your Google Web App URL
+const netlifyFunctionUrl = "/.netlify/fuctions/albums.js"; // Replace with your Google Web App URL
 const albumsContainer = document.getElementById("albums-container");
 
 // Fetch data from the Google Web App
 async function fetchAlbums() {
   try {
-    const response = await fetch(webAppUrl);
+    const response = await fetch(netlifyFunctionUrl);
     if (!response.ok) throw new Error("Failed to fetch data");
     const albums = await response.json();
     displayAlbums(albums);
@@ -276,8 +276,9 @@ async function loadSchedule() {
   }
 }
 
-// Immediately start fetching the schedule
+// Load schedule immediately & refresh every 5 minutes
 loadSchedule();
+setInterval(loadSchedule, 5 * 60 * 1000); // Refresh every 5 minutes (300,000 ms)
 
 // Also ensure it runs when the DOM is fully ready (fallback)
 document.addEventListener("DOMContentLoaded", loadSchedule);

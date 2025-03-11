@@ -3,7 +3,7 @@ const fetch = require("node-fetch");
 let cachedData = null;
 let cacheTimestamp = null;
 const CACHE_DURATION = 24 * 60 * 60 * 1000; // 1 day in milliseconds
-const SHEET_URL = "https://script.google.com/macros/s/AKfycbxxDIYpN5J0mxDpaTDoGe3WtzO0FGc6Z8hmULZl4BK2z8XfvQaOSf4fAFw30Zpz9wCP/exec"; // Your Google Sheet Web App URL
+const SHEET_URL = "https://opensheet.elk.sh/1gHxDBsWpkbOQ-exCD6iIC-uJS3JMjVmfFLvM8UO93qc/data_albums"; // JSON with Opensheet
 
 exports.handler = async () => {
   const now = Date.now();
@@ -17,7 +17,7 @@ exports.handler = async () => {
     };
   }
 
-  // Fetch new data from Google Sheets
+  // Fetch new data from OpenSheet
   try {
     console.log("Fetching new data from Google Sheets");
     const response = await fetch(SHEET_URL);
@@ -25,8 +25,6 @@ exports.handler = async () => {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const data = await response.json();
-
-    // Update cache
     cachedData = data;
     cacheTimestamp = now;
 
