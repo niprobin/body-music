@@ -378,7 +378,7 @@ input[type="range"]::-moz-range-thumb {
 	margin: 0 auto;
 	padding-bottom:90px;
 	display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(215px, 0.25fr));
 	gap: 25px;
 }
 
@@ -460,12 +460,12 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .album-link {
-  background-color: #13aa52;
-  border: 1px solid #13aa52;
+  background-color: #FFBD59;
+  border: 1px solid #FFBD59;
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
   box-sizing: border-box;
-  color: #fff;
+  color: #1e1e1e;
   cursor: pointer;
   font-size: 16px;
   font-weight: 400;
@@ -539,6 +539,28 @@ a, a:visited {
 	color:#333
 }
 
+/* ----------------------- ALBUM PAGE -----------------------*/
+
+
+.filters {
+	display:flex;
+	justify-content: start;
+	flex-direction: row;
+	align-items: center;
+	margin: 20px auto;
+	gap:20px;
+	width:90%;
+	text-transform:uppercase;
+}
+
+.filters > div > select {
+	background-color:#171717;
+	border:1px solid #c0bcbc;
+	padding:4px 8px;
+	color:#fff
+}
+
+
 /* ----------------------- RESPONSIVE STYLES -----------------------*/
 
 @media (max-width: 820px) {
@@ -580,8 +602,8 @@ a, a:visited {
 		text-align:center;
 	}
 
-	#link-to-albums {
-		display:none;
+	#albums-container {
+		grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
 	}
 	
 	.comment-drawer {

@@ -1,6 +1,3 @@
-[functions]
-directory = "netlify/functions"
-
 [[redirects]]
   from = "https://music.niprobin.com/*"
   to = "https://www.body-radio.com/:splat"

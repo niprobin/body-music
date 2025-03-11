@@ -22,6 +22,8 @@
    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
    <link rel="icon" type="image/png" sizes="192x192" href="./favicon/favicon-192x192.png">
    <link rel="manifest" href="./favicon/site.webmanifest">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
    <script src="https://kit.fontawesome.com/cd85a69654.js" crossorigin="anonymous"></script>
 </head>
 
@@ -36,11 +38,11 @@
       </div>
       <div class="intro">
          <h2>Kick back, press play & vibe with us 🎶</h2>
-         <p><strong></strong>
+         <p>
             Every track is handpicked to bring you a rich mix of tunes to chill, groove, or dance. <br><br>
             We’re starting with our library but will soon share weekly discoveries. Got a suggestion? Leave a comment!
             <br><br>
-            You can also use our player controls to check the current playing song and our weekly schedule.
+            You can also use our player controls to check the current playing song and our weekly schedule. 
          </p>
       </div>
    </div>
@@ -72,7 +74,22 @@
    <div class="headline" id="albums-headline">
       <h1><mark>Our favourite albums</mark></h1>
    </div>
-   <div id="albums-container"></div>
+   <div class="filters">
+      <div>
+          <label for="genre-filter">Genre</label>
+          <select id="genre-filter">
+              <option value="">All</option>
+              <!-- Options will be populated dynamically -->
+          </select>
+      </div>
+      <div>
+          <label for="rating-filter">Rating</label>
+          <select id="rating-filter">
+              <option value="">All</option>
+          </select>
+      </div>
+  </div>
+  <div id="albums-container"></div>
    <!-- DRAWER FOR COMMENTS -->
    <div id="comment-drawer" class="comment-drawer">
       <div class="close-drawer-header"><button type="button" id="close-comment-btn">CLOSE</button></div>

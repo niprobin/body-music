@@ -105,20 +105,56 @@ window.addEventListener("click", (event) => {
 
 // ----------------------- BEST ALBUMS JS -----------------------
 
-const netlifyFunctionUrl = "https://opensheet.elk.sh/1gHxDBsWpkbOQ-exCD6iIC-uJS3JMjVmfFLvM8UO93qc/data_albums"; // Opensheet URL to fetch data
+const albumDataUrl = "https://opensheet.elk.sh/1gHxDBsWpkbOQ-exCD6iIC-uJS3JMjVmfFLvM8UO93qc/data_albums"; // URL to fetch album data
 const albumsContainer = document.getElementById("albums-container");
+const genreFilter = document.getElementById("genre-filter");
+const ratingFilter = document.getElementById("rating-filter");
 
-// Fetch data from the Google Web App
+let albumsData = [];
+
+// Fetch data from the album data URL
 async function fetchAlbums() {
   try {
-    const response = await fetch(netlifyFunctionUrl);
+    const response = await fetch(albumDataUrl);
     if (!response.ok) throw new Error("Failed to fetch data");
     const albums = await response.json();
+    albumsData = albums;
+    populateGenreFilter(albums);
+    populateRatingFilter(albums);
     displayAlbums(albums);
   } catch (error) {
     console.error("Error:", error);
     albumsContainer.innerHTML = "<p>Failed to load albums. Please try again later.</p>";
   }
+}
+
+// Populate genre filter options
+function populateGenreFilter(albums) {
+  const genres = new Set();
+  albums.forEach(album => {
+    album.genre.split(',').forEach(genre => {
+      genres.add(genre.trim());
+    });
+  });
+  const sortedGenres = Array.from(genres).sort();
+  sortedGenres.forEach(genre => {
+    const option = document.createElement("option");
+    option.value = genre;
+    option.textContent = genre;
+    genreFilter.appendChild(option);
+  });
+}
+
+// Populate rating filter options
+function populateRatingFilter(albums) {
+  const ratings = new Set(albums.map(album => album.rating));
+  const sortedRatings = Array.from(ratings).sort((a, b) => a - b);
+  sortedRatings.forEach(rating => {
+    const option = document.createElement("option");
+    option.value = rating;
+    option.textContent = rating;
+    ratingFilter.appendChild(option);
+  });
 }
 
 // Format a date in "Month Year" format
@@ -161,7 +197,7 @@ function displayAlbums(albums) {
             
           </div>
           <div class="album-link">
-              <a href="${album.spotify_url}" target="_blank"><i class="fa-brands fa-spotify"></i>&nbsp;Listen on Spotify</a>
+              <a href="${album.spotify_url}" target="_blank"><i class="fa-brands fa-youtube"></i>&nbsp;&nbsp;<i class="fa-brands fa-spotify"></i>&nbsp;Listen to the album</a>
           </div>
         </div>
       </div>
@@ -172,8 +208,24 @@ function displayAlbums(albums) {
   });
 }
 
-// Fetch and display albums when the page loads
-fetchAlbums(); 
+// Filter albums based on selected genre and rating
+function filterAlbums() {
+  const selectedGenre = genreFilter.value;
+  const selectedRating = ratingFilter.value;
+  const filteredAlbums = albumsData.filter(album => {
+    const albumGenres = album.genre.split(',').map(genre => genre.trim());
+    return (selectedGenre ? albumGenres.includes(selectedGenre) : true) &&
+           (selectedRating ? album.rating === selectedRating : true);
+  });
+  displayAlbums(filteredAlbums);
+}
+
+// Event listeners for genre and rating filters
+genreFilter.addEventListener("change", filterAlbums);
+ratingFilter.addEventListener("change", filterAlbums);
+
+// Call fetchAlbums to load and display albums data
+fetchAlbums();
 
 
 // ----------------------- DRAWER JS -----------------------
