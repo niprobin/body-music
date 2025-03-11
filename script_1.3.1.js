@@ -105,7 +105,7 @@ window.addEventListener("click", (event) => {
 
 // ----------------------- BEST ALBUMS JS -----------------------
 
-const netlifyFunctionUrl = "/.netlify/fuctions/albums.js"; // Replace with your Google Web App URL
+const netlifyFunctionUrl = "https://opensheet.elk.sh/1gHxDBsWpkbOQ-exCD6iIC-uJS3JMjVmfFLvM8UO93qc/data_albums"; // Opensheet URL to fetch data
 const albumsContainer = document.getElementById("albums-container");
 
 // Fetch data from the Google Web App
