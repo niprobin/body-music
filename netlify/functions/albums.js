@@ -3,7 +3,7 @@ const fetch = require("node-fetch");
 let cachedData = null;
 let cacheTimestamp = null;
 const CACHE_DURATION = 24 * 60 * 60 * 1000; // 1 day in milliseconds
-const SHEET_URL = "https://opensheet.elk.sh/1gHxDBsWpkbOQ-exCD6iIC-uJS3JMjVmfFLvM8UO93qc/data_albums"; // JSON with Opensheet
+const SHEET_URL = "https://opensheet.elk.sh/1gHxDBsWpkbOQ-exCD6iIC-uJS3JMjVmfFLvM8UO93qc/data_albums"; // OpenSheet URL
 
 exports.handler = async () => {
   const now = Date.now();
@@ -19,7 +19,7 @@ exports.handler = async () => {
 
   // Fetch new data from OpenSheet
   try {
-    console.log("Fetching new data from Google Sheets");
+    console.log("Fetching new data from OpenSheet");
     const response = await fetch(SHEET_URL);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -28,6 +28,7 @@ exports.handler = async () => {
     cachedData = data;
     cacheTimestamp = now;
 
+    console.log("Fetched new data and updated cache");
     return {
       statusCode: 200,
       body: JSON.stringify(data),
