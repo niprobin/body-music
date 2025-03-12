@@ -28,22 +28,22 @@
 <body>
    <!-- RADIO DESCRIPTION -->
    <header>
-      <div class="intro">            
-            <h1>Body Music Radio</h1>
+         <h1>Body Music Radio</h1>
+         <button type="button" role="button" id="play-btn" class="play-pause"><i class="fa-solid fa-play"></i>
+            Play</button>
          <p>
             Every track is handpicked to bring you a rich mix of tunes to chill, groove, or dance. <br><br>
             Check our weekly schedule for the latest rotation and discover new music. <br><br>
          </p>
-      </div>
-      <div class="actions">
-         <button type="button" role="button" id="play-btn" class="play-pause"><i
-            class="fa-solid fa-play"></i> Play</button>
-         <button type="button" role="button" id="modal-btn"><i
-            class="fa-solid fa-compact-disc"></i>&nbsp;&nbsp;Current track</button>
-         <a href="/schedule.html" target="_blank"><i class="fa-solid fa-up-right-from-square"></i>&nbsp;&nbsp;Check schedule</a>
-         <a href="/albums.html" target="_blank"><i class="fa-solid fa-up-right-from-square"></i>&nbsp;&nbsp;Best albums</a>
-      </div>
    </header>
+   <div class="actions">
+      <button type="button" role="button" id="modal-btn"><i class="fa-solid fa-compact-disc"></i>&nbsp;&nbsp;Current
+         track</button>
+      <a href="/schedule.html" target="_blank"><i class="fa-solid fa-up-right-from-square"></i>&nbsp;&nbsp;Check
+         schedule</a>
+      <a href="/albums.html" target="_blank"><i class="fa-solid fa-up-right-from-square"></i>&nbsp;&nbsp;Best
+         albums</a>
+   </div>
    <!-- STICKY PLAYER -->
    <div id="sticky-player" class="player-container">
       <audio id="audio-player"></audio>
