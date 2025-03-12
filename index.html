@@ -28,51 +28,43 @@
 </head>
 
 <body>
-   <div class="headline" id="radio-headline">
-      <h1>Body Music Radio</h1>
-   </div>
    <!-- RADIO DESCRIPTION -->
-   <div class="player">
+   <header>
       <div class="cover-art">
          <img src="./favicon/favicon-512x512.png" alt="Body Music Radio" id="cover-art">
       </div>
       <div class="intro">
-         <h2>Kick back, press play & vibe with us 🎶</h2>
+         <h2>Body Music Radio</h2>
          <p>
             Every track is handpicked to bring you a rich mix of tunes to chill, groove, or dance. <br><br>
-            We’re starting with our library but will soon share weekly discoveries. Got a suggestion? Leave a comment!
-            <br><br>
-            You can also use our player controls to check the current playing song and our weekly schedule. 
+            Check our weekly schedule for the latest rotation and discover new music. <br><br>
          </p>
       </div>
-   </div>
-   <a id="link-to-albums" href="#albums-headline"><i class="fa-solid fa-arrow-down"></i></a>
+   </header>
    <!-- STICKY PLAYER -->
    <div id="sticky-player" class="player-container">
       <audio id="audio-player"></audio>
+   <!-- MODAL TO DISPLAY CURRENT SONG-->
+   <div id="song-modal">
+      <img id="song-art" src="" alt="album cover">
+      <div class="song-details">
+         <p id="song-title"></p>
+         <p id="song-artist"></p>
+         <p id="song-disclaimer">CLICK AGAIN TO SHOW NEW SONG</p>
+      </div>
+   </div>
       <!-- MAIN BUTTONS -->
       <div class="controls">
-         <button type="button" role="button" id="play-btn" class="play-pause"><i class="fa-solid fa-play"></i>&nbsp;&nbsp;PLAY
-            RADIO</button>
-         <button type="button" role="button" id="show-modal" class="play-pause"><i class="fa-solid fa-compact-disc"></i></button>
+         <button type="button" role="button" id="modal-btn" class="play-pause"><i class="fa-solid fa-compact-disc"></i></button>
+         <button type="button" role="button" id="play-btn" class="play-pause"><i class="fa-solid fa-play"></i></button>
          <button type="button" role="button" id="open-schedule-btn" class="play-pause"><i
                class="fa-solid fa-calendar-days"></i></button>
-         <button type="button" role="button" id="open-comment-btn" class="play-pause"><i class="fa-solid fa-comments"></i></button>
-      </div>
-      <!-- MODAL TO DISPLAY CURRENT SONG-->
-      <div id="song-modal">
-         <img id="song-art" src="" alt="Song Art">
-         <div class="song-details">
-            <p id="song-title"></p>
-            <p id="song-artist"></p>
-            <p id="song-disclaimer">CLICK AGAIN TO SHOW NEW SONG</p>
-         </div>
-         <div id="close-modal"><i class="fa-solid fa-xmark"></i></div>
+         <!-- button for comments <button type="button" role="button" id="open-comment-btn" class="play-pause"><i class="fa-solid fa-comments"></i></button> -->
       </div>
    </div>
    <!-- BEST ALBUMS SECTION-->
    <div class="headline" id="albums-headline">
-      <h1><mark>Our favourite albums</mark></h1>
+      <h1>Our favourite albums</h1>
    </div>
    <div class="filters">
       <div>
@@ -90,7 +82,7 @@
       </div>
   </div>
   <div id="albums-container"></div>
-   <!-- DRAWER FOR COMMENTS -->
+   <!-- DRAWER FOR COMMENTS
    <div id="comment-drawer" class="comment-drawer">
       <div class="close-drawer-header"><button type="button" id="close-comment-btn">CLOSE</button></div>
       <div class="drawer-content">
@@ -99,7 +91,7 @@
          </div>
          <script async defer src="./cusdis/cusdis.js"></script>
       </div>
-   </div>
+   </div> -->
    <!-- DRAWER FOR SCHEDULE -->
    <div id="schedule-drawer" class="schedule-drawer">
       <div class="close-drawer-header">

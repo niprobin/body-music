@@ -13,16 +13,16 @@ playBtn.addEventListener("click", () => {
         audioPlayer.load(); // Reload the stream
         audioPlayer.play()
             .then(() => {
-                playBtn.innerHTML = '<i class="fa-solid fa-pause"></i>&nbsp;&nbsp;PAUSE';
+                playBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
             })
             .catch((error) => {
                 console.error("Playback failed:", error);
-                playBtn.innerHTML = '<i class="fa-solid fa-play"></i>&nbsp;&nbsp;PLAY';
+                playBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
             });
     } else {
         // Pause playback if currently playing
         audioPlayer.pause();
-        playBtn.innerHTML = '<i class="fa-solid fa-play"></i>&nbsp;&nbsp;PLAY';
+        playBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
     }
 });
 
@@ -58,48 +58,38 @@ setInterval(updateMediaSession, 30000); // Refresh every 30 seconds
 
 // ----------------------- SONG MODAL JS -----------------------
 
-const modal = document.getElementById("song-modal");
-const closeModal = document.getElementById("close-modal");
-const showModalButton = document.getElementById("show-modal");
-
-// API URL for nowPlaying data
 const nowPlayingApiUrl = "https://radio.niprobin.com/api/nowplaying/1";
+const modal = document.getElementById("song-modal");
+const modalBtn = document.getElementById("modal-btn");
 
-showModalButton.addEventListener("click", () => {
-    // Fetch currently playing song data
-    fetch(nowPlayingApiUrl)
-        .then((response) => response.json())
-        .then((data) => {
-            // Get song details
-            const song = data.now_playing.song;
-            const songArt = song.art || "https://radio.niprobin.com/static/uploads/body-music/album_art.1735556879.png"; // Provide a fallback image if art is missing
-            const songTitle = song.title || "A great song";
-            const songArtist = song.artist || "A great artist";
+modalBtn.addEventListener("click", () => {
+    if (modal.classList.contains("show")) {
+        // If modal is already open, close it
+        modal.classList.remove("show");
+        modalBtn.setAttribute("id", "modal-btn"); // Reset button ID
+    } else {
+        // Fetch currently playing song data
+        fetch(nowPlayingApiUrl)
+            .then((response) => response.json())
+            .then((data) => {
+                // Get song details
+                const song = data.now_playing.song;
+                const songArt = song.art || "https://radio.niprobin.com/static/uploads/body-music/album_art.1735556879.png"; // Provide a fallback image if art is missing
+                const songTitle = song.title || "A great song";
+                const songArtist = song.artist || "A great artist";
 
-            // Update modal content
-            document.getElementById("song-art").src = songArt;
-            document.getElementById("song-title").innerText = songTitle;
-            document.getElementById("song-artist").innerText = songArtist;
+                // Update modal content
+                document.getElementById("song-art").src = songArt;
+                document.getElementById("song-title").innerText = songTitle;
+                document.getElementById("song-artist").innerText = songArtist;
 
-            // Show modal
-            modal.style.display = "flex";
-        })
-        .catch((error) => {
-            console.error("Error fetching song data:", error);
-            alert("Could not fetch the currently playing song. Please try again later.");
-        });
-});
-
-// Close the modal on button click
-closeModal.addEventListener("click", () => {
-    modal.style.display = "none";
-});
-
-// Close the modal when clicking outside of it
-window.addEventListener("click", (event) => {
-    // Ensure the modal is hidden only when clicking outside of it
-    if (event.target === modal) {
-        modal.style.display = "none";
+                // Show modal
+                modal.classList.add("show");
+            })
+            .catch((error) => {
+                console.error("Error fetching song data:", error);
+                alert("Could not fetch the currently playing song. Please try again later.");
+            });
     }
 });
 
@@ -232,11 +222,11 @@ fetchAlbums();
 
 // DOM Elements for schedule and comment drawers
 const openScheduleBtn = document.getElementById("open-schedule-btn");
-const openCommentBtn = document.getElementById("open-comment-btn");
+// const openCommentBtn = document.getElementById("open-comment-btn");
 const scheduleDrawer = document.getElementById("schedule-drawer");
-const commentDrawer = document.getElementById("comment-drawer");
+// const commentDrawer = document.getElementById("comment-drawer");
 const closeScheduleBtn = document.getElementById("close-schedule-btn");
-const closeCommentBtn = document.getElementById("close-comment-btn");
+// const closeCommentBtn = document.getElementById("close-comment-btn");
 const websiteBody = document.body;
 
 // Open and close functions for the schedule drawer
@@ -251,13 +241,13 @@ closeScheduleBtn.addEventListener("click", () => {
 });
 
 // Open and close functions for the comment drawer
-openCommentBtn.addEventListener("click", () => {
-    commentDrawer.classList.add("open"); // Show the comment drawer
-});
+// openCommentBtn.addEventListener("click", () => {
+//    commentDrawer.classList.add("open"); // Show the comment drawer
+//});
 
-closeCommentBtn.addEventListener("click", () => {
-    commentDrawer.classList.remove("open"); // Hide the comment drawer
-});
+//closeCommentBtn.addEventListener("click", () => {
+//    commentDrawer.classList.remove("open"); // Hide the comment drawer
+//});
 
 
 // ----------------------- TODAY SCHEDULE JS -----------------------
