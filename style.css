@@ -16,6 +16,7 @@ body, html {
 
 * {
     box-sizing: border-box; /* Include padding and border in element's width/height */
+	font-family: "Fustat", "Helvetica", sans-serif;
 }
 
 p {
@@ -27,48 +28,55 @@ p {
 	vertical-align: baseline;
 }
 
-h3 {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font: inherit;
-	font-size:110%;
-	font-weight:bold;
-	vertical-align: baseline;
+a, a:visited {
+	color:inherit;
+	text-decoration: none;
 }
-
 
 /* Player Container */
 header {
 	background-color: #171717;
-	width: 100%;
-	min-width: 100%;
-	max-width: 100%;
+	width: 50%;
+	max-width: 50%;
 	height:100vh;
 	display:flex;
-	flex-direction: row-reverse;
+	margin:0 auto;
+	flex-direction: column;
 	justify-content: center;
-	align-items: center;
+	align-items: left;
 }
 
 .intro {
-	font-size: 16x;
-	max-width:50%;
-	width:50%;
-	margin:0 auto;
-	padding: 15px;
+	width:100%;
+	text-align:left;
 }
 
-/* Cover Art */
-.cover-art {
-	width:50%;
-	text-align:center;
+.actions {
+	display:flex;
+	flex-direction:row;
+	flex-wrap: wrap;
+	gap:2em;
 }
 
-.cover-art img {
-	display: inline;
-	width: 256px;
-	max-width: 256px;
+.actions > button, .actions > a {
+	font-family: 'Fustat', "Helvetica", sans-serif;
+	font-size:1em;
+	font-weight: bold;;
+	background-color: transparent;
+	color: #f3c887;
+	border: 0;
+	padding: 0.6em 0em;
+	cursor: pointer;
+	border-bottom:2px solid #f3c887;
+}
+
+.actions > button.play-pause {
+	background-color: #f3c887;
+	color: #171717;
+	border: 0;
+	padding: 0.6em 1em;
+	border-radius: 4px;
+	font-family:'Fustat', "Helvetica", sans-serif;
 }
 
 .player-container {
@@ -92,13 +100,12 @@ header {
 	gap:10px;
 	align-items: center;	
 	border-radius:4px;
-	padding: 10px;
+	padding: 15px;
 	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 	backdrop-filter: blur(3px);
-	background-color: #f3c887bd;
+	background-color: #f3c887;
 	color:#1e1e1e;
 	text-align:left;
-	max-width:33%;
 	width:33%;
 	max-height:120px;
 	height:120px;
@@ -116,32 +123,26 @@ header {
 	border-radius:4px;
 	height:100%;
 	width:auto;
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 .song-details {
 	display:flex;
 	flex-direction: column;
-	width:auto;
-	flex-basis: 100%;
+	width:100%;
 }
 
 #song-title {
 	font-size:18px;
 	font-weight:bold;
-	width:100%;
-	max-width:100%;
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
+	width:80%;
+	max-width:80%;
 }
 
 #song-artist {
 	font-size:16px;
-	width:100%;
-	max-width:100%;
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
+	width:80%;
+	max-width:80%;
 	
 }
 
@@ -163,232 +164,10 @@ header {
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 	backdrop-filter: blur(6px);
 	background-color: #FEE1C7;
-	color:#1e1e1e;
+	color:#fff;
 	border-radius: 4px;
 	height:15vh;
 }
-
-.play-pause {
-	font-size:32px;
-	border:0;
-	padding:12px;
-	background-color: transparent;
-	cursor:pointer;
-	text-align: center;
-	border-radius:4px;
-}
-
-#play-btn {
-	font-size:38px;
-}
-/* ----------------------- BEST ALBUMS SECTION -----------------------*/
-
-.headline {
-	width:30%;
-	padding-right:14px;
-	text-align: right;
-	background-color: #FFBD59;
-	color:#171717;
-}
-
-#albums-container {
-    width:90%;
-	margin: 0 auto;
-	padding-bottom:90px;
-	display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(215px, 0.25fr));
-	gap: 25px;
-}
-
-.album {
-    width:100%;
-    color:#fff;
-    background-color:#2d2a2a;
-    border-radius: 4px;
-	border:1px solid #fff;
-	padding-bottom:16px;
-}
-
-mark {
-	background-color: #FFBD59;
-	color: #171717;
-}
-
-.album-cover {
-    width:100%;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-	border:1px solid #fff;
-}
-
-.cover-rating {
-	position:relative;
-}
-
-.rating {
-	position: absolute;
-	top:0px;
-	right:0px;
-	padding:5px;
-	border-bottom-left-radius:4px;
-	border-top-right-radius: 4px;
-	z-index:1;
-	font-size: 0.7em;
-	background-color:#fff;
-	color:#333;
-}
-
-.album-details {
-	padding:4px 8px;
-	font-size: 1em;
-}
-
-.additional-info {
-	display:flex;
-	justify-content: space-between;
-	font-size: 0.7em;
-	color: #FFBD59;
-	text-transform: uppercase;
-	font-weight:bold;
-	width:100%;
-	gap:10px;
-}
-
-.additional-info > p {
-	width:50%;
-	max-width:50%;
-}
-
-.additional-info > p:first-child {
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-}
-
-.main-info {
-	width:100%;
-	padding:8px 0px 12px 0px;
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	font-size: 1em;
-}
-
-.album-name {
-	font-weight:bold;
-}
-
-.listen-year {
-	text-align:right;
-}
-
-.album-link {
-  background-color: #FFBD59;
-  border: 1px solid #FFBD59;
-  border-radius: 4px;
-  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
-  box-sizing: border-box;
-  color: #1e1e1e;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 400;
-  outline: none;
-  outline: 0;
-  padding: 10px 25px;
-  text-align: center;
-  transform: translateY(0);
-  transition: transform 150ms, box-shadow 150ms;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-.album-link:hover {
-  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
-  transform: translateY(-2px);
-}
-
-a, a:visited {
-	color:inherit;
-	text-decoration: none;
-	font-family: 'Fustat', "Helvetica", sans-serif;
-}
-
-/* ----------------------- CURRENT DAY SCHEDULE HIGHLIGHT -----------------------*/
-
-.schedule-drawer {
-	padding:20px;
-	width:100%;
-	height:100vh;
-	display:flex;
-	background-color: #171717;
-	box-sizing: border-box;
-	
-}
-
-#schedule-list {
-	width:100%;
-	display: grid;
-  	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-	gap:15px;
-	font-size:12px;
-	text-transform: uppercase;
-}
-
-.schedule-day {
-    width:100%;
-	color:#fff;
-	border-radius:4px;
-	padding: 10px;
-	background-color:#262424;
-	box-shadow: rgba(90, 88, 88, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-	display: flex;
-	flex-direction: column;
-	gap: 5px;
-}
-
-.current-day {
-    border:3px solid #FFBD59; /* Highlight current day */
-    padding: 10px;
-}
-
-.schedule-item {
-    color: #fff;
-    padding: 5px;
-	background: #cccccc97;
-    border-left: 5px solid #ccc;
-	border-radius:4px;
-    margin: 5px 0;
-}
-
-.current-show {
-    border-left: 5px solid #f19307; /* Highlight the current show */
-    background: #FFBD59;
-    font-weight: bold;
-	color:#333
-}
-
-/* ----------------------- ALBUM PAGE -----------------------*/
-
-
-.filters {
-	display:flex;
-	justify-content: start;
-	flex-direction: row;
-	align-items: center;
-	margin: 20px auto;
-	gap:20px;
-	width:90%;
-	text-transform:uppercase;
-}
-
-.filters > div > select {
-	background-color:#171717;
-	border:1px solid #c0bcbc;
-	padding:4px 8px;
-	color:#fff
-}
-
 
 /* ----------------------- RESPONSIVE STYLES -----------------------*/
 
@@ -398,48 +177,15 @@ a, a:visited {
 		margin:0;
 		padding:0;
 	}
-
-	.headline {
-		width:100%;
-		text-align: center;
-		background-color: #FFBD59;
-		color:#171717;
-		padding-right:0px;
-		display:flex;
-		align-items: center;
-		justify-content: center;
-		margin-bottom:20px;
-	}
 	
 	header {
 		flex-direction: column;
 		height:100vh;
 		width:100%;
+		padding:2.5vw;
 		align-items: center;
 		justify-content: center;
-	}
-
-
-	.cover-art {
-		width:100%;
-
-	}
-
-	.intro {
-		width:100%;
-		text-align:center;
-	}
-
-	#albums-container {
-		grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
-	}
-	
-	.comment-drawer {
-		width: 100%;
-		/* 100% width for mobile */
-		overflow-x: hidden;
-		box-shadow: none;
-	}
+	}	
 
 	.intro, #song-modal, .controls {
 		width:95vw !important;
@@ -451,7 +197,8 @@ a, a:visited {
 	}
 
 	.intro {
-		font-size:16px;
+		font-size:18px;
+		text-align:center;
 	}
 
 	.modal {

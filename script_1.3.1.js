@@ -13,16 +13,16 @@ playBtn.addEventListener("click", () => {
         audioPlayer.load(); // Reload the stream
         audioPlayer.play()
             .then(() => {
-                playBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+                playBtn.innerHTML = '<i class="fa-solid fa-pause"> Pause</i>';
             })
             .catch((error) => {
                 console.error("Playback failed:", error);
-                playBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
+                playBtn.innerHTML = '<i class="fa-solid fa-play"> Play</i>';
             });
     } else {
         // Pause playback if currently playing
         audioPlayer.pause();
-        playBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
+        playBtn.innerHTML = '<i class="fa-solid fa-play"> Play</i>';
     }
 });
 
@@ -92,127 +92,3 @@ modalBtn.addEventListener("click", () => {
             });
     }
 });
-
-// ----------------------- BEST ALBUMS JS -----------------------
-
-const albumDataUrl = "https://opensheet.elk.sh/1gHxDBsWpkbOQ-exCD6iIC-uJS3JMjVmfFLvM8UO93qc/data_albums"; // URL to fetch album data
-const albumsContainer = document.getElementById("albums-container");
-const genreFilter = document.getElementById("genre-filter");
-const ratingFilter = document.getElementById("rating-filter");
-
-let albumsData = [];
-
-// Fetch data from the album data URL
-async function fetchAlbums() {
-  try {
-    const response = await fetch(albumDataUrl);
-    if (!response.ok) throw new Error("Failed to fetch data");
-    const albums = await response.json();
-    albumsData = albums;
-    populateGenreFilter(albums);
-    populateRatingFilter(albums);
-    displayAlbums(albums);
-  } catch (error) {
-    console.error("Error:", error);
-    albumsContainer.innerHTML = "<p>Failed to load albums. Please try again later.</p>";
-  }
-}
-
-// Populate genre filter options
-function populateGenreFilter(albums) {
-  const genres = new Set();
-  albums.forEach(album => {
-    album.genre.split(',').forEach(genre => {
-      genres.add(genre.trim());
-    });
-  });
-  const sortedGenres = Array.from(genres).sort();
-  sortedGenres.forEach(genre => {
-    const option = document.createElement("option");
-    option.value = genre;
-    option.textContent = genre;
-    genreFilter.appendChild(option);
-  });
-}
-
-// Populate rating filter options
-function populateRatingFilter(albums) {
-  const ratings = new Set(albums.map(album => album.rating));
-  const sortedRatings = Array.from(ratings).sort((a, b) => a - b);
-  sortedRatings.forEach(rating => {
-    const option = document.createElement("option");
-    option.value = rating;
-    option.textContent = rating;
-    ratingFilter.appendChild(option);
-  });
-}
-
-// Format a date in "Month Year" format
-function formatDate(dateString) {
-  if (!dateString) return "Unknown Date";
-  
-  const date = new Date(dateString);
-  return new Intl.DateTimeFormat("en-US", { year: "numeric", month: "long" }).format(date);
-}
-
-// Display albums in the container
-function displayAlbums(albums) {
-  albumsContainer.innerHTML = ""; // Clear any existing content
-
-  albums.forEach(album => {
-    // Create album card
-    const albumDiv = document.createElement("div");
-    albumDiv.className = "album";
-
-    const coverArt = album.cover_art || "https://via.placeholder.com/80";
-    const listenedInFormatted = formatDate(album.listened_in);
-
-
-    const albumHTML = `
-    <div>
-        <div class="cover-rating">
-          <p class="rating">Rated ${album.rating} <i class="fa-solid fa-star"></i></p>  
-          <img class="album-cover" src="${coverArt}" alt="Album Cover">
-        </div>
-        <div class="album-details">
-          <div class="additional-info">
-            <p><mark>&nbsp;Genres&nbsp;</mark><br>${album.genre}</p>
-            <p class="listen-year"><mark>&nbsp;Discovered&nbsp;</mark><br>${listenedInFormatted}</p>
-          </div>
-          <div class="main-info">
-            <p class="album-name">${album.album}</p>
-            <p class="artist">${album.artist}</p>
-          </div>
-          <div class="additional-info">
-            
-          </div>
-          <div class="album-link">
-              <a href="${album.spotify_url}" target="_blank"><i class="fa-brands fa-youtube"></i>&nbsp;&nbsp;<i class="fa-brands fa-spotify"></i>&nbsp;Listen to the album</a>
-          </div>
-        </div>
-      </div>
-    `;
-
-    albumDiv.innerHTML = albumHTML;
-    albumsContainer.appendChild(albumDiv);
-  });
-}
-
-// Filter albums based on selected genre and rating
-function filterAlbums() {
-  const selectedGenre = genreFilter.value;
-  const selectedRating = ratingFilter.value;
-  const filteredAlbums = albumsData.filter(album => {
-    const albumGenres = album.genre.split(',').map(genre => genre.trim());
-    return (selectedGenre ? albumGenres.includes(selectedGenre) : true) &&
-           (selectedRating ? album.rating === selectedRating : true);
-  });
-  displayAlbums(filteredAlbums);
-}
-
-// Event listeners for genre and rating filters
-genreFilter.addEventListener("change", filterAlbums);
-ratingFilter.addEventListener("change", filterAlbums);
-
-// Call fetchAlbums to load and display albums data
-fetchAlbums();

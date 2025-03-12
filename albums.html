@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description"
+        content="Discover great music by listening to Body Music Radio. A rich mix of great tunes selected by music lovers!">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Body Music Radio" />
+    <meta property="og:description" content="Good music for every Body!" />
+    <meta property="og:image" content="https://music.niprobin.com/radio_cover.png" />
+    <meta property="og:url" content="https://www.body-radio.com" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Body Music Radio">
+    <link rel="apple-touch-icon" href="icon-192x192.png">
+    <title>Body Music Radio | Radio for every Body!</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./albums.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="./favicon/favicon-192x192.png">
+    <link rel="manifest" href="./favicon/site.webmanifest">
+    <script src="https://kit.fontawesome.com/cd85a69654.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <main>
+        <h1>Our favourite albums</h1>
+        <div class="filters">
+            <div>
+                <label for="genre-filter">Genre</label>
+                <select id="genre-filter">
+                    <option value="">All</option>
+                    <!-- Options will be populated dynamically -->
+                </select>
+            </div>
+            <div>
+                <label for="rating-filter">Rating</label>
+                <select id="rating-filter">
+                    <option value="">All</option>
+                </select>
+            </div>
+        </div>
+        <div id="albums-container"></div>
+        <div id="pagination-controls" class="pagination-controls">
+            <!-- Pagination controls will be populated dynamically -->
+        </div>
+    </main>
+    <script async src="./albums.js"></script>
+    <!-- 100% privacy-first analytics -->
+    <script data-collect-dnt="true" async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+</body>
+
+</html>

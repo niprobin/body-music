@@ -1,0 +1,171 @@
+main {
+    width:90vw;
+    margin: 0 auto;
+}
+
+header {
+    display:flex;
+    flex-direction: column;
+    justify-content: start;
+    height:auto;
+}
+
+h1 {
+	width:100%;
+	padding-right:14px;
+	text-align: left;
+}
+
+/* ---------------ALBUM GRID------------------- */
+
+#albums-container {
+    width:100%;
+	display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap:25px;
+    padding-bottom: 20px;
+}
+
+.album{
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    gap:10px;
+    
+}
+
+.cover-art {
+    width: 100%;
+}
+
+.cover-art > img {
+    width:100%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.additional-info > p {
+    margin-bottom:5px;
+    font-size:0.8em;
+}
+
+.additional-info > p > mark {
+    background-color: #FFBD59;
+}
+
+.main-info {
+    width:100%;
+    margin:10px 0;
+}
+
+.main-info > p {
+    width:90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.main-info > .album-name {
+    font-weight:bold;
+    font-size:1.2em;
+}
+
+.album-link {
+    cursor: pointer;
+    background-color:#FFBD59;
+    padding:8px 12px;
+    border-radius:4px;
+    color:#171717;
+    text-align:center;
+}
+
+/* ---------------------------------- */
+/* Filters */
+
+.filters {
+	display:flex;
+	justify-content: start;
+	flex-direction: row;
+	align-items: center;
+	margin: 20px auto;
+	gap:20px;
+	width:100%;
+	text-transform:uppercase;
+    
+}
+
+.filters > div {
+    background-color:#FFBD59;
+    color:#1e1e1e;
+    padding:14px;
+    border-radius:40px;
+    width:20vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filters > div > select {
+	background-color:#FFBD59;
+    border:0;
+	padding:4px 8px;
+    margin-left:5px;
+	color:#1e1e1e;
+    width:30%;
+    font-family: 'Fustat', "Helvetica", sans-serif;
+}
+
+/* ---------------------------------- */
+/* Pagination Controls */
+.pagination-controls {
+    width:100%;
+    height:5vh;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    font-family: "Fustat", "Helvetica", sans-serif;
+}
+
+.pagination-controls button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border:0;
+    background-color: transparent;
+    color:#FFBD59;
+    border-radius:4px;
+}
+
+.pagination-controls button.active {
+    background-color: #FFBD59;
+    color:#171717;
+}
+
+.pagination-controls button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+/* ---------------------------------- */
+/* Responsive design */
+
+@media screen and (max-width: 768px) {
+
+    main {
+        width:95vw;
+    }
+
+    main h1 {
+        text-align:center;
+    }
+
+    .filters {
+        gap: 10px;
+        width:100%;
+    }
+
+    .filters > div {
+        width:50%;
+    }
+
+}

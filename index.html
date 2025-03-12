@@ -22,23 +22,26 @@
    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
    <link rel="icon" type="image/png" sizes="192x192" href="./favicon/favicon-192x192.png">
    <link rel="manifest" href="./favicon/site.webmanifest">
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
    <script src="https://kit.fontawesome.com/cd85a69654.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
    <!-- RADIO DESCRIPTION -->
    <header>
-      <!-- <div class="cover-art">
-         <img src="./favicon/favicon-512x512.png" alt="Body Music Radio" id="cover-art">
-      </div> -->
-      <div class="intro">
-         <h2>Body Music Radio</h2>
+      <div class="intro">            
+            <h1>Body Music Radio</h1>
          <p>
             Every track is handpicked to bring you a rich mix of tunes to chill, groove, or dance. <br><br>
             Check our weekly schedule for the latest rotation and discover new music. <br><br>
          </p>
+      </div>
+      <div class="actions">
+         <button type="button" role="button" id="play-btn" class="play-pause"><i
+            class="fa-solid fa-play"></i> Play</button>
+         <button type="button" role="button" id="modal-btn"><i
+            class="fa-solid fa-compact-disc"></i>&nbsp;&nbsp;Current track</button>
+         <a href="/schedule.html" target="_blank"><i class="fa-solid fa-up-right-from-square"></i>&nbsp;&nbsp;Check schedule</a>
+         <a href="/albums.html" target="_blank"><i class="fa-solid fa-up-right-from-square"></i>&nbsp;&nbsp;Best albums</a>
       </div>
    </header>
    <!-- STICKY PLAYER -->
@@ -50,39 +53,9 @@
          <div class="song-details">
             <p id="song-title"></p>
             <p id="song-artist"></p>
-            <p id="song-disclaimer">CLICK AGAIN TO SHOW NEW SONG</p>
          </div>
       </div>
-      <!-- MAIN BUTTONS -->
-      <div class="controls">
-         <button type="button" role="button" id="modal-btn" class="play-pause"><i
-               class="fa-solid fa-compact-disc"></i></button>
-         <button type="button" role="button" id="play-btn" class="play-pause"><i class="fa-solid fa-play"></i></button>
-         <a href="/schedule.html" target="_blank" id="schedule-btn" class="play-pause"><i
-               class="fa-solid fa-calendar-days"></i></a>
-         <!-- button for comments <button type="button" role="button" id="open-comment-btn" class="play-pause"><i class="fa-solid fa-comments"></i></button> -->
-      </div>
    </div>
-   <!-- BEST ALBUMS SECTION-->
-   <div class="headline" id="albums-headline">
-      <h1>Our favourite albums</h1>
-   </div>
-   <div class="filters">
-      <div>
-         <label for="genre-filter">Genre</label>
-         <select id="genre-filter">
-            <option value="">All</option>
-            <!-- Options will be populated dynamically -->
-         </select>
-      </div>
-      <div>
-         <label for="rating-filter">Rating</label>
-         <select id="rating-filter">
-            <option value="">All</option>
-         </select>
-      </div>
-   </div>
-   <div id="albums-container"></div>
    <script async src="./script_1.3.1.js"></script>
    <!-- 100% privacy-first analytics -->
    <script data-collect-dnt="true" async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
