@@ -1,3 +1,45 @@
+let currentLang = "fr"; // Default to French
+
+async function loadTranslations() {
+    const response = await fetch("/json/translations.json");
+    const translations = await response.json();
+    updateLanguage(translations);
+}
+
+function updateLanguage(translations) {
+    document.querySelectorAll("[data-translate]").forEach(el => {
+        const key = el.getAttribute("data-translate");
+        el.innerHTML = translations[currentLang][key].replace(/\n/g, "<br>"); // Convert \n to <br>
+    });
+}
+
+// Detect user location and set language automatically
+async function detectUserLocation() {
+    try {
+        const response = await fetch("https://ipapi.co/json/");
+        const data = await response.json();
+
+        // Set language based on country (France = French, Else = English)
+        currentLang = data.country_code === "FR" ? "fr" : "en";
+        localStorage.setItem("lang", currentLang); // Save preference for next visits
+        loadTranslations();
+    } catch (error) {
+        console.error("Geolocation failed, defaulting to French.");
+        loadTranslations(); // Load default language if geolocation fails
+    }
+}
+
+// Check if user has a saved language preference from last visit
+const savedLang = localStorage.getItem("lang");
+if (savedLang) {
+    currentLang = savedLang;
+    loadTranslations();
+} else {
+    detectUserLocation(); // Auto-detect location on first visit
+}
+
+// ----------------------- RADIO PLAYER JS -----------------------
+
 // Replace with your AzuraCast stream URL
 const streamUrl = "https://radio.niprobin.com/listen/body-music/radio.mp3";
 
@@ -92,3 +134,19 @@ modalBtn.addEventListener("click", () => {
             });
     }
 });
+
+// ----------------------- SOURCE MODAL JS -----------------------
+
+const sourceModal = document.getElementById("source-modal");
+const sourceBtn = document.getElementById("source-btn");
+
+sourceBtn.addEventListener("click", () => {
+    if (sourceModal.classList.contains("show")) {
+        // If modal is already open, close it
+        sourceModal.classList.remove("show");
+        sourceBtn.setAttribute("id", "modal-btn"); // Reset button ID
+    } else {
+        // Show modal
+        sourceModal.classList.add("show");
+            };
+    });

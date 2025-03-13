@@ -3,7 +3,7 @@
 async function loadSchedule() {
     try {
         // Fetch JSON data
-        const response = await fetch("schedule.json");
+        const response = await fetch("/json/schedule.json");
         const scheduleData = await response.json();
   
         // Get current day and time

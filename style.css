@@ -18,7 +18,7 @@ body, html {
 	align-items: center;
 	}
 
-h1 {
+h1, h2, h3 {
 	margin:0;
 	padding:0;
 }
@@ -127,9 +127,46 @@ header > button.play-pause {
 	transition: all 0.2s ease-in;
 }
 
-#song-modal.show {
+#source-modal {
+	display:flex;
+	gap:10px;
+	align-items: start;
+	justify-content: center;
+	flex-direction: column;
+	background-color:#C1292E;
+	color:#fff;
+	border-radius:4px;
+	width:33%;
+	padding:24px;
+	text-align:left;
+	opacity:0;
+	transform: translateY(120px);
+	transition: all 0.2s ease-in;
+}
+
+#song-modal.show, #source-modal.show {
 	opacity:1;
 	transform: translateY(0px);
+}
+
+.source-links {
+	display:flex;
+	gap:20px;
+	align-items: center;
+	justify-content: center;
+}
+
+#source-modal > .source-links > a {
+	font-family: 'Fustat', "Helvetica", sans-serif;
+	font-size:1em;
+	font-weight: bold;;
+	background-color: transparent;
+	color: #fff;
+	border: 0;
+	padding: 0.6em 0em;
+	cursor: pointer;
+	border-bottom:2px solid #fff;
+	
 }
 
 #song-art {
@@ -197,7 +234,7 @@ header > button.play-pause {
 		padding:2.5vw;
 	}
 
-	#song-modal {
+	#song-modal, #source-modal {
 		width: 95%;
 		max-width: 95%;
 	}
@@ -219,12 +256,13 @@ header > button.play-pause {
 
 	.actions > button, .actions > a {
 		width:50%;
+		padding: 10px 0px;
 		border:0;
 		color:#171717;
 		text-align:center;
 	}
 
-	#song-modal.show {
+	#song-modal.show, #source-modal.show {
 		opacity:1;
 		transform: translateY(-80px);
 	}
