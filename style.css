@@ -1,10 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Fustat:wght@200..800&display=swap');
 
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: #171717; /* Dark mode */
+}
+
+
 /* General Page Styles */
 body, html {
 	font-family: "Fustat", "Helvetica", sans-serif;
 	color: white;
-	background-color: #171717;
 	overflow-x:hidden;
 	width: 100%;
 	min-width: 100%;
@@ -45,7 +53,7 @@ a, a:visited {
 
 /* Player Container */
 header {
-	background-color: #171717;
+	backdrop-filter: blur(3px);
 	width: 50%;
 	max-width: 50%;
 	height:auto;

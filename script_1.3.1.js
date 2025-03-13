@@ -1,3 +1,13 @@
+particlesJS("particles-js", {
+    particles: {
+        number: { value: 20 },
+        size: { value: 2 },
+        move: { speed: 1 },
+        color: { value: "#ffffff" }
+    }
+});
+
+
 let currentLang = "fr"; // Default to French
 
 async function loadTranslations() {
