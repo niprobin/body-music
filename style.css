@@ -101,21 +101,17 @@ header > button.play-pause {
 }
 
 .player-container {
-	gap: 5px;
-	box-sizing: border-box;
-	display: flex;
-	align-items: center;
-	justify-content: space-around;
-	flex-direction: column;
 	position: fixed;
 	bottom:25px;
+	height:0;
 	left:0;
 	width:100%;
 	max-width:100%;
-	z-index: 10;
+	z-index: 0;
 }
 
-/* Modal Styles */
+/* ---------------- Modal Styles ---------------- */
+
 #song-modal {
 	display:flex;
 	gap:10px;
@@ -127,12 +123,15 @@ header > button.play-pause {
 	background-color: #f3c887;
 	color:#1e1e1e;
 	text-align:left;
-	width:33%;
 	max-height:120px;
-	height:120px;
+	position:fixed;
+	bottom:2vh;
+	left:25%;
 	opacity:0;
-	transform: translateY(120px);
-	transition: all 0.2s ease-in;
+	height:0;
+	width:50%;
+	transition: all 0.2s ease;
+	z-index:10;
 }
 
 #source-modal {
@@ -144,17 +143,21 @@ header > button.play-pause {
 	background-color:#C1292E;
 	color:#fff;
 	border-radius:4px;
-	width:33%;
 	padding:24px;
 	text-align:left;
+	position:fixed;
+	top:2vh;
+	left:25%;
 	opacity:0;
-	transform: translateY(120px);
-	transition: all 0.2s ease-in;
+	height:0;
+	width:50%;
+	transition: all 0.2s ease;
+	z-index:10;
 }
 
 #song-modal.show, #source-modal.show {
 	opacity:1;
-	transform: translateY(0px);
+	height:120px;
 }
 
 .source-links {
@@ -210,23 +213,6 @@ header > button.play-pause {
 	text-transform: uppercase;
 }
 
-
-.controls {
-	font-family: 'Fustat', "Helvetica", sans-serif;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 22px;
-	max-width:33%;
-	width:33%;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-	backdrop-filter: blur(6px);
-	background-color: #FEE1C7;
-	color:#fff;
-	border-radius: 4px;
-	height:15vh;
-}
-
 /* ----------------------- RESPONSIVE STYLES -----------------------*/
 
 @media (max-width: 820px) {
@@ -242,18 +228,14 @@ header > button.play-pause {
 		padding:2.5vw;
 	}
 
-	#song-modal, #source-modal {
-		width: 95%;
-		max-width: 95%;
-	}
-
 	.actions {
 		position:fixed;
 		bottom:0;
 		left:0;
+		height:15vh;
 		width:100%;
 		max-width:100%;
-		z-index:15;
+		z-index:5;
 		flex-wrap:wrap;
 		justify-content:space-around;
 		align-items:center;
@@ -270,9 +252,52 @@ header > button.play-pause {
 		text-align:center;
 	}
 
+	#song-modal {
+		display:flex;
+		gap:10px;
+		align-items: center;	
+		border-radius:4px;
+		padding: 15px;
+		box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+		backdrop-filter: blur(3px);
+		background-color: #f3c887;
+		color:#1e1e1e;
+		text-align:left;
+		max-height:120px;
+		position:fixed;
+		bottom:18vh;
+		left:5%;
+		opacity:0;
+		height:0;
+		width:90%;
+		transition: opacity 0.2s linear;
+		z-index:10;
+	}
+	
+	#source-modal {
+		display:flex;
+		gap:10px;
+		align-items: start;
+		justify-content: center;
+		flex-direction: column;
+		background-color:#C1292E;
+		color:#fff;
+		border-radius:4px;
+		padding:24px;
+		text-align:left;
+		position:fixed;
+		bottom:18vh !important;
+		left:5% !important;
+		opacity:0;
+		height:0;
+		width:90%;
+		transition: all 0.2s ease;
+		z-index:10;
+	}
+
 	#song-modal.show, #source-modal.show {
 		opacity:1;
-		transform: translateY(-80px);
+		height:120px;
 	}
 
 }

@@ -1,7 +1,7 @@
 particlesJS("particles-js", {
     particles: {
         number: { value: 20 },
-        size: { value: 2 },
+        size: { value: 3 },
         move: { speed: 1 },
         color: { value: "#ffffff" }
     }

@@ -28,6 +28,22 @@
 
 <body>
    <div id="particles-js"></div>
+   
+   <div class="modal" id="source-modal">
+      <h3>Listen on MyTuner</h3>
+      <div class="source-links">
+         <a href="https://mytuner-radio.com/radio-app/" target="_blank">Download the app</a>
+         <a href="https://mytuner-radio.com/radio/body-music-radio-507550/" target="_blank">Check the radio</a>
+      </div>
+   </div>
+   <div class="modal" id="song-modal">
+      <img id="song-art" src="" alt="album cover">
+      <div class="song-details">
+         <p id="song-title"></p>
+         <p id="song-artist"></p>
+      </div>
+   </div>
+   
    <!-- RADIO DESCRIPTION -->
    <!-- <button id="lang-toggle" data-translate="language">English</button> -->
    <header>
@@ -52,21 +68,6 @@
    <!-- STICKY PLAYER -->
    <div id="sticky-player" class="player-container">
       <audio id="audio-player"></audio>
-      <!-- MODAL TO DISPLAY CURRENT SONG-->
-      <div id="song-modal">
-         <img id="song-art" src="" alt="album cover">
-         <div class="song-details">
-            <p id="song-title"></p>
-            <p id="song-artist"></p>
-         </div>
-      </div>
-      <div id="source-modal">
-         <h3>Listen on MyTuner</h3>
-         <div class="source-links">
-            <a href="https://mytuner-radio.com/radio-app/" target="_blank">Download the app</a>
-            <a href="https://mytuner-radio.com/radio/body-music-radio-507550/" target="_blank">Check the radio</a>
-         </div>
-      </div>
    </div>
    <script async src="./script_1.3.1.js"></script>
    <!-- 100% privacy-first analytics -->
