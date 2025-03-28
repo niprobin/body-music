@@ -51,8 +51,12 @@ a, a:visited {
 	text-decoration: none;
 }
 
+button:hover {
+	cursor: pointer;
+}
+
 .logo {
-	width:30vh;
+	width:25vh;
 	height:auto;
 	z-index: 9;
 }
@@ -96,36 +100,29 @@ header p {
 }
 
 .actions {
-	width: 50%;
-	max-width: 50%;
+	position:fixed;
+	bottom:0;
+	left:0;
+	height:10vh;
+	width:100%;
+	max-width:100%;
+	z-index:15;
 	display:flex;
-	flex-direction:row;
-	flex-wrap: wrap;
-	justify-content: start;
-	align-items: start;
-	gap:2em;
+	justify-content:space-around;
+	align-items:center;
+	background-color: #FFBD59;
+	gap:0;
+	
 }
 
 .actions > button, .actions > a {
-	font-family: 'Fustat', "Helvetica", sans-serif;
+	background-color:#FFBD59;
 	font-size:1em;
-	font-weight: bold;;
-	background-color: transparent;
-	color: #FFBD59;
-	border: 0;
-	padding: 0.6em 0em;
-	cursor: pointer;
-	border-bottom:2px solid #FFBD59;
-}
-
-.player-container {
-	position: fixed;
-	bottom:25px;
-	height:0;
-	left:0;
-	width:100%;
-	max-width:100%;
-	z-index: 0;
+	width:50%;
+	padding: 10px 0px;
+	border:0;
+	color:#171717;
+	text-align:center;
 }
 
 /* ---------------- Modal Styles ---------------- */
@@ -143,7 +140,7 @@ header p {
 	text-align:left;
 	max-height:120px;
 	position:fixed;
-	bottom:2vh;
+	bottom:12vh;
 	left:25%;
 	opacity:0;
 	height:0;
