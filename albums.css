@@ -30,9 +30,46 @@ main {
 
 header {
     display:flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: start;
+    align-items: center;
+    padding:10px;
     height:auto;
+}
+
+/* ---------------- NAVIGATION --------------- */
+
+nav {
+    background-color: #171717;
+    color: #F0F4EF;
+    padding: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    color: #FFBD59;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px;
+    border-bottom:3px solid #FFBD59;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    background: #FFBD59;
+    color: #171717;
+    border-bottom:3px solid transparent;
 }
 
 /* ---------------ALBUM GRID------------------- */
