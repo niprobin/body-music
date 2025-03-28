@@ -80,13 +80,15 @@ function displayAlbums(albums) {
 
     const albumHTML = `
     <div>
-        <div class="cover-art"> 
-          <img class="album-cover" src="${coverArt}" alt="Album Cover">
-        </div>
+        <a href="${album.spotify_url}" target="_blank" >
+          <div class="cover-art">
+            <img class="album-cover" src="${coverArt}" alt="${album.album}" />
+          </div>
+        </a>
         <div class="album-details">
           <div class="additional-info">
-            <p><mark>&nbsp;Genres&nbsp;</mark>&nbsp;${album.genre}</p>
-            <p><mark>&nbsp;Rated&nbsp;</mark>&nbsp;${album.rating} <i class="fa-solid fa-star"></i></p> 
+            <p>${album.genre}</p>
+            <p>${album.rating} <i class="fa-solid fa-star"></i></p> 
           </div>
           <div class="main-info">
             <p class="album-name">${album.album}</p>
