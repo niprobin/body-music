@@ -65,16 +65,23 @@ header {
 	gap:15px;
 }
 
-header > button.play-pause {
-	cursor:pointer;
-	font-size:1.3em;
+:root {
+	--plyr-color-main: #11151a;
+	--plyr-audio-controls-background: #f3c887;
+	--plyr-audio-control-color: #11151a;
+	--plyr-font-family: 'Fustat', "Helvetica", sans-serif;
+  }
+
+#play-btn {
+	cursor: pointer;
+	font-size: 1.3em;
 	background-color: #f3c887;
 	color: #171717;
 	border: 0;
 	padding: 0.6em 1em;
 	border-radius: 4px;
-	font-family:'Fustat', "Helvetica", sans-serif;
-	font-weight:bold;
+	font-family: 'Fustat', "Helvetica", sans-serif;
+	font-weight: bold;
 }
 
 .actions {

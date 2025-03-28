@@ -50,36 +50,104 @@ if (savedLang) {
 
 // ----------------------- RADIO PLAYER JS -----------------------
 
-// Replace with your AzuraCast stream URL
-const streamUrl = "https://radio.niprobin.com/listen/body-music/radio.mp3";
+document.addEventListener("DOMContentLoaded", function () {
+    const audio = document.getElementById("audio-player");
+    const playButton = document.getElementById("play-btn");
+    const hlsUrl = "https://radio.niprobin.com/hls/body-music/live.m3u8"; // Replace with your HLS stream URL
+    let hls;
+    let isBuffering = false;
 
-// DOM Elements
-const playBtn = document.getElementById("play-btn");
-const audioPlayer = document.getElementById("audio-player");
-
-// Play and Pause Functionality
-playBtn.addEventListener("click", () => {
-    if (audioPlayer.paused || audioPlayer.readyState === 0) {
-        // If paused OR not yet loaded, start playback
-        audioPlayer.src = streamUrl; // Ensure the stream URL is loaded
-        audioPlayer.load(); // Reload the stream
-        audioPlayer.play()
-            .then(() => {
-                playBtn.innerHTML = '<i class="fa-solid fa-pause"></i>&nbsp;&nbsp;Pause';
-            })
-            .catch((error) => {
-                console.error("Playback failed:", error);
-                playBtn.innerHTML = '<i class="fa-solid fa-play"></i>&nbsp;&nbsp;Play';
+    // Function to initialize HLS
+    function initializeHLS() {
+        if (Hls.isSupported()) {
+            hls = new Hls({
+                liveSyncDuration: 3, // Keeps playback close to live
+                liveMaxLatencyDuration: 10, // Prevents excessive buffering delay
+                maxBufferLength: 10, // Maximum buffer length in seconds
+                maxMaxBufferLength: 30, // Maximum extended buffer length
             });
-    } else {
-        // Pause playback if currently playing
-        audioPlayer.pause();
-        playBtn.innerHTML = '<i class="fa-solid fa-play"></i>&nbsp;&nbsp;Play';
+            hls.loadSource(hlsUrl);
+            hls.attachMedia(audio);
+
+            // Listen for buffering events
+            hls.on(Hls.Events.BUFFER_STALLED, () => {
+                console.log("Buffering stalled...");
+                isBuffering = true;
+            });
+
+            hls.on(Hls.Events.BUFFER_APPENDED, () => {
+                console.log("Buffering complete.");
+                isBuffering = false;
+            });
+
+            hls.on(Hls.Events.ERROR, (event, data) => {
+                if (data.fatal) {
+                    console.error("Fatal HLS error:", data);
+                    if (data.type === Hls.ErrorTypes.NETWORK_ERROR) {
+                        console.log("Network error. Reloading stream...");
+                        hls.startLoad(); // Reload the stream
+                    } else if (data.type === Hls.ErrorTypes.MEDIA_ERROR) {
+                        console.log("Media error. Attempting recovery...");
+                        hls.recoverMediaError();
+                    }
+                }
+            });
+        } else if (audio.canPlayType("application/vnd.apple.mpegurl")) {
+            // Native HLS support (e.g., Safari)
+            audio.src = hlsUrl;
+        }
     }
+
+    // Function to handle play behavior
+    function playStream() {
+        if (Hls.isSupported() && hls) {
+            hls.startLoad(); // Ensure fresh stream loading
+        }
+        console.log("Buffering...");
+        isBuffering = true;
+
+        // Wait for the buffer to fill before playing
+        const bufferInterval = setInterval(() => {
+            if (audio.buffered.length > 0 && audio.buffered.end(0) - audio.currentTime > 5) {
+                clearInterval(bufferInterval); // Stop checking the buffer
+                audio.play().then(() => {
+                    console.log("Stream is playing.");
+                    isBuffering = false;
+                }).catch(error => {
+                    console.error("Error playing stream:", error);
+                });
+            }
+        }, 500); // Check buffer every 500ms
+    }
+
+    // Function to handle pause behavior
+    function pauseStream() {
+        audio.pause();
+        if (Hls.isSupported() && hls) {
+            hls.stopLoad(); // Stop loading the stream
+        }
+        console.log("Stream is paused.");
+    }
+
+    // Event listener for play button
+    playButton.addEventListener("click", function () {
+        if (audio.paused) {
+            console.log("Play button clicked. Buffering...");
+            playStream();
+            playButton.innerHTML = '<i class="fa-solid fa-pause"></i>&nbsp;&nbsp;Pause'; // Change to pause icon
+        } else {
+            console.log("Pause button clicked.");
+            pauseStream();
+            playButton.innerHTML = '<i class="fa-solid fa-play"></i>&nbsp;&nbsp;Play'; // Change to pause icon
+        }
+    });
+
+    // Initialize HLS on page load
+    initializeHLS();
 });
 
-// Set initial volume
-audioPlayer.volume = 0.5;
+
+// ----------------------- MEDIA SESSION API -----------------------
 
 //Update metadata for mobile rich notification
 function updateMediaSession() {

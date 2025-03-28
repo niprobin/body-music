@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
    <meta charset="UTF-8">
    <meta name="description"
@@ -16,7 +15,6 @@
    <meta name="apple-mobile-web-app-title" content="Body Music Radio">
    <link rel="apple-touch-icon" href="icon-192x192.png">
    <title>Body Music Radio | Radio for every Body!</title>
-   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
    <link rel="stylesheet" href="./style.css">
    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
@@ -24,11 +22,11 @@
    <link rel="icon" type="image/png" sizes="192x192" href="./favicon/favicon-192x192.png">
    <link rel="manifest" href="./favicon/site.webmanifest">
    <script src="https://kit.fontawesome.com/cd85a69654.js" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/hls.js@1.4.0/dist/hls.min.js" defer></script>   
 </head>
-
 <body>
    <div id="particles-js"></div>
-   
    <div class="modal" id="source-modal">
       <h3>Listen on MyTuner</h3>
       <div class="source-links">
@@ -48,8 +46,8 @@
    <!-- <button id="lang-toggle" data-translate="language">English</button> -->
    <header>
       <h1 data-translate="title">Body Music Radio</h1>
-      <button data-translate="play" type="button" role="button" id="play-btn" class="play-pause"><i class="fa-solid fa-play"></i>
-         Play</button>
+      <audio id="audio-player"></audio>
+      <button id="play-btn"><i class="fa-solid fa-play"></i>&nbsp;&nbsp;Play</button>
       <p data-translate="intro">
          Every track is handpicked to bring you a rich mix of tunes to chill, groove, or dance. <br><br>
          Check our weekly schedule for the latest rotation and discover new music. <br><br>
@@ -65,11 +63,7 @@
       <a data-translate="albums" href="/albums.html" target="_blank"><i class="fa-solid fa-up-right-from-square"></i>&nbsp;&nbsp;Best
          albums</a>
    </div>
-   <!-- STICKY PLAYER -->
-   <div id="sticky-player" class="player-container">
-      <audio id="audio-player"></audio>
-   </div>
-   <script async src="./script_1.3.1.js"></script>
+   <script async src="./script_1.4.0.js"></script>
    <!-- 100% privacy-first analytics -->
    <script data-collect-dnt="true" async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
 </body>
