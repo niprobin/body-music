@@ -51,6 +51,12 @@ a, a:visited {
 	text-decoration: none;
 }
 
+.logo {
+	width:30vh;
+	height:auto;
+	z-index: 9;
+}
+
 /* Player Container */
 header {
 	backdrop-filter: blur(3px);
@@ -61,13 +67,17 @@ header {
 	margin:0 auto;
 	flex-direction: column;
 	justify-content: center;
-	align-items: left;
+	align-items: center;
 	gap:15px;
+}
+
+header p {
+	width:100%;
 }
 
 :root {
 	--plyr-color-main: #11151a;
-	--plyr-audio-controls-background: #f3c887;
+	--plyr-audio-controls-background: #FFBD59;
 	--plyr-audio-control-color: #11151a;
 	--plyr-font-family: 'Fustat', "Helvetica", sans-serif;
   }
@@ -75,10 +85,11 @@ header {
 #play-btn {
 	cursor: pointer;
 	font-size: 1.3em;
-	background-color: #f3c887;
+	background-color: #FFBD59;
 	color: #171717;
 	border: 0;
 	padding: 0.6em 1em;
+	width:100%;
 	border-radius: 4px;
 	font-family: 'Fustat', "Helvetica", sans-serif;
 	font-weight: bold;
@@ -100,11 +111,11 @@ header {
 	font-size:1em;
 	font-weight: bold;;
 	background-color: transparent;
-	color: #f3c887;
+	color: #FFBD59;
 	border: 0;
 	padding: 0.6em 0em;
 	cursor: pointer;
-	border-bottom:2px solid #f3c887;
+	border-bottom:2px solid #FFBD59;
 }
 
 .player-container {
@@ -127,7 +138,7 @@ header {
 	padding: 15px;
 	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 	backdrop-filter: blur(3px);
-	background-color: #f3c887;
+	background-color: #FFBD59;
 	color:#1e1e1e;
 	text-align:left;
 	max-height:120px;
@@ -246,7 +257,7 @@ header {
 		flex-wrap:wrap;
 		justify-content:space-around;
 		align-items:center;
-		background-color: #f3c887;
+		background-color: #FFBD59;
 		gap:0;
 		
 	}
@@ -267,7 +278,7 @@ header {
 		padding: 15px;
 		box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 		backdrop-filter: blur(3px);
-		background-color: #f3c887;
+		background-color: #FFBD59;
 		color:#1e1e1e;
 		text-align:left;
 		max-height:120px;

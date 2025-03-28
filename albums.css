@@ -25,7 +25,7 @@ a, a:visited {
 
 main {
     width:100%;
-    padding:20px;
+    padding:10px 20px;
 }
 
 header {
@@ -42,13 +42,18 @@ header {
 nav {
     background-color: #171717;
     color: #F0F4EF;
-    padding: 10px;
+    padding:0px 10px;
+    margin:0 auto;
+    width:100%;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    align-items: center;
+    justify-content:center;
+    width:100%;
+    gap: 30px;
     margin: 0;
     padding: 0;
 }
@@ -70,6 +75,11 @@ nav ul li a:hover {
     background: #FFBD59;
     color: #171717;
     border-bottom:3px solid transparent;
+}
+
+.logo {
+    width:100px;
+    height:100px;
 }
 
 /* ---------------ALBUM GRID------------------- */
