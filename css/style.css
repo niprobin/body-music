@@ -11,6 +11,7 @@
 
 /* General Page Styles */
 body, html {
+	background-color: #171717;
 	font-family: "Fustat", "Helvetica", sans-serif;
 	color: white;
 	overflow-x:hidden;
