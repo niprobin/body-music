@@ -8,10 +8,13 @@
     background: #171717; /* Dark mode */
 }
 
+html {
+	background-color: #171717;
+}
+
 
 /* General Page Styles */
 body, html {
-	background-color: #171717;
 	font-family: "Fustat", "Helvetica", sans-serif;
 	color: white;
 	overflow-x:hidden;
@@ -64,7 +67,7 @@ button:hover {
 
 /* Player Container */
 header {
-	backdrop-filter: blur(3px);
+	backdrop-filter: blur(1px);
 	width: 50%;
 	max-width: 50%;
 	height:auto;
