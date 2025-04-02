@@ -53,99 +53,63 @@ if (savedLang) {
 document.addEventListener("DOMContentLoaded", function () {
     const audio = document.getElementById("audio-player");
     const playButton = document.getElementById("play-btn");
-    const hlsUrl = "https://radio.niprobin.com/hls/body-music/live.m3u8"; // Replace with your HLS stream URL
-    let hls;
-    let isBuffering = false;
-
-    // Function to initialize HLS
-    function initializeHLS() {
-        if (Hls.isSupported()) {
-            hls = new Hls({
-                liveSyncDuration: 3, // Keeps playback close to live
-                liveMaxLatencyDuration: 10, // Prevents excessive buffering delay
-                maxBufferLength: 10, // Maximum buffer length in seconds
-                maxMaxBufferLength: 30, // Maximum extended buffer length
-            });
-            hls.loadSource(hlsUrl);
-            hls.attachMedia(audio);
-
-            // Listen for buffering events
-            hls.on(Hls.Events.BUFFER_STALLED, () => {
-                console.log("Buffering stalled...");
-                isBuffering = true;
-            });
-
-            hls.on(Hls.Events.BUFFER_APPENDED, () => {
-                console.log("Buffering complete.");
-                isBuffering = false;
-            });
-
-            hls.on(Hls.Events.ERROR, (event, data) => {
-                if (data.fatal) {
-                    console.error("Fatal HLS error:", data);
-                    if (data.type === Hls.ErrorTypes.NETWORK_ERROR) {
-                        console.log("Network error. Reloading stream...");
-                        hls.startLoad(); // Reload the stream
-                    } else if (data.type === Hls.ErrorTypes.MEDIA_ERROR) {
-                        console.log("Media error. Attempting recovery...");
-                        hls.recoverMediaError();
-                    }
-                }
-            });
-        } else if (audio.canPlayType("application/vnd.apple.mpegurl")) {
-            // Native HLS support (e.g., Safari)
-            audio.src = hlsUrl;
-        }
-    }
+    let reconnectTimeout;
 
     // Function to handle play behavior
     function playStream() {
-        if (Hls.isSupported() && hls) {
-            hls.startLoad(); // Ensure fresh stream loading
-        }
-        console.log("Buffering...");
-        isBuffering = true;
+        clearTimeout(reconnectTimeout); // Clear any existing reconnect attempts
 
-        // Wait for the buffer to fill before playing
-        const bufferInterval = setInterval(() => {
-            if (audio.buffered.length > 0 && audio.buffered.end(0) - audio.currentTime > 5) {
-                clearInterval(bufferInterval); // Stop checking the buffer
-                audio.play().then(() => {
-                    console.log("Stream is playing.");
-                    isBuffering = false;
-                }).catch(error => {
-                    console.error("Error playing stream:", error);
-                });
-            }
-        }, 500); // Check buffer every 500ms
+        // Force the stream to start at the live point by appending a unique query parameter
+        const liveStreamUrl = `https://radio.niprobin.com/listen/body-music/radio.mp3?nocache=${Date.now()}`;
+        audio.src = liveStreamUrl; // Update the audio source
+        audio.load(); // Reload the stream
+
+        audio.play().then(() => {
+            console.log("Stream is playing.");
+            playButton.innerHTML = '<i class="fa-solid fa-pause"></i>&nbsp;&nbsp;Pause';
+        }).catch(error => {
+            console.error("Error playing stream:", error);
+            alert("Unable to play the stream. Please check your connection.");
+        });
     }
 
     // Function to handle pause behavior
     function pauseStream() {
+        clearTimeout(reconnectTimeout); // Clear any existing reconnect attempts
         audio.pause();
-        if (Hls.isSupported() && hls) {
-            hls.stopLoad(); // Stop loading the stream
-        }
         console.log("Stream is paused.");
+        playButton.innerHTML = '<i class="fa-solid fa-play"></i>&nbsp;&nbsp;Play';
+    }
+
+    // Function to handle auto-reconnect
+    function autoReconnect() {
+        console.log("Attempting to reconnect...");
+        reconnectTimeout = setTimeout(() => {
+            playStream(); // Attempt to play the stream again
+        }, 5000); // Retry after 5 seconds
     }
 
     // Event listener for play button
     playButton.addEventListener("click", function () {
         if (audio.paused) {
-            console.log("Play button clicked. Buffering...");
             playStream();
-            playButton.innerHTML = '<i class="fa-solid fa-pause"></i>&nbsp;&nbsp;Pause'; // Change to pause icon
         } else {
-            console.log("Pause button clicked.");
             pauseStream();
-            playButton.innerHTML = '<i class="fa-solid fa-play"></i>&nbsp;&nbsp;Play'; // Change to pause icon
         }
     });
 
-    // Initialize HLS on page load
-    initializeHLS();
-});
+    // Handle errors during playback
+    audio.addEventListener("error", function () {
+        console.error("Audio playback error occurred. Reconnecting...");
+        autoReconnect();
+    });
 
+    // Handle stream ending
+    audio.addEventListener("ended", function () {
+        console.log("Stream ended. Reconnecting...");
+        autoReconnect();
+    });
+});
 
 // ----------------------- MEDIA SESSION API -----------------------
 

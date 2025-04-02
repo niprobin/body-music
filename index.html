@@ -15,7 +15,7 @@
    <meta name="apple-mobile-web-app-title" content="Body Music Radio">
    <link rel="apple-touch-icon" href="icon-192x192.png">
    <title>Body Music Radio | Radio for every Body!</title>
-   <link rel="stylesheet" href="./style.css">
+   <link rel="stylesheet" href="./css/style.css">
    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
@@ -47,7 +47,10 @@
    <!-- <button id="lang-toggle" data-translate="language">English</button> -->
    <header>
       <img class="logo" src="/body_music_radio.svg" alt="Bienvenue sur Body Music Radio" />
-      <audio id="audio-player"></audio>
+      <audio id="audio-player" preload="none">
+         <source src="https://radio.niprobin.com/listen/body-music/radio.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
       <button id="play-btn"><i class="fa-solid fa-play"></i>&nbsp;&nbsp;Play</button>
       <p data-translate="intro">
          Every track is handpicked to bring you a rich mix of tunes to chill, groove, or dance. <br><br>
@@ -62,7 +65,7 @@
       <a data-translate="albums" href="/albums.html" target="_blank"><i class="fa-solid fa-up-right-from-square"></i>&nbsp;&nbsp;Best
          albums</a>
    </div>
-   <script async src="./script_1.4.0.js"></script>
+   <script async src="./js/script_1.4.0.js"></script>
    <!-- 100% privacy-first analytics -->
    <script data-collect-dnt="true" async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
 </body>
