@@ -95,8 +95,9 @@ function displayAlbums(albums) {
             <p class="artist">${album.artist}</p>
           </div>
         </div>
-        <div class="album-link">
-              <a href="${album.spotify_url}" target="_blank"><i class="fa-brands fa-youtube"></i>&nbsp;&nbsp;<i class="fa-brands fa-spotify"></i>&nbsp;Listen to the album</a>
+        <div class="links">
+              <a class="listen-link" href="${album.spotify_url}" target="_blank"></i>&nbsp;&nbsp;<i class="fa-brands fa-spotify"></i>&nbsp;Écouter</a>
+              ${album.buy_album ? `<a href="${album.buy_album}" target="_blank" class="buy-link"><i class="fa-brands fa-bandcamp"></i>&nbsp;Acheter</a>` : ""}
         </div>
       </div>
     `;

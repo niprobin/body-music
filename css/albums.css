@@ -82,6 +82,11 @@ nav ul li a:hover {
     height:100px;
 }
 
+main > p {
+    width:70%;
+    line-height:180%;
+}
+
 /* ---------------ALBUM GRID------------------- */
 
 #albums-container {
@@ -147,17 +152,33 @@ nav ul li a:hover {
     font-size:1.2em;
 }
 
-.album-link {
-    cursor: pointer;
-    background-color:#FFBD59;
-    padding:8px 12px;
-    border-radius:0.5rem;
-    color:#171717;
-    text-align:center;
+.links {
+    display:flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+    width:100%;
 }
 
-/* ---------------------------------- */
-/* Filters */
+.links > a {
+    padding:8px 12px;
+    border-radius:0.5rem;
+    text-align:center;
+    cursor: pointer;
+}
+
+.listen-link {
+    background-color:#FFBD59;
+    color:#171717; 
+}
+
+.buy-link {
+    background-color: #629aa9;
+    color:#fff;
+}
+
+/* ---------------FILTERS------------------- */
 
 .filters {
 	display:flex;
@@ -187,9 +208,8 @@ nav ul li a:hover {
     background-color: #171717;
     border:0;
 	padding:4px 8px;
-    margin-left:5px;
 	color:#F0F4EF;
-    width:30%;
+    width:100%;
     font-family: 'Fustat', "Helvetica", sans-serif;
     cursor: pointer;
 }
@@ -231,8 +251,8 @@ nav ul li a:hover {
 
 @media screen and (max-width: 768px) {
 
-    h1 {
-        text-align:center;
+    main > p {
+        width:100%;
     }
 
     .filters > div {
