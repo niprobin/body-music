@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
         clearTimeout(reconnectTimeout); // Clear any existing reconnect attempts
 
         // Force the stream to start at the live point by appending a unique query parameter
-        const liveStreamUrl = `https://radio.niprobin.com/listen/body-music/radio.mp3?nocache=${Date.now()}`;
+        const liveStreamUrl = `https://radio.niprobin.com/listen/body_music_radio/body-radio-256?nocache=${Date.now()}`;
         audio.src = liveStreamUrl; // Update the audio source
         audio.load(); // Reload the stream
 
