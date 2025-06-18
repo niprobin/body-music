@@ -60,7 +60,7 @@ button:hover {
 }
 
 .logo {
-	width:25vh;
+	width:30vh;
 	height:auto;
 	z-index: 9;
 }
@@ -85,7 +85,7 @@ header p {
 
 :root {
 	--plyr-color-main: #11151a;
-	--plyr-audio-controls-background: #FFBD59;
+	--plyr-audio-controls-background: #ffedf3;
 	--plyr-audio-control-color: #11151a;
 	--plyr-font-family: 'Fustat', "Helvetica", sans-serif;
   }
@@ -93,7 +93,7 @@ header p {
 #play-btn {
 	cursor: pointer;
 	font-size: 1.3em;
-	background-color: #FFBD59;
+	background-color: #ffedf3;
 	color: #171717;
 	border: 0;
 	padding: 0.6em 1em;
@@ -114,13 +114,13 @@ header p {
 	display:flex;
 	justify-content:space-around;
 	align-items:center;
-	background-color: #FFBD59;
+	background-color: #ffedf3;
 	gap:0;
 	
 }
 
 .actions > button, .actions > a {
-	background-color:#FFBD59;
+	background-color:#ffedf3;
 	font-size:1em;
 	width:50%;
 	padding: 10px 0px;
@@ -139,7 +139,7 @@ header p {
 	padding: 15px;
 	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 	backdrop-filter: blur(3px);
-	background-color: #FFBD59;
+	background-color: #ffedf3;
 	color:#1e1e1e;
 	text-align:left;
 	max-height:120px;
@@ -159,8 +159,8 @@ header p {
 	align-items: start;
 	justify-content: center;
 	flex-direction: column;
-	background-color:#C1292E;
-	color:#fff;
+	background-color:#ffedf3;
+	color:#1e1e1e;
 	border-radius:4px;
 	padding:24px;
 	text-align:left;
@@ -191,11 +191,11 @@ header p {
 	font-size:1em;
 	font-weight: bold;;
 	background-color: transparent;
-	color: #fff;
+	color:#1e1e1e;
 	border: 0;
 	padding: 0.6em 0em;
 	cursor: pointer;
-	border-bottom:2px solid #fff;
+	border-bottom:2px solid #1e1e1e;
 	
 }
 
@@ -258,7 +258,7 @@ header p {
 		flex-wrap:wrap;
 		justify-content:space-around;
 		align-items:center;
-		background-color: #FFBD59;
+		background-color: #ffedf3;
 		gap:0;
 		
 	}
@@ -279,7 +279,7 @@ header p {
 		padding: 15px;
 		box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 		backdrop-filter: blur(3px);
-		background-color: #FFBD59;
+		background-color: #ffedf3;
 		color:#1e1e1e;
 		text-align:left;
 		max-height:120px;
