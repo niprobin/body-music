@@ -19,55 +19,19 @@ a, a:visited {
 header {
     display:flex;
     flex-direction: row;
-    justify-content: start;
+    justify-content:space-between;
     align-items: center;
-    padding:10px;
     height:auto;
+    width: 100%;
+    padding: 2%;
+    background: transparent;
+    z-index: 10;
 }
 
 /* ---------------- NAVIGATION --------------- */
 
-nav {
-    background-color: #171717;
-    color: #F0F4EF;
-    padding:0px 10px;
-    margin:0 auto;
-    width:100%;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content:center;
-    width:100%;
-    gap: 30px;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    color: #FFBD59;
-}
-
-nav ul li a {
-    text-decoration: none;
-    font-weight: bold;
-    padding: 5px;
-    border-bottom:3px solid #FFBD59;
-    transition: all 0.3s ease;
-}
-
-nav ul li a:hover {
-    background: #FFBD59;
-    color: #171717;
-    border-bottom:3px solid transparent;
-}
-
 .logo {
-    width:100px;
-    height:100px;
+    width:250px;
 }
 
 main {
@@ -133,6 +97,11 @@ h1 {
 /* Responsive Design */
 
 @media screen and (max-width: 768px) {
+
+    header {
+		padding: 4% 2%;
+        justify-content: center;
+    }
 
 	h1 {
 		text-align:center;

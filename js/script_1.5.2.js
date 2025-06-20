@@ -1,10 +1,10 @@
 // -------------------- PARTICLES BACKGROUND --------------------
 particlesJS("particles-js", {
     particles: {
-        number: { value: 20 },
-        size: { value: 3 },
-        move: { speed: 1 },
-        color: { value: "#ffffff" }
+        number: { value: 50 },
+        size: { value: 2 },
+        move: { speed: 2 },
+        color: { value: "ffedf3" }
     }
 });
 
@@ -51,12 +51,35 @@ if (savedLang) {
     detectUserLocation();
 }
 
-// -------------------- DOM READY --------------------
+// -------------------- DOM READY (Navigation & Player) --------------------
 document.addEventListener("DOMContentLoaded", () => {
-    // -------------------- RADIO PLAYER --------------------
+    const nav = document.getElementById("main-nav");
+    const openBtn = document.getElementById("menu-toggle");
+    const closeBtn = document.getElementById("menu-close");
     const audio = document.getElementById("audio-player");
     const playButton = document.getElementById("play-btn");
     let reconnectTimeout;
+
+    function openNav() {
+        nav.hidden = false;
+        setTimeout(() => nav.classList.add("open"), 10);
+        document.body.style.overflow = "hidden";
+    }
+    function closeNav() {
+        nav.classList.remove("open");
+        setTimeout(() => { nav.hidden = true; document.body.style.overflow = ""; }, 300);
+    }
+
+    openBtn.addEventListener("click", openNav);
+    closeBtn.addEventListener("click", closeNav);
+
+    // Optional: close nav on ESC or click outside
+    document.addEventListener("keydown", e => {
+        if (e.key === "Escape" && !nav.hidden) closeNav();
+    });
+    nav.addEventListener("click", e => {
+        if (e.target === nav) closeNav();
+    });
 
     function playStream() {
         clearTimeout(reconnectTimeout);
@@ -64,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
         audio.src = liveStreamUrl;
         audio.load();
         audio.play().then(() => {
-            playButton.innerHTML = '<i class="fa-solid fa-pause"></i>&ensp;Pause';
+            playButton.innerHTML = '<i class="fa-solid fa-pause"></i>&nbsp;&nbsp;Pause';
         }).catch(error => {
             console.error("Error playing stream:", error);
             alert("Unable to play the stream. Please check your connection.");
@@ -74,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function pauseStream() {
         clearTimeout(reconnectTimeout);
         audio.pause();
-        playButton.innerHTML = '<i class="fa-solid fa-play"></i>&ensp;Play';
+        playButton.innerHTML = '<i class="fa-solid fa-play"></i>&nbsp;&nbsp;Play';
     }
 
     function autoReconnect() {
@@ -91,59 +114,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     audio.addEventListener("error", autoReconnect);
     audio.addEventListener("ended", autoReconnect);
-
-    // -------------------- SONG MODAL --------------------
-    const nowPlayingApiUrl = "https://radio.niprobin.com/api/nowplaying/1";
-    const songModal = document.getElementById("song-modal");
-    const modalBtn = document.getElementById("modal-btn");
-
-    modalBtn.addEventListener("click", () => {
-        if (songModal.classList.contains("show")) {
-            songModal.classList.remove("show");
-            modalBtn.blur();
-        } else {
-            fetch(nowPlayingApiUrl)
-                .then(response => response.json())
-                .then(data => {
-                    const song = data.now_playing.song || {};
-                    document.getElementById("song-art").src = song.art || "https://radio.niprobin.com/static/uploads/body-music/album_art.1735556879.png";
-                    document.getElementById("song-title").innerText = song.title || "A great song";
-                    document.getElementById("song-artist").innerText = song.artist || "A great artist";
-                    songModal.classList.add("show");
-                })
-                .catch(error => {
-                    console.error("Error fetching song data:", error);
-                    alert("Could not fetch the currently playing song. Please try again later.");
-                });
-        }
-    });
-
-    // -------------------- SOURCE MODAL --------------------
-    const sourceModal = document.getElementById("source-modal");
-    const sourceBtn = document.getElementById("source-btn");
-
-    sourceBtn.addEventListener("click", () => {
-        sourceModal.classList.toggle("show");
-        sourceBtn.blur();
-    });
-
-    // Optional: Close modals when clicking outside or pressing Escape
-    document.addEventListener("click", (e) => {
-        if (songModal.classList.contains("show") && !songModal.contains(e.target) && e.target !== modalBtn) {
-            songModal.classList.remove("show");
-        }
-        if (sourceModal.classList.contains("show") && !sourceModal.contains(e.target) && e.target !== sourceBtn) {
-            sourceModal.classList.remove("show");
-        }
-    });
-
-    document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-            songModal.classList.remove("show");
-            sourceModal.classList.remove("show");
-        }
-    });
 });
+
+
 
 // -------------------- MEDIA SESSION API --------------------
 function updateMediaSession() {
@@ -163,4 +136,4 @@ function updateMediaSession() {
 }
 
 updateMediaSession();
-setInterval(updateMediaSession, 30000); // Refresh every 30 seconds
+setInterval(updateMediaSession, 30000);

@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta name="description" content="Discover great music by listening to Body Music Radio. A rich mix of great tunes selected by music lovers!">
+   <meta name="description"
+      content="Discover great music by listening to Body Music Radio. A rich mix of great tunes selected by music lovers!">
    <meta property="og:title" content="Body Music Radio">
    <meta property="og:description" content="Good music for every Body!">
    <meta property="og:image" content="https://music.niprobin.com/radio_cover.png">
@@ -30,29 +32,29 @@
    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/hls.js@1.4.0/dist/hls.min.js" defer></script>
 </head>
+
 <body>
    <div id="particles-js" aria-hidden="true"></div>
-
-   <!-- Modal: Listen on MyTuner -->
-   <div class="modal" id="source-modal" role="dialog" aria-modal="true" aria-labelledby="source-modal-title" hidden>
-      <h3 id="source-modal-title">Listen on MyTuner</h3>
-      <div class="source-links">
-         <a href="https://mytuner-radio.com/radio-app/" target="_blank" rel="noopener">Download the app</a>
-         <a href="https://mytuner-radio.com/radio/body-music-radio-507550/" target="_blank" rel="noopener">Check the radio</a>
-      </div>
-   </div>
-
-   <!-- Modal: Song Info -->
-   <div class="modal" id="song-modal" role="dialog" aria-modal="true" aria-labelledby="song-title" hidden>
-      <img id="song-art" src="" alt="Album cover" />
-      <div class="song-details">
-         <p id="song-title"></p>
-         <p id="song-artist"></p>
-      </div>
-   </div>
-
    <header>
-      <img class="logo" src="/body_music_blue.png" alt="Body Music Radio logo" />
+      <img class="logo" src="/assets/body_duck_color/Letters only/body_letters_b&w.png">
+      <button id="menu-toggle" aria-label="Open menu">
+         <i class="fa-solid fa-bars"></i>
+      </button>
+      <nav class="actions" id="main-nav" aria-label="Main actions" hidden>
+      <button id="menu-close" aria-label="Close menu">
+         <i class="fa-solid fa-arrow-right"></i>
+      </button>
+      <ul>
+         <li><a href="/history.html" target="_blank" rel="noopener">Trouver un son</a></li>
+         <li><a href="/schedule.html" target="_blank" rel="noopener">Le programme</a></li>
+         <li><a href="https://mytuner-radio.com/radio/body-music-radio-507550/" target="_blank" rel="noopener">Sur ton smartphone</a></li>
+         <li><a href="/albums.html" target="_blank" rel="noopener">Nos albums préférés</a></li>
+      </ul>
+   </nav>
+   </header>
+   <main>
+      <img class="artwork" src="/assets/body_duck_color/Duck only/body_final_color_no_text.png"
+         alt="Body Music Radio logo" />
       <audio id="audio-player" preload="none" aria-label="Body Music Radio stream">
          <source src="https://radio.niprobin.com/listen/body_music_radio/body-radio-256" type="audio/mpeg">
          Your browser does not support the audio element.
@@ -64,25 +66,11 @@
          Every track is handpicked to bring you a rich mix of tunes to chill, groove, or dance.<br><br>
          Check our weekly schedule for the latest rotation and discover new music.<br><br>
       </p>
-   </header>
-
-   <nav class="actions" aria-label="Main actions">
-      <button data-translate="track" type="button" id="modal-btn" aria-label="What's this song?">
-         <i class="fa-solid fa-compact-disc"></i>&nbsp;&nbsp;C'est quoi ce son ?
-      </button>
-      <button data-translate="sources" type="button" id="source-btn" aria-label="Radio on the go">
-         <i class="fa-solid fa-person-running"></i>&nbsp;&nbsp;Radio dans la poche
-      </button>
-      <a data-translate="schedule" href="/schedule.html" target="_blank" rel="noopener" aria-label="Check schedule">
-         <i class="fa-solid fa-up-right-from-square"></i>&nbsp;&nbsp;Check schedule
-      </a>
-      <a data-translate="albums" href="/albums.html" target="_blank" rel="noopener" aria-label="Best albums">
-         <i class="fa-solid fa-up-right-from-square"></i>&nbsp;&nbsp;Best albums
-      </a>
-   </nav>
+   </main>
 
    <script async src="./js/script_1.5.2.js"></script>
    <!-- 100% privacy-first analytics -->
    <script data-collect-dnt="true" async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
 </body>
+
 </html>

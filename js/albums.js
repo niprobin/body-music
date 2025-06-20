@@ -122,7 +122,7 @@ function displayPaginationControls(totalItems) {
     pageButton.addEventListener("click", () => {
       currentPage = i;
       filterAlbums();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      document.querySelector('.filters').scrollIntoView({ behavior: 'smooth' });
     });
     paginationControls.appendChild(pageButton);
   }
