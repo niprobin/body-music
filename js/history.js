@@ -1,9 +1,26 @@
+document.body.classList.add('loading');
+
 document.addEventListener("DOMContentLoaded", () => {
+  // Add loading overlay for 2 seconds
+  const loader = document.createElement('div');
+  loader.id = 'loader';
+  loader.innerHTML = `
+    <div class="loader-content">
+      <img src="/assets/web_assets/body_music_duck_logo.png" alt="Loading..." />
+      <p>Chargement...</p>
+    </div>
+  `;
+  document.body.appendChild(loader);
+
+  setTimeout(() => {
+    loader.classList.add('hide');
+    document.body.classList.remove('loading');
+  }, 2000);
+
   const container = document.getElementById("history-container");
   if (!container) return;
 
   let lastSongId = null;
-  let lastFullRefresh = Date.now();
 
   function formatPlayedAt(ts) {
     const date = new Date(ts * 1000);
@@ -13,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const mins = date.getMinutes().toString().padStart(2, "0");
     return isToday
       ? `Aujourd'hui à ${hours}h${mins}`
-      : `${date.toLocaleDateString()} at ${hours}h${mins}`;
+      : `${date.toLocaleDateString()} à ${hours}h${mins}`;
   }
 
   function renderHistory(nowPlaying, history) {
@@ -62,21 +79,24 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function fetchAndUpdate(force = false) {
-    fetch("https://radio.niprobin.com/api/nowplaying/1")
+    // Show loading if container is empty
+    if (!container.innerHTML.trim()) {
+      container.innerHTML = "<p>Chargement...</p>";
+    }
+    fetch("https://radio.niprobin.com/api/nowplaying/1?cb=" + Date.now())
       .then(res => res.json())
       .then(data => {
         const nowPlaying = data.now_playing;
         const history = data.song_history.slice(0, 10);
         const latestId = nowPlaying?.sh_id || nowPlaying?.played_at || history[0]?.sh_id || history[0]?.played_at;
-        // Update if forced, or if the latest song has changed, or if 2 minutes passed
-        if (force || latestId !== lastSongId || Date.now() - lastFullRefresh > 120000) {
+        // Update if forced or if the latest song has changed
+        if (force || latestId !== lastSongId) {
           renderHistory(nowPlaying, history);
           lastSongId = latestId;
-          lastFullRefresh = Date.now();
         }
       })
       .catch(err => {
-        container.innerHTML = "<p>Could not load song history.</p>";
+        container.innerHTML = "<p>Impossible de charger l'historique des morceaux.</p>";
         console.error(err);
       });
   }
@@ -86,7 +106,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Poll every 10 seconds for updates
   setInterval(() => fetchAndUpdate(false), 10000);
-
-  // Full refresh every 2 minutes (in case of missed updates)
-  setInterval(() => fetchAndUpdate(true), 120000);
 });
