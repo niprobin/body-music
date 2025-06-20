@@ -1,130 +1,148 @@
+// -------------------- LOADING SCREEN --------------------
 document.body.classList.add('loading');
-window.addEventListener('DOMContentLoaded', () => {
-  setTimeout(() => {
-    document.getElementById('loader').classList.add('hide');
-    document.body.classList.remove('loading');
-  }, 3000);
-});
 
 // -------------------- PARTICLES BACKGROUND --------------------
-particlesJS("particles-js", {
-    particles: {
-        number: { value: 50 },
-        size: { value: 2 },
-        move: { speed: 2 },
-        color: { value: "ffedf3" }
+window.addEventListener('DOMContentLoaded', () => {
+    // Hide loader after 3 seconds
+    setTimeout(() => {
+        const loader = document.getElementById('loader');
+        if (loader) loader.classList.add('hide');
+        document.body.classList.remove('loading');
+    }, 3000);
+
+    // Initialize particlesJS after DOM is ready
+    if (window.particlesJS) {
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 50 },
+                size: { value: 2 },
+                move: { speed: 2 },
+                color: { value: "#ffedf3" }
+            }
+        });
     }
-});
 
-// -------------------- LANGUAGE & TRANSLATION --------------------
-let currentLang = "fr"; // Default to French
+    // -------------------- LANGUAGE & TRANSLATION --------------------
+    let currentLang = "fr"; // Default to French
 
-async function loadTranslations() {
-    try {
-        const response = await fetch("/json/translations.json");
-        const translations = await response.json();
-        updateLanguage(translations);
-    } catch (error) {
-        console.error("Failed to load translations:", error);
-    }
-}
-
-function updateLanguage(translations) {
-    document.querySelectorAll("[data-translate]").forEach(el => {
-        const key = el.getAttribute("data-translate");
-        if (translations[currentLang] && translations[currentLang][key]) {
-            el.innerHTML = translations[currentLang][key].replace(/\n/g, "<br>");
+    async function loadTranslations() {
+        try {
+            const response = await fetch("/json/translations.json");
+            const translations = await response.json();
+            updateLanguage(translations);
+        } catch (error) {
+            console.error("Failed to load translations:", error);
         }
-    });
-}
-
-async function detectUserLocation() {
-    try {
-        const response = await fetch("https://ipapi.co/json/");
-        const data = await response.json();
-        currentLang = data.country_code === "FR" ? "fr" : "en";
-        localStorage.setItem("lang", currentLang);
-        loadTranslations();
-    } catch (error) {
-        console.error("Geolocation failed, defaulting to French.");
-        loadTranslations();
     }
-}
 
-const savedLang = localStorage.getItem("lang");
-if (savedLang) {
-    currentLang = savedLang;
-    loadTranslations();
-} else {
-    detectUserLocation();
-}
+    function updateLanguage(translations) {
+        document.querySelectorAll("[data-translate]").forEach(el => {
+            const key = el.getAttribute("data-translate");
+            if (translations[currentLang] && translations[currentLang][key]) {
+                el.innerHTML = translations[currentLang][key].replace(/\n/g, "<br>");
+            }
+        });
+    }
 
-// -------------------- DOM READY (Navigation & Player) --------------------
-document.addEventListener("DOMContentLoaded", () => {
+    async function detectUserLocation() {
+        try {
+            const response = await fetch("https://ipapi.co/json/");
+            const data = await response.json();
+            currentLang = data.country_code === "FR" ? "fr" : "en";
+            localStorage.setItem("lang", currentLang);
+            loadTranslations();
+        } catch (error) {
+            console.error("Geolocation failed, defaulting to French.");
+            loadTranslations();
+        }
+    }
+
+    // Only call translation logic after DOM is ready
+    const savedLang = localStorage.getItem("lang");
+    if (savedLang) {
+        currentLang = savedLang;
+        loadTranslations();
+    } else {
+        detectUserLocation();
+    }
+
+    // -------------------- NAVIGATION MENU --------------------
     const nav = document.getElementById("main-nav");
     const openBtn = document.getElementById("menu-toggle");
     const closeBtn = document.getElementById("menu-close");
+
+    function openNav() {
+        if (nav) {
+            nav.hidden = false;
+            setTimeout(() => nav.classList.add("open"), 10);
+            document.body.style.overflow = "hidden";
+        }
+    }
+    function closeNav() {
+        if (nav) {
+            nav.classList.remove("open");
+            setTimeout(() => { nav.hidden = true; document.body.style.overflow = ""; }, 300);
+        }
+    }
+
+    if (openBtn && closeBtn && nav) {
+        openBtn.addEventListener("click", openNav);
+        closeBtn.addEventListener("click", closeNav);
+
+        // Optional: close nav on ESC or click outside
+        document.addEventListener("keydown", e => {
+            if (e.key === "Escape" && !nav.hidden) closeNav();
+        });
+        nav.addEventListener("click", e => {
+            if (e.target === nav) closeNav();
+        });
+    }
+
+    // -------------------- RADIO PLAYER --------------------
     const audio = document.getElementById("audio-player");
     const playButton = document.getElementById("play-btn");
     let reconnectTimeout;
 
-    function openNav() {
-        nav.hidden = false;
-        setTimeout(() => nav.classList.add("open"), 10);
-        document.body.style.overflow = "hidden";
-    }
-    function closeNav() {
-        nav.classList.remove("open");
-        setTimeout(() => { nav.hidden = true; document.body.style.overflow = ""; }, 300);
-    }
-
-    openBtn.addEventListener("click", openNav);
-    closeBtn.addEventListener("click", closeNav);
-
-    // Optional: close nav on ESC or click outside
-    document.addEventListener("keydown", e => {
-        if (e.key === "Escape" && !nav.hidden) closeNav();
-    });
-    nav.addEventListener("click", e => {
-        if (e.target === nav) closeNav();
-    });
-
     function playStream() {
         clearTimeout(reconnectTimeout);
         const liveStreamUrl = `https://radio.niprobin.com/listen/body_music_radio/body-radio-256?nocache=${Date.now()}`;
-        audio.src = liveStreamUrl;
-        audio.load();
-        audio.play().then(() => {
-            playButton.innerHTML = '<i class="fa-solid fa-pause"></i>&nbsp;&nbsp;Pause';
-        }).catch(error => {
-            console.error("Error playing stream:", error);
-            alert("Unable to play the stream. Please check your connection.");
-        });
+        if (audio) {
+            audio.src = liveStreamUrl;
+            audio.load();
+            audio.play().then(() => {
+                if (playButton) playButton.innerHTML = '<i class="fa-solid fa-pause"></i>&nbsp;&nbsp;Pause';
+            }).catch(error => {
+                console.error("Error playing stream:", error);
+                alert("Unable to play the stream. Please check your connection.");
+            });
+        }
     }
 
     function pauseStream() {
         clearTimeout(reconnectTimeout);
-        audio.pause();
-        playButton.innerHTML = '<i class="fa-solid fa-play"></i>&nbsp;&nbsp;Play';
+        if (audio) {
+            audio.pause();
+            if (playButton) playButton.innerHTML = '<i class="fa-solid fa-play"></i>&nbsp;&nbsp;Play';
+        }
     }
 
     function autoReconnect() {
         reconnectTimeout = setTimeout(playStream, 5000);
     }
 
-    playButton.addEventListener("click", () => {
-        if (audio.paused) {
-            playStream();
-        } else {
-            pauseStream();
-        }
-    });
+    if (playButton && audio) {
+        playButton.addEventListener("click", () => {
+            if (audio.paused) {
+                playStream();
+            } else {
+                pauseStream();
+            }
+        });
 
-    audio.addEventListener("error", autoReconnect);
-    audio.addEventListener("ended", autoReconnect);
+        audio.addEventListener("error", autoReconnect);
+        audio.addEventListener("ended", autoReconnect);
+    }
 });
-
-
 
 // -------------------- MEDIA SESSION API --------------------
 function updateMediaSession() {
