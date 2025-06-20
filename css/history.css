@@ -71,6 +71,8 @@ body.loading header {
   user-select: none;
 }
 
+/* ----------------- MAIN ----------------- */
+
 main {
 	width:100%;
     padding:0 2%;
@@ -135,7 +137,11 @@ img.song-artwork {
 
 @media screen and (max-width: 768px) {
 
-	h1 {
+    header {
+        justify-content: center;
+    }
+	
+    h1 {
 		text-align:center;
 	}
 
@@ -143,6 +149,10 @@ img.song-artwork {
 	width:95%;
 	padding:10px 20px;
 	margin: 0 auto;
-}
+    }
+
+    #history-container {
+        width: 100%;
+    }
 	
 }
