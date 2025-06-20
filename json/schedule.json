@@ -1,51 +1,44 @@
 {
     "Monday": [
-        { "start": "06:00", "end": "08:00", "show": "Early Birds" },
-        { "start": "08:00", "end": "10:00", "show": "Morning Chill" },
-        { "start": "10:00", "end": "19:00", "show": "Daily Mix" },
-        { "start": "19:00", "end": "21:00", "show": "Jazz Special" },
-        { "start": "21:00", "end": "23:59", "show": "Hip-hop Mix" }
+        { "start": "06:30", "end": "10:00", "show": "Good Morning" },
+        { "start": "10:00", "end": "21:00", "show": "Daily Mix" },
+        { "start": "21:00", "end": "22:00", "show": "DNB & Downtempo Selecta" }
+        
     ],
     "Tuesday": [
-        { "start": "06:00", "end": "08:00", "show": "Early Birds" },
-        { "start": "08:00", "end": "10:00", "show": "Morning Chill" },
-        { "start": "10:00", "end": "19:00", "show": "Daily Mix" },
-        { "start": "19:00", "end": "21:00", "show": "Hip-hop Mix" },
-        { "start": "21:00", "end": "23:59", "show": "Jazz & Funk Combo" }
+        { "start": "06:30", "end": "10:00", "show": "Good Morning" },
+        { "start": "10:00", "end": "21:00", "show": "Daily Mix" },
+        { "start": "21:00", "end": "22:00", "show": "DNB & Downtempo Selecta" }
+        
     ],
     "Wednesday": [
-        { "start": "06:00", "end": "08:00", "show": "Early Birds" },
-        { "start": "08:00", "end": "10:00", "show": "Morning Chill" },
-        { "start": "10:00", "end": "19:00", "show": "Daily Mix" },
-        { "start": "19:00", "end": "21:00", "show": "Rare Grooves" },
-        { "start": "21:00", "end": "23:59", "show": "Refined Electronic Selecta" }
+        { "start": "06:30", "end": "10:00", "show": "Good Morning" },
+        { "start": "10:00", "end": "21:00", "show": "Daily Mix" },
+        { "start": "21:00", "end": "22:00", "show": "House Music Selecta" }
+        
     ],
     "Thursday": [
-        { "start": "06:00", "end": "08:00", "show": "Early Birds" },
-        { "start": "08:00", "end": "10:00", "show": "Morning Chill" },
-        { "start": "10:00", "end": "19:00", "show": "Daily Mix" },
-        { "start": "19:00", "end": "21:00", "show": "Jazz & Funk Combo" },
-        { "start": "21:00", "end": "23:59", "show": "Jazz Special" }
+        { "start": "06:30", "end": "10:00", "show": "Good Morning" },
+        { "start": "10:00", "end": "21:00", "show": "Daily Mix" },
+        { "start": "21:00", "end": "22:00", "show": "DNB & Downtempo Selecta" }
+        
     ],
     "Friday": [
-        { "start": "06:00", "end": "08:00", "show": "Early Birds" },
-        { "start": "08:00", "end": "10:00", "show": "Morning Chill" },
-        { "start": "10:00", "end": "19:00", "show": "Daily Mix" },
-        { "start": "19:00", "end": "21:00", "show": "Rare Grooves" },
-        { "start": "21:00", "end": "23:59", "show": "House House House" }
+        { "start": "06:30", "end": "10:00", "show": "Good Morning" },
+        { "start": "10:00", "end": "21:00", "show": "Daily Mix" },
+        { "start": "21:00", "end": "22:00", "show": "House Music Selecta" }
+        { "start": "21:00", "end": "22:00", "show": "DNB & Downtempo Selecta" }
+        
     ],
     "Saturday": [
-        { "start": "06:00", "end": "08:00", "show": "Early Birds" },
-        { "start": "08:00", "end": "10:00", "show": "Morning Chill" },
-        { "start": "10:00", "end": "19:00", "show": "Daily Mix" },
-        { "start": "19:00", "end": "21:00", "show": "Refined Electronic Selecta" },
-        { "start": "21:00", "end": "23:59", "show": "Mix & Match" }
+        { "start": "06:30", "end": "10:00", "show": "Good Morning" },
+        { "start": "10:00", "end": "21:00", "show": "Daily Mix" },
+        { "start": "21:00", "end": "22:00", "show": "DNB & Downtempo Selecta" }
+        
     ],
     "Sunday": [
-        { "start": "06:00", "end": "08:00", "show": "Early Birds" },
-        { "start": "08:00", "end": "10:00", "show": "Morning Chill" },
-        { "start": "10:00", "end": "19:00", "show": "Daily Mix" },
-        { "start": "19:00", "end": "21:00", "show": "Refined Electronic Selecta" },
-        { "start": "21:00", "end": "23:59", "show": "Mix & Match" }
+        { "start": "06:30", "end": "10:00", "show": "Good Morning" },
+        { "start": "10:00", "end": "21:00", "show": "Daily Mix" },
+        { "start": "21:00", "end": "22:00", "show": "House Music Selecta" }
     ]
 }
