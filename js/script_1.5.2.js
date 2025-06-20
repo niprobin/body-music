@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
         audio.src = liveStreamUrl;
         audio.load();
         audio.play().then(() => {
-            playButton.innerHTML = '<i class="fa-solid fa-pause"></i>&nbsp;&nbsp;Pause';
+            playButton.innerHTML = '<i class="fa-solid fa-pause"></i>&ensp;Pause';
         }).catch(error => {
             console.error("Error playing stream:", error);
             alert("Unable to play the stream. Please check your connection.");
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function pauseStream() {
         clearTimeout(reconnectTimeout);
         audio.pause();
-        playButton.innerHTML = '<i class="fa-solid fa-play"></i>&nbsp;&nbsp;Play';
+        playButton.innerHTML = '<i class="fa-solid fa-play"></i>&ensp;Play';
     }
 
     function autoReconnect() {
