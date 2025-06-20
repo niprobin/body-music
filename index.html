@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta name="description"
-      content="Discover great music by listening to Body Music Radio. A rich mix of great tunes selected by music lovers!">
+   <meta name="description" content="Discover great music by listening to Body Music Radio. A rich mix of great tunes selected by music lovers!">
    <meta property="og:title" content="Body Music Radio">
    <meta property="og:description" content="Good music for every Body!">
    <meta property="og:image" content="https://music.niprobin.com/radio_cover.png">
@@ -25,59 +23,51 @@
    <link rel="manifest" href="./favicon/site.webmanifest">
 
    <!-- Styles & Fonts -->
-   <link rel="stylesheet" href="./css/style.css">
+   <link rel="stylesheet" href="./css/common.css">
+   <link rel="stylesheet" href="./css/radio.css">
    <script src="https://kit.fontawesome.com/cd85a69654.js" crossorigin="anonymous"></script>
-
-   <!-- Scripts -->
    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/hls.js@1.4.0/dist/hls.min.js" defer></script>
 </head>
-
 <body>
    <div id="particles-js" aria-hidden="true"></div>
-   <header>
-      <img class="logo" alt="body music radio logo" src="/assets/web_assets/body_music_letters_logo.png">
-      <button id="menu-toggle" aria-label="Open menu">
-         <i class="fa-solid fa-bars"></i>
-      </button>
-      <nav class="actions" id="main-nav" aria-label="Main actions" hidden>
-      <button id="menu-close" aria-label="Close menu">
-         <i class="fa-solid fa-arrow-right"></i>
-      </button>
-      <ul>
-         <li><a href="/history.html" target="_blank" rel="noopener">Trouver un son</a></li>
-         <li><a href="/schedule.html" target="_blank" rel="noopener">Le programme</a></li>
-         <li><a href="https://mytuner-radio.com/radio/body-music-radio-507550/" target="_blank" rel="noopener">Sur ton smartphone</a></li>
-         <li><a href="/albums.html" target="_blank" rel="noopener">Nos albums préférés</a></li>
-      </ul>
-   </nav>
-   </header>
    <div id="loader">
-  <div class="loader-content">
-    <img src="/assets/web_assets/body_music_duck_logo.png" alt="Loading...">
-    <p>Chargement...</p>
-  </div>
-</div>
+      <div class="loader-content">
+         <img src="/assets/web_assets/body_music_duck_logo.png" alt="Loading...">
+         <p>Chargement...</p>
+      </div>
+   </div>
+   <header>
+      <nav class="actions" id="main-nav" aria-label="Main actions" hidden>
+         <button id="menu-close" aria-label="Close menu">
+            <i class="fa-solid fa-arrow-right"></i>
+         </button>
+         <ul>
+            <li><a data-translate="track" href="/history.html" target="_blank" rel="noopener">Trouver un son</a></li>
+            <li><a data-translate="schedule" href="/schedule.html" target="_blank" rel="noopener">Le programme</a></li>
+            <li><a data-translate="sources" href="https://mytuner-radio.com/radio/body-music-radio-507550/" target="_blank" rel="noopener">Sur ton smartphone</a></li>
+            <li><a data-translate="albums" href="/albums.html" target="_blank" rel="noopener">Nos albums préférés</a></li>
+         </ul>
+      </nav>
+   </header>
    <main>
-      
-      <img class="artwork" src="/assets/web_assets/body_music_duck_logo.png"
-         alt="Body Music Radio fancy duck scratching a turntable">
+      <img class="artwork" src="/assets/web_assets/body_final_color.png" alt="Body Music Radio fancy duck scratching a turntable">
       <audio id="audio-player" preload="none" aria-label="Body Music Radio stream">
          <source src="https://radio.niprobin.com/listen/body_music_radio/body-radio-256" type="audio/mpeg">
          Your browser does not support the audio element.
       </audio>
-      <button data-translate="play" id="play-btn" aria-label="Play radio">
-         <i class="fa-solid fa-play"></i>&ensp;Play
-      </button>
+      <div class="action-buttons">
+         <button data-translate="play" id="play-btn" aria-label="Play radio">
+            <i class="fa-solid fa-play"></i>&ensp;Play
+         </button>
+         <button id="menu-toggle" aria-label="Open menu">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+         </button>
+      </div>
       <p data-translate="intro">
-         Every track is handpicked to bring you a rich mix of tunes to chill, groove, or dance.<br><br>
-         Check our weekly schedule for the latest rotation and discover new music.<br><br>
+         Selecta réalisée par nos soins pour te faire danser & chiller toute la journée&nbsp;! Tu aimes une track&nbsp;? Tu peux directement checker ce qui est entrain de jouer. Tu peux également regarder notre planning pour savoir à quoi t'attendre sur la radio.
       </p>
    </main>
-
    <script src="./js/script.js" defer></script>
    <!-- 100% privacy-first analytics -->
    <script data-collect-dnt="true" async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
-</body>
-
-</html>

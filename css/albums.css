@@ -1,51 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fustat:wght@400;500;600;700&display=swap');
-
-body, html {
-    margin:0;
-    padding:0;
-    font-family: 'Fustat', "Helvetica", sans-serif;
-    background-color:#171717;
-    color:#F0F4EF;
-}
-
-p {
-    margin:0;
-    padding:0;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-a, a:visited {
-    color:inherit;
-    text-decoration: none;
-}
-
-header {
-    display:flex;
-    flex-direction: row;
-    justify-content:space-between;
-    align-items: center;
-    height:auto;
-    width: 100%;
-    padding: 2%;
-    background: transparent;
-    z-index: 10;
-}
-
-/* ---------------- NAVIGATION --------------- */
-
-.logo {
-    width:250px;
-}
-
 /* ---------------ALBUM GRID------------------- */
-
-main {
-    padding:0 2%;
-    margin-bottom:20px;
-}
 
 #albums-container {
     width:100%;
@@ -208,17 +161,6 @@ main {
 /* Responsive design */
 
 @media screen and (max-width: 768px) {
-
-    header {
-        padding: 4% 2%;
-        justify-content: center;
-    }
-
-    main > p, main > h1 {
-        width:100%;
-        text-align: center;
-    }
-
     .filters > div {
         width:50%;
     }
