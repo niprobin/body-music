@@ -41,8 +41,8 @@
     font-size:0.7em;
     padding:7px 10px;
     border-radius:0.5rem;
-    background-color: #FFBD59;
-    color:#171717;
+    background-color: #ffedf3;
+    color:#1e1e1e;
     text-transform:uppercase;
 }
 
@@ -77,11 +77,13 @@
     border-radius:0.5rem;
     text-align:center;
     cursor: pointer;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.16);
 }
 
 .listen-link {
-    background-color:#FFBD59;
-    color:#171717; 
+    background-color:#ffedf3;
+    color:#1e1e1e;
+    font-weight: 600;
 }
 
 .buy-link {
