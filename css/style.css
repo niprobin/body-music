@@ -161,6 +161,36 @@ nav.actions[hidden] {
     width:200px;
 }
 
+/* -------------------- FAKE LOAD -------------------- */
+#loader {
+  position: fixed;
+  z-index: 2000;
+  inset: 0;
+  background: var(--color-bg, #171717);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s;
+}
+#loader .loader-content {
+  text-align: center;
+}
+#loader img {
+  width: 100px;
+  margin-bottom: 1em;
+}
+#loader.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+body.loading main,
+body.loading header,
+body.loading #particles-js {
+  filter: blur(2px);
+  pointer-events: none;
+  user-select: none;
+}
+
 /* -------------------- MAIN PLAYER & CONTENT-------------------- */
 main {
     width: 50%;

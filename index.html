@@ -11,7 +11,7 @@
    <meta property="og:image" content="https://music.niprobin.com/radio_cover.png">
    <meta property="og:url" content="https://www.body-radio.com">
    <meta name="twitter:card" content="summary_large_image">
-   <meta name="apple-mobile-web-app-capable" content="yes">
+   <meta name="mobile-web-app-capable" content="yes">
    <meta name="apple-mobile-web-app-status-bar-style" content="black">
    <meta name="apple-mobile-web-app-title" content="Body Music Radio">
    <title>Body Music Radio | Radio for every Body!</title>
@@ -52,7 +52,14 @@
       </ul>
    </nav>
    </header>
+   <div id="loader">
+  <div class="loader-content">
+    <img src="/assets/web_assets/body_music_duck_logo.png" alt="Loading..." />
+    <p>Chargement...</p>
+  </div>
+</div>
    <main>
+      
       <img class="artwork" src="/assets/web_assets/body_music_duck_logo.png"
          alt="Body Music Radio logo" />
       <audio id="audio-player" preload="none" aria-label="Body Music Radio stream">
@@ -68,7 +75,7 @@
       </p>
    </main>
 
-   <script async src="./js/script_1.5.2.js"></script>
+   <script async src="./js/script.js"></script>
    <!-- 100% privacy-first analytics -->
    <script data-collect-dnt="true" async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
 </body>

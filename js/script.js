@@ -1,3 +1,11 @@
+document.body.classList.add('loading');
+window.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => {
+    document.getElementById('loader').classList.add('hide');
+    document.body.classList.remove('loading');
+  }, 3000);
+});
+
 // -------------------- PARTICLES BACKGROUND --------------------
 particlesJS("particles-js", {
     particles: {
