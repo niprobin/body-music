@@ -123,7 +123,7 @@ main p {
     }
 
 .artwork {
-    width: 40%;
+    width: 40vh;
     height: auto;
     z-index: 1;
 }
