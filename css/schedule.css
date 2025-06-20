@@ -29,7 +29,7 @@
 }
 
 .current-day {
-    border:3px solid #FFBD59; /* Highlight current day */
+    border:3px solid #ffedf3; /* Highlight current day */
     padding: 10px;
 }
 
@@ -43,8 +43,8 @@
 }
 
 .current-show {
-    border-left: 5px solid #f19307; /* Highlight the current show */
-    background: #FFBD59;
+    border-left: 5px solid #f16896; /* Highlight the current show */
+    background: #ffedf3;
     font-weight: bold;
 	color:#333
 }
