@@ -87,13 +87,17 @@ header {
 }
 
 #menu-toggle {
-    background: none;
+    background: var(--color-accent);
     border: none;
-    color: var(--color-accent);
+    color: var(--color-dark);
     font-size: 2em;
     cursor: pointer;
-    z-index: 1001;
+    z-index: 999;
     margin-left: 1em;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.16);
+    padding:10px;
+    line-height:0px;
+    border-radius:0.25rem;
 }
 
 /* Hide nav by default */
@@ -160,12 +164,12 @@ nav.actions[hidden] {
 /* -------------------- MAIN PLAYER & CONTENT-------------------- */
 main {
     width: 50%;
-    max-width: 50vw;
+    max-width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    margin: 0 auto;
+    margin: 20px auto;
     backdrop-filter: blur(1px);
 }
 

@@ -17,6 +17,14 @@ a, a:visited {
     text-decoration: none;
 }
 
+p {
+    margin:0;
+    padding:0;
+}
+
+
+/* ---------------- NAVIGATION --------------- */
+
 header {
     display:flex;
     flex-direction: row;
@@ -29,58 +37,14 @@ header {
     z-index: 10;
 }
 
-p {
-    margin:0;
-    padding:0;
-}
-
-/* ---------------- NAVIGATION --------------- */
-
-nav {
-    background-color: #171717;
-    color: #F0F4EF;
-    padding:0px 10px;
-    margin:0 auto;
-    width:100%;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content:center;
-    width:100%;
-    gap: 30px;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    color: #FFBD59;
-}
-
-nav ul li a {
-    text-decoration: none;
-    font-weight: bold;
-    padding: 5px;
-    border-bottom:3px solid #FFBD59;
-    transition: all 0.3s ease;
-}
-
-nav ul li a:hover {
-    background: #FFBD59;
-    color: #171717;
-    border-bottom:3px solid transparent;
-}
-
 .logo {
     width:250px;
 }
 
 main {
-	width:50%;
-    margin:20px auto;
+	width:100%;
+    padding:0 2%;
+    margin-bottom:20px;
 }
 
 h1 {
@@ -93,7 +57,7 @@ h1 {
     align-items:center;
     justify-content:center;
     gap:20px;
-    width:100%;
+    width:50%;
 }
 
 .song-card {
